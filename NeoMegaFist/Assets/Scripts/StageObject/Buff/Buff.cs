@@ -17,9 +17,11 @@ namespace StageObject.Buff
         public abstract bool TimeLimited { get; }
         /// <summary>持続時間</summary>
         public float Duration { get; set; }
+        /// <summary>ゲーム画面に写すかどうか</summary>
+        public abstract bool ShowedScreen { get; }
 
         /// <summary>バフが初めて追加されたとき</summary>
-        public event Action<BuffData, StageObject> OnInitalize;
+        public event Action<BuffData, StageObjectBase> OnInitalize;
         /// <summary>バフが加算されたとき</summary>
         public event Action<BuffData> OnAdd;
         /// <summary>バフが削除されるとき</summary>
@@ -32,10 +34,10 @@ namespace StageObject.Buff
         public event Action OnUpdate;
 
         /// <summary>バフのターゲット</summary>
-        protected StageObject target { get; private set; }
+        protected StageObjectBase target { get; private set; }
 
         /// <summary>初期化</summary>
-        public void Initalize(BuffData data, StageObject target)
+        public void Initalize(BuffData data, StageObjectBase target)
         {
             Stack = data.Stack;
             Duration = data.Duration;
@@ -93,7 +95,7 @@ namespace StageObject.Buff
         }
 
         /// <summary>バフが初めて追加されたとき</summary>
-        protected virtual void Start_Virtual(BuffData data, StageObject target) { }
+        protected virtual void Start_Virtual(BuffData data, StageObjectBase target) { }
         /// <summary>バフが加算されたとき</summary>
         protected virtual void Add_Virtual(BuffData data) { }
         /// <summary>スタックが変更されたとき</summary>

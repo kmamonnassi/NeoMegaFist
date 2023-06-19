@@ -9,11 +9,11 @@ namespace StageObject.Buff
         [Inject] private IBuffDB buffDB;
 
         private List<Buff> buffs = new List<Buff>();
-        private StageObject target;
+        private StageObjectBase target;
 
         private void Start()
         {
-            target = GetComponent<StageObject>();
+            target = GetComponent<StageObjectBase>();
         }
 
         /// <summary>ƒoƒt’Ç‰Á</summary>
