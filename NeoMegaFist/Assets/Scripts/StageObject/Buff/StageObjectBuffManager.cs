@@ -19,16 +19,6 @@ namespace StageObject.Buff
         /// <summary>バフ追加</summary>
         public void Add(BuffData data)
         {
-            foreach(Buff buff in buffs)
-            {
-                if(buff.ID == data.ID)
-                {
-                    //既に同じバフを得ている場合、加算される
-                    buff.Add(data);
-                    return;
-                }
-            }
-            //バフがない場合、新規に作成される
             Buff newBuff = buffDB.Create(data.ID);
             newBuff.Initalize(data, target);
             buffs.Add(newBuff);
