@@ -17,6 +17,7 @@ namespace StageObject
 
         public Size Size { get; private set; }
         public float Speed { get; private set; } = 1;
+        public bool IsKilled { get; private set; }
 
         public event Action OnKill;
         public event Action<Size> OnSetSize;
@@ -43,8 +44,10 @@ namespace StageObject
             OnFixedUpdate_Virtual();
         }
 
+        /// <summary>このオブジェクトを破棄する</summary>
         public void Kill()
         {
+            IsKilled = true;
             updater.RemoveUpdate(this);
             updater.RemoveFixedUpdate(this);
 
@@ -53,18 +56,21 @@ namespace StageObject
             OnKill?.Invoke();
         }
 
+        /// <summary>サイズ変更</summary>
         public void SetSize(Size size)
         {
             Size = size;
             OnSetSize?.Invoke(size);
         }
 
+        /// <summary>速度変更</summary>
         public void SetSpeed(float speed)
         {
             Speed = speed;
             OnSetSpeed?.Invoke(speed);
         }
 
+        /// <summary>ノックバック</summary>
         public void KnockBack(Vector2 dir, float power)
         {
             rb.AddForce(dir * power, ForceMode2D.Impulse);
