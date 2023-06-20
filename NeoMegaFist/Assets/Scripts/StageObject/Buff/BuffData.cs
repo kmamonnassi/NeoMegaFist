@@ -1,18 +1,23 @@
+using UnityEngine;
+
 namespace StageObject.Buff
 {
+    [System.Serializable]
     public class BuffData
     {
-        public readonly BuffID ID;
-        public readonly int Stack;
-        public readonly float Duration;
-        public readonly int Value;
+        [SerializeField] private BuffID id;
+        [SerializeField] private float duration;
+        [SerializeField] private int value;
 
-        public BuffData(BuffID iD, int stack, float duration, int value)
+        public BuffID ID => id;
+        public float Duration => duration;
+        public int Value => value;
+
+        public BuffData(BuffID id, int stack, float duration, int value)
         {
-            ID = iD;
-            Stack = stack;
-            Duration = duration;
-            Value = value;
+            this.id = id;
+            this.duration = duration;
+            this.value = value;
         }
     }
 }
