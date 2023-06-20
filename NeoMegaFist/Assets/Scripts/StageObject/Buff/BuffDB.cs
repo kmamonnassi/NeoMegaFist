@@ -9,6 +9,9 @@ namespace StageObject.Buff
 
         public BuffDB()
         {
+            Add<Burn>(BuffID.Burn);
+            Add<Poison>(BuffID.Poison);
+            Add<Freeze>(BuffID.Freeze);
         }
 
         private void Add<T>(BuffID id) where T : Buff, new()

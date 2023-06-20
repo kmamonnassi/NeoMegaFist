@@ -11,6 +11,7 @@ namespace StageObject
 
         //キャラクター
         Player = 1001,
+        Mushroom = 1002,
 
         //ボス
     }
