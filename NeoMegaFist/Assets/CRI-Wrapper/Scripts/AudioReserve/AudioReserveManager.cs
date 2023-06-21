@@ -31,7 +31,7 @@ public class AudioReserveManager : MonoBehaviour
     private void OnApplicationQuit()
     {
 #if UNITY_EDITOR
-        reserveContainer.SaveLog();
+        reserveContainer?.SaveLog();
 #endif
     }
 
