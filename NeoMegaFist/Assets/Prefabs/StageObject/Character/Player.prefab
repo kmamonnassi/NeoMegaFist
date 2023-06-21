@@ -454,7 +454,7 @@ MonoBehaviour:
   buffs:
   - id: 1
     duration: 5
-    value: 5
+    value: 1
   hitTargets: 0100000002000000
   damage: 3
   stunDamage: 5
@@ -577,7 +577,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &6365721693259468050
 Animator:
   serializedVersion: 5
@@ -688,7 +688,7 @@ MonoBehaviour:
   catchCollider: {fileID: 7573304313066226886}
   player: {fileID: 6085228258668757946}
   catchInterval: 0.2
-  baseThrowPower: 2000
+  baseThrowPower: 1200
 --- !u!114 &5385182116023040047
 MonoBehaviour:
   m_ObjectHideFlags: 0
