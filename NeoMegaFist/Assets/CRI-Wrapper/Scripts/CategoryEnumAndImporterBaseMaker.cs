@@ -70,7 +70,6 @@ namespace Audio
 
             code += "public enum " + categoryName + br;
             code += "{" + br;
-
             foreach (var acbInfo in acbInfoList)
             {
                 foreach (var cueInfo in acbInfo.cueInfoList)

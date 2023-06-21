@@ -1,4 +1,5 @@
 ﻿public enum SE
 {
-	TestSE = 0,
+	TestPlayer = 0,
+	TestSE = 1,
 }

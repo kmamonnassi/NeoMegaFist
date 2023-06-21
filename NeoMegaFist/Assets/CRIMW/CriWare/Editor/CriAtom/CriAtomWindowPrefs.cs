@@ -281,7 +281,6 @@ namespace CriWare
 								if (found == false)
 								{
 									List<string> categoryNames = new List<string>();
-
 									foreach (var category in cueInfo.categories)
 									{
 										CriAtomExAcf.CategoryInfo categoryInfo = new CriAtomExAcf.CategoryInfo();

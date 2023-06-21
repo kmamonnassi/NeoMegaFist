@@ -37,7 +37,6 @@ namespace Audio
                 masterVolume = volumeData.masterVolumeData;
                 seVolume = volumeData.seVolumeData;
                 bgmVolume = volumeData.bgmVolumeData;
-                Debug.Log("BBB" + masterVolume);
             }
         }
 
