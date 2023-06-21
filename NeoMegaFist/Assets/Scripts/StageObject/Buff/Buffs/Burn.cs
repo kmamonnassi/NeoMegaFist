@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace StageObject.Buff
 {
-    public class Burn : Buff
+    public class Burn : BuffBase
     {
         public override BuffID ID => BuffID.Burn;
         public override BuffType Type => BuffType.Debuff;

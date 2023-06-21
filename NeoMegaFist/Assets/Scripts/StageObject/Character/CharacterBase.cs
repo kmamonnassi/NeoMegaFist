@@ -1,3 +1,4 @@
+using StageObject.Buff;
 using System;
 using UnityEngine;
 using Zenject;
@@ -34,12 +35,33 @@ namespace StageObject
         public event Action OnDead;
 
         private float nowStunDuration;
+        private int thrownHitDamage = 50;
+        private float nowDamageCoolTime = 0;
 
         protected override void OnAwake_Virtual()
         {
             hp = maxHP;
             stamina = maxStamina;
             uiManager.Create(this);
+            StageObjectCatchAndThrow catchAndThrow = GetComponent<StageObjectCatchAndThrow>();
+            if(catchAndThrow.ThrownCollider != null)
+                catchAndThrow.ThrownCollider.OnHit += (obj) => Damage(thrownHitDamage);
+        }
+
+        public void HitEffectColliderDamage(EffectCollider col)
+        {
+            if (nowDamageCoolTime <= 0)
+            {
+                if (col.Damage > 0) Damage(col.Damage);
+                if (col.StunDamage > 0) StunDamage(col.StunDamage);
+
+                for (int i = 0; i < col.Buffs.Length; i++)
+                {
+                    GetComponent<IStageObjectBuffManager>().Add(col.Buffs[i]);
+                }
+                KnockBack(-((Vector2)(transform.position - col.transform.position)).normalized, col.KnockBackPower);
+                nowDamageCoolTime = col.CoolTime;
+            }
         }
 
         public void Damage(int pt)
@@ -122,6 +144,10 @@ namespace StageObject
                 {
                     EndStun();
                 }
+            }
+            if(nowDamageCoolTime > 0)
+            {
+                nowDamageCoolTime -= Time.deltaTime;
             }
         }
 

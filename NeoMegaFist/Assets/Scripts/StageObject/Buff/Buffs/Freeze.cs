@@ -1,6 +1,6 @@
 namespace StageObject.Buff
 {
-    public class Freeze : Buff
+    public class Freeze : BuffBase
     {
         public override BuffID ID => BuffID.Freeze;
         public override BuffType Type => BuffType.Debuff;

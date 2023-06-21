@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -8,7 +9,10 @@ namespace StageObject.Buff
     {
         [Inject] private IBuffDB buffDB;
 
-        private List<Buff> buffs = new List<Buff>();
+        public event Action<BuffBase> OnAdd; 
+        public event Action<BuffBase> OnRemove;
+
+        private List<BuffBase> buffs = new List<BuffBase>();
         private StageObjectBase target;
 
         private void Start()
@@ -19,20 +23,22 @@ namespace StageObject.Buff
         /// <summary>バフ追加</summary>
         public void Add(BuffData data)
         {
-            Buff newBuff = buffDB.Create(data.ID);
+            BuffBase newBuff = buffDB.Create(data.ID);
             newBuff.Initalize(data, target);
             buffs.Add(newBuff);
+            OnAdd?.Invoke(newBuff);
         }
 
         /// <summary>バフの削除</summary>
         public void Remove(BuffID id)
         {
-            List<Buff> copy = new List<Buff>(buffs);
-            foreach (Buff buff in copy)
+            List<BuffBase> copy = new List<BuffBase>(buffs);
+            foreach (BuffBase buff in copy)
             {
                 if(buff.ID == id)
                 {
                     buffs.Remove(buff);
+                    OnRemove?.Invoke(buff);
                     return;
                 }
             }
@@ -40,8 +46,8 @@ namespace StageObject.Buff
 
         private void Update()
         {
-            List<Buff> copy = new List<Buff>(buffs);
-            foreach(Buff buff in copy)
+            List<BuffBase> copy = new List<BuffBase>(buffs);
+            foreach(BuffBase buff in copy)
             {
                 buff.Update();
                 if(buff.Duration <= 0)

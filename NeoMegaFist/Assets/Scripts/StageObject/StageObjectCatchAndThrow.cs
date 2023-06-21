@@ -13,6 +13,7 @@ namespace StageObject
         public bool IsCatched { get; private set; }
         public bool IsThrown { get; private set; }
         public bool IsCatchableObject => isCatchableObject;
+        public ThrownCollider ThrownCollider => thrownCollider;
 
         public event Action OnCatched;
         public event Action OnReleased;

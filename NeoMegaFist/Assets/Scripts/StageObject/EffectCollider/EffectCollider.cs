@@ -11,6 +11,16 @@ namespace StageObject
         [SerializeField] private int damage;
         [SerializeField] private int stunDamage;
         [SerializeField] private int knockBackPower;
+        [SerializeField] private float coolTime = 0.5f;
+
+        public BuffData[] Buffs { get => buffs;  }
+        public StageObjectType[] HitTargets { get => hitTargets; }
+        public int Damage { get => damage; }
+        public int StunDamage { get => stunDamage; }
+        public int KnockBackPower { get => knockBackPower; }
+        public float CoolTime { get => coolTime; }
+
+        public event Action<StageObjectBase> OnHit;
 
         private void OnCollisionEnter2D(Collision2D col)
         {
@@ -27,21 +37,10 @@ namespace StageObject
             StageObjectBase stageObject = obj.GetComponent<StageObjectBase>();
             if (stageObject != null)
             {
-                if (Array.Exists(hitTargets, x => stageObject.Type == x))
+                if (Array.Exists(HitTargets, x => stageObject.Type == x))
                 {
-                    if(damage > 0)
-                    {
-                        stageObject.GetComponent<CharacterBase>()?.Damage(damage);
-                    }
-                    if(stunDamage > 0)
-                    {
-                        stageObject.GetComponent<CharacterBase>()?.StunDamage(stunDamage);
-                    }
-                    for (int i = 0; i < buffs.Length; i++)
-                    {
-                        stageObject.GetComponent<IStageObjectBuffManager>().Add(buffs[i]);
-                    }
-                    stageObject.KnockBack(-((Vector2)(transform.position - obj.transform.position)).normalized, knockBackPower);
+                    OnHit?.Invoke(stageObject);
+                    stageObject.GetComponent<CharacterBase>()?.HitEffectColliderDamage(this);
                 }
             }
         }

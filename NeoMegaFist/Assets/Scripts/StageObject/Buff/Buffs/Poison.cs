@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace StageObject.Buff
 {
-    public class Poison : Buff
+    public class Poison : BuffBase
     {
         public override BuffID ID => BuffID.Poison;
         public override BuffType Type => BuffType.Debuff;
