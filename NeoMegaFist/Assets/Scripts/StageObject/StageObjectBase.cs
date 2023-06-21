@@ -23,7 +23,7 @@ namespace StageObject
         public event Action<Size> OnSetSize;
         public event Action<float> OnSetSpeed;
 
-        private Rigidbody2D rb;
+        protected Rigidbody2D rb { get; private set; }
 
         private void Awake()
         {

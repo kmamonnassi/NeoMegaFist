@@ -87,18 +87,18 @@ namespace StageObject
             //スタンしていると何もできない
             if (player.IsStun) return;
 
+            if ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && catchTarget != null)
+            {
+                if (catchTarget.IsCatched)
+                {
+                    Vector2 dir = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position).normalized;
+                    Throw(dir);
+                }
+            }
+            else
             //マウスが押されたとき、掴んでいるものがなければ掴み動作、あればそれを投げる
             if (Input.GetMouseButtonDown(1))
             {
-                if (catchTarget != null)
-                {
-                    if (catchTarget.IsCatched)
-                    {
-                        Vector2 dir = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position).normalized;
-                        Throw(dir);
-                    }
-                }
-                else
                 if (!isCatching)
                 {
                     Catching();
