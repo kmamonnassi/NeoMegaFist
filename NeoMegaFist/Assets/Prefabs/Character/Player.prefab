@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 3686736546442695238}
   - component: {fileID: 8503057697391378543}
   - component: {fileID: 5385182116023040047}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,7 +559,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -683,6 +683,8 @@ MonoBehaviour:
   catchCollider: {fileID: 7573304313066226886}
   player: {fileID: 6085228258668757946}
   catchInterval: 0.2
+  baseThrowPower: 1000
+  catchTarget: {fileID: 0}
 --- !u!114 &5385182116023040047
 MonoBehaviour:
   m_ObjectHideFlags: 0
