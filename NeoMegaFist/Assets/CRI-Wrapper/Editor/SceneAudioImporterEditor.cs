@@ -20,6 +20,11 @@ public class SceneAudioImporterEditor : Editor
         if(importer.isSceneLoadToPlayBgm)
         {
             selectedBgmNames = importer.GetSelectedCueSheetNames()[(int)NeoMegaFist_acf.Category.CategoryGroup.BGM];
+            if(selectedBgmNames.Length == 0)
+            {
+                EditorGUILayout.HelpBox("ロードするBGMデータが未設定です", MessageType.Error);
+                return;
+            }
             importer.sceneLoadToPlayBgmNum = EditorGUILayout.Popup(new GUIContent("SceneLoadToPlayBGM"), importer.sceneLoadToPlayBgmNum, selectedBgmNames);
             importer.sceneLoadToPlayBgmName = selectedBgmNames[importer.sceneLoadToPlayBgmNum];
         }
