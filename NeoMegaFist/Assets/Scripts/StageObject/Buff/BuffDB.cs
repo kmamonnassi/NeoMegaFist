@@ -5,7 +5,7 @@ namespace StageObject.Buff
 {
     public class BuffDB : IBuffDB
     {
-        private Dictionary<BuffID, Func<Buff>> db = new Dictionary<BuffID, Func<Buff>>();
+        private Dictionary<BuffID, Func<BuffBase>> db = new Dictionary<BuffID, Func<BuffBase>>();
 
         public BuffDB()
         {
@@ -14,14 +14,14 @@ namespace StageObject.Buff
             Add<Freeze>(BuffID.Freeze);
         }
 
-        private void Add<T>(BuffID id) where T : Buff, new()
+        private void Add<T>(BuffID id) where T : BuffBase, new()
         {
             db.Add(id, () => new T());
         }
 
-        public Buff Create(BuffID id)
+        public BuffBase Create(BuffID id)
         {
-            Buff b = db[id]();
+            BuffBase b = db[id]();
             return b;
         }
     }
