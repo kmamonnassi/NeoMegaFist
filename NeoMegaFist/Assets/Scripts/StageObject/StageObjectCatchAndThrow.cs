@@ -31,13 +31,15 @@ namespace StageObject
                 //掴まれた状態でスタンが終了すると離れる
                 character.OnEndStun += Released;
             }
+            if (thrownCollider != null)
+                thrownCollider.Initalize(rb);
         }
 
 		private void Update()
 		{
 			if(IsThrown)
             {
-                if(rb.velocity.magnitude < 10)
+                if(rb.velocity.magnitude < 30)
                 {
                     //投げられた状態で速度が遅くなった時、投げを終了する
                     EndThrown();
