@@ -558,7 +558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 237211421360932463, guid: 9eebfc4e0db634b4382e9249a37c5285, type: 3}
       propertyPath: seList.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 237211421360932463, guid: 9eebfc4e0db634b4382e9249a37c5285, type: 3}
       propertyPath: bgmList.Array.size
@@ -566,6 +566,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 237211421360932463, guid: 9eebfc4e0db634b4382e9249a37c5285, type: 3}
       propertyPath: isSceneLoadToPlayBgm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 237211421360932463, guid: 9eebfc4e0db634b4382e9249a37c5285, type: 3}
+      propertyPath: seList.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 237211421360932463, guid: 9eebfc4e0db634b4382e9249a37c5285, type: 3}

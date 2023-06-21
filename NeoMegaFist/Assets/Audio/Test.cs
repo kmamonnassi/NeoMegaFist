@@ -18,7 +18,6 @@ public class Test : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Debug.Log("AA");
             sePlayable.Play("TestSE", "Walk", GetInstanceID());
         }
     }
