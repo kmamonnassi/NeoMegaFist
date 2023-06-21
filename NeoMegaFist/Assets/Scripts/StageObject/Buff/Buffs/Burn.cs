@@ -30,7 +30,6 @@ namespace StageObject.Buff
             {
                 nowTime = 0;
                 character.Damage(data.Value);
-                Debug.Log("BURN DMG");
             }
         }
     }

@@ -13,7 +13,7 @@ namespace Utility.PostEffect
         void SetOrthograhicSize(float size);
         float GetOrthograhicSize();
 
-        void Shake(Vector2 power, float time, float interval = 0.01f);
+        void Shake(Vector2 power, float time, float interval = 0.01f, bool decay = true);
 
         Vector2 ScreenToWorldPoint(Vector3 worldPoint, Camera.MonoOrStereoscopicEye eye);
         Vector2 WorldToScreenPoint(Vector3 screenPoint, Camera.MonoOrStereoscopicEye eye);

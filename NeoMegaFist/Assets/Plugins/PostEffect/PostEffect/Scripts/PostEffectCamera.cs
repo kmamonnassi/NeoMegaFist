@@ -10,8 +10,6 @@ namespace Utility.PostEffect
 		[SerializeField] Camera postEffectCamera = null;
         [SerializeField] RenderTexture renderTexture = null;
 
-		private Coroutine shakeCoroutine;
-
         private void Awake()
         {
 			renderTexture.Release();
@@ -49,31 +47,32 @@ namespace Utility.PostEffect
 			return postEffectCamera.orthographicSize;
 		}
 
-		public void Shake(Vector2 power, float time, float interval = 0.01f)
+		public void Shake(Vector2 power, float time, float interval = 0.01f, bool decay = true)
 		{
-			if (shakeCoroutine != null) StopCoroutine(shakeCoroutine);
-			shakeCoroutine = StartCoroutine(ShakeCoroutine(power, time, interval));
+			StartCoroutine(ShakeCoroutine(power, time, interval, decay));
 		}
 
-		private IEnumerator ShakeCoroutine(Vector2 power, float time, float interval)
+		private IEnumerator ShakeCoroutine(Vector2 power, float time, float interval, bool decay)
 		{
 			float nowTime = 0;
 			float beforeTime = 0;
 			Vector2 offset = Vector2.zero;
 			while(nowTime < time)
 			{
-				nowTime += Time.deltaTime;
+				nowTime += Time.unscaledDeltaTime;
 				if (nowTime - beforeTime > interval)
 				{
-					transform.position -= (Vector3)offset;
 					beforeTime = nowTime;
-					offset.x = Random.Range(-power.x, power.x);
-					offset.y = Random.Range(-power.y, power.y);
+					Vector2 truePower = power;
+					if (decay) truePower *= nowTime / time;
+					offset.x = Random.Range(-truePower.x, truePower.x);
+					offset.y = Random.Range(-truePower.y, truePower.y);
 					transform.position += (Vector3)offset;
 				}
 				yield return null;
+				transform.position -= (Vector3)offset;
+				offset = Vector2.zero;
 			}
-			shakeCoroutine = null;
 		}
 
 		Vector2 IPostEffectCamera.ScreenToWorldPoint(Vector3 worldPoint, Camera.MonoOrStereoscopicEye eye)
