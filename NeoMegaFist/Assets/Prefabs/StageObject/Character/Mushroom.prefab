@@ -98,7 +98,8 @@ GameObject:
   - component: {fileID: 1509309773664568115}
   - component: {fileID: 3938058987592176310}
   - component: {fileID: 6613669009872221015}
-  m_Layer: 0
+  - component: {fileID: 4505592418873649556}
+  m_Layer: 7
   m_Name: Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,10 +135,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070177057ee8fc149958ef02fd7bb452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 65
+  maxHP: 50
   maxStamina: 15
   stunDuration: 7
   CharacterStatusUIOffset: {x: 0, y: -48}
+  baseSpeed: 50
 --- !u!114 &5619052787277740284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,10 +165,10 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a3d425a02dd9afd4bad7fea5ad14e05f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -176,7 +178,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &3938058987592176310
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -226,6 +228,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrownCollider: {fileID: 6274224244697393894}
   isCatchableObject: 1
+--- !u!114 &4505592418873649556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9162309088253071325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5addf11a5651bb64e92734fee110a4a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffs: []
+  hitTargets: 00000000
+  damage: 3
+  stunDamage: 0
+  knockBackPower: 20
+  coolTime: 2
 --- !u!1001 &8509376616710538779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -234,9 +254,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5102086217447744948}
     m_Modifications:
+    - target: {fileID: 2379560073679138045, guid: e0c86373c051ff249bb5b1c93e1ff9fe, type: 3}
+      propertyPath: mainCollider
+      value: 
+      objectReference: {fileID: 3938058987592176310}
+    - target: {fileID: 2379560073679138045, guid: e0c86373c051ff249bb5b1c93e1ff9fe, type: 3}
+      propertyPath: wallHitCollider
+      value: 
+      objectReference: {fileID: 3938058987592176310}
     - target: {fileID: 4534448211744403578, guid: e0c86373c051ff249bb5b1c93e1ff9fe, type: 3}
       propertyPath: m_Name
       value: ThrownCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 4534448211744403578, guid: e0c86373c051ff249bb5b1c93e1ff9fe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4939877979124572887, guid: e0c86373c051ff249bb5b1c93e1ff9fe, type: 3}
       propertyPath: m_RootOrder

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace StageObject.Buff
 {
-    public abstract class Buff
+    public abstract class BuffBase
     {
         /// <summary>バフID</summary>
         public abstract BuffID ID { get; }
@@ -11,6 +11,8 @@ namespace StageObject.Buff
         public abstract BuffType Type { get; }
         /// <summary>持続時間終了で解除</summary>
         public abstract bool TimeLimited { get; }
+        /// <summary>初期持続時間</summary>
+        public float StartDuration { get; set; }
         /// <summary>持続時間</summary>
         public float Duration { get; set; }
         /// <summary>ゲーム画面に写すかどうか</summary>
@@ -33,7 +35,8 @@ namespace StageObject.Buff
         /// <summary>初期化</summary>
         public void Initalize(BuffData data, StageObjectBase target)
         {
-            Duration = data.Duration;
+            StartDuration = data.Duration;
+            Duration = StartDuration;
             this.target = target;
             this.data = data;
             OnInitalize?.Invoke(data, target);
@@ -45,7 +48,7 @@ namespace StageObject.Buff
         {
             if(TimeLimited)
             {
-                Duration -= Time.deltaTime;
+                SetDuration(Duration - Time.deltaTime);
             }
             OnUpdate?.Invoke();
             Update_Virtual();

@@ -451,11 +451,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5addf11a5651bb64e92734fee110a4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffs: []
+  buffs:
+  - id: 1
+    duration: 5
+    value: 1
   hitTargets: 0100000002000000
-  damage: 5
+  damage: 3
   stunDamage: 5
   knockBackPower: 5
+  coolTime: 0.25
 --- !u!61 &7604807885504684654
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -519,7 +523,8 @@ GameObject:
   - component: {fileID: 3686736546442695238}
   - component: {fileID: 8503057697391378543}
   - component: {fileID: 5385182116023040047}
-  m_Layer: 0
+  - component: {fileID: 6359026122109345890}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,7 +564,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -572,7 +577,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &6365721693259468050
 Animator:
   serializedVersion: 5
@@ -618,7 +623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5401c27c5a7d2dc45b417b41f57a0e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
+  maxHP: 50
   maxStamina: 999
   stunDuration: 2
   CharacterStatusUIOffset: {x: 0, y: -48}
@@ -683,6 +688,7 @@ MonoBehaviour:
   catchCollider: {fileID: 7573304313066226886}
   player: {fileID: 6085228258668757946}
   catchInterval: 0.2
+  baseThrowPower: 1200
 --- !u!114 &5385182116023040047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,3 +703,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrownCollider: {fileID: 0}
   isCatchableObject: 0
+--- !u!58 &6359026122109345890
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433431035312424676}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 16
