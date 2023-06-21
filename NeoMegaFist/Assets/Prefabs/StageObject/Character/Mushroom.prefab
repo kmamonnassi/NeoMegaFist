@@ -165,10 +165,10 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a3d425a02dd9afd4bad7fea5ad14e05f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -178,7 +178,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &3938058987592176310
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   damage: 3
   stunDamage: 0
   knockBackPower: 20
-  coolTime: 0.5
+  coolTime: 2
 --- !u!1001 &8509376616710538779
 PrefabInstance:
   m_ObjectHideFlags: 0

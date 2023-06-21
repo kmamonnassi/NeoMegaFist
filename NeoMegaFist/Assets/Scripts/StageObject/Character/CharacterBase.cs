@@ -45,7 +45,10 @@ namespace StageObject
             uiManager.Create(this);
             StageObjectCatchAndThrow catchAndThrow = GetComponent<StageObjectCatchAndThrow>();
             if(catchAndThrow.ThrownCollider != null)
-                catchAndThrow.ThrownCollider.OnHit += (obj) => Damage(thrownHitDamage);
+            {
+                catchAndThrow.ThrownCollider.OnHitTarget += (obj) => Damage(thrownHitDamage);
+                catchAndThrow.ThrownCollider.OnHitWall += () => Damage(thrownHitDamage);
+            }
         }
 
         public void HitEffectColliderDamage(EffectCollider col)

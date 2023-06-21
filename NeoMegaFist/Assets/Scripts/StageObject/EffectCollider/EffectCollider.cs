@@ -20,7 +20,8 @@ namespace StageObject
         public int KnockBackPower { get => knockBackPower; }
         public float CoolTime { get => coolTime; }
 
-        public event Action<StageObjectBase> OnHit;
+        public event Action OnHitWall;
+        public event Action<StageObjectBase> OnHitTarget;
 
         private void OnCollisionEnter2D(Collision2D col)
         {
@@ -39,9 +40,14 @@ namespace StageObject
             {
                 if (Array.Exists(HitTargets, x => stageObject.Type == x))
                 {
-                    OnHit?.Invoke(stageObject);
+                    OnHitTarget?.Invoke(stageObject);
                     stageObject.GetComponent<CharacterBase>()?.HitEffectColliderDamage(this);
                 }
+            }
+            else
+            if(obj.GetComponent<Wall>() != null)
+            {
+                OnHitWall?.Invoke();
             }
         }
     }

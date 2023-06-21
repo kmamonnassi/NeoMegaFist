@@ -50,8 +50,9 @@ MonoBehaviour:
   damage: 50
   stunDamage: 50
   knockBackPower: 40
+  coolTime: 0.5
   attackCollider: {fileID: 4231278358703829157}
-  wallHitCollider: {fileID: 0}
+  mainCollider: {fileID: 0}
 --- !u!58 &4231278358703829157
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -86,4 +87,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 16
+  m_Radius: 16.1
