@@ -6,6 +6,8 @@ namespace StageObject
     public class Mushroom : CharacterBase
     {
         [SerializeField] private float baseSpeed = 100;
+        [SerializeField] private EffectCollider attackCollider;
+
         public override StageObjectID ID => StageObjectID.Mushroom;
         public override StageObjectType Type => StageObjectType.Enemy;
         public override Size DefaultSize => Size.Small;
@@ -15,6 +17,8 @@ namespace StageObject
         protected override void OnAwake_Virtual()
         {
             base.OnAwake_Virtual();
+            OnStun += () => attackCollider.enabled = false;
+            OnEndStun += () => attackCollider.enabled = true;
         }
 
         protected override void OnFixedUpdate_Virtual()
