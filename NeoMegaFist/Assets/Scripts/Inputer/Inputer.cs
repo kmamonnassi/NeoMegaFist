@@ -44,7 +44,7 @@ namespace InputControl
 
         public bool GetOverhandThrowStart()
         {
-            return inputControl.Player.OverhandThrow.WasReleasedThisFrame();
+            return inputControl.Player.OverhandThrow.WasPerformedThisFrame();
         }
 
         public bool GetOverhandThrow()

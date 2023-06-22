@@ -5,8 +5,7 @@ namespace StageObject
 {
     public interface IStageObjectCatchAndThrow
     {
-        bool IsCatched { get; }
-        bool IsThrown { get; }
+        ThrownState State { get; }
         bool IsCatchableObject { get; }
         ThrownCollider ThrownCollider { get; }
 

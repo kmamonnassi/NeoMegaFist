@@ -551,7 +551,7 @@ Transform:
   - {fileID: 529096986279075096}
   - {fileID: 3833026419376650916}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3746904736517480673
 Rigidbody2D:
@@ -689,8 +689,11 @@ MonoBehaviour:
   rotater: {fileID: 3686736546442695238}
   catchCollider: {fileID: 7573304313066226886}
   player: {fileID: 6085228258668757946}
+  overhandThrowMark: {fileID: 0}
   catchInterval: 0.2
   baseThrowPower: 1200
+  baseOverhandThrowDuration: 0.75
+  baseOverhandThrowDistance: 256
 --- !u!114 &5385182116023040047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,6 +708,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrownCollider: {fileID: 0}
   isCatchableObject: 0
+  keyframe:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &462145553426228613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,6 +770,7 @@ MonoBehaviour:
   playerMover: {fileID: 462145553426228613}
   baseDodgeSpeed: 1500
   baseDodgeDuration: 0.1
+  baseDodgeInterval: 0
   invisibleDuration: 0.15
 --- !u!58 &6359026122109345890
 CircleCollider2D:

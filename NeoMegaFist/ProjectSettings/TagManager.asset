@@ -15,8 +15,8 @@ TagManager:
   - StageObject
   - ThrownStageObject
   - DodgePlayer
-  - 
-  - 
+  - OverhandThrownStageObject
+  - Wall
   - 
   - 
   - 
