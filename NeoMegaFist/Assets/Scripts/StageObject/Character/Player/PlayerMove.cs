@@ -1,6 +1,8 @@
 ﻿using DG.Tweening;
+using InputControl;
 using UnityEngine;
 using Utility;
+using Zenject;
 
 namespace StageObject
 {
@@ -10,6 +12,8 @@ namespace StageObject
         [SerializeField] private Player player;
         [SerializeField] private PlayerRotater rotater;
         [SerializeField] private float moveSpeed = 200;
+
+        [Inject] private IInputer inputer;
 
         private Vector2 moveDir;
         private bool isInputMoveButton;
@@ -62,28 +66,12 @@ namespace StageObject
             moveDir = Vector2.zero;
             if(!player.IsStun)
             {
-                if (Input.GetKey(KeyCode.W))
-                {
-                    moveDir += Vector2.up;
-                }
-                if (Input.GetKey(KeyCode.A))
-                {
-                    moveDir += Vector2.left;
-                }
-                if (Input.GetKey(KeyCode.S))
-                {
-                    moveDir += Vector2.down;
-                }
-                if (Input.GetKey(KeyCode.D))
-                {
-                    moveDir += Vector2.right;
-                }
+                moveDir = inputer.GetPlayerMove();
             }
 
             if (moveDir != Vector2.zero)
             {
                 isInputMoveButton = true;
-                moveDir = moveDir.normalized;
             }
             else
             {

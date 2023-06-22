@@ -1,5 +1,7 @@
+using InputControl;
 using UnityEngine;
 using Utility;
+using Zenject;
 
 namespace StageObject
 {
@@ -9,6 +11,8 @@ namespace StageObject
         [SerializeField] private PlayerRotater rotater;
         [SerializeField] private Player player;
         [SerializeField] private float decressSpeed = 0.8f;
+
+        [Inject] private IInputer inputer; 
 
         public int Priority => 1;
         public float Rotation { get; private set; }
@@ -22,19 +26,19 @@ namespace StageObject
         public void ManagedUpdate()
         {
             if (player.IsStun) return;
-            if (Input.GetMouseButtonDown(0))
+            if (inputer.GetPlayerPunchStart())
             {
                 animator.SetBool("Punch", true);
                 IsActive = true;
                 player.SetSpeed(player.Speed - decressSpeed);
             }
             else
-               if (Input.GetMouseButton(0))
+               if (inputer.GetPlayerPunch())
             {
-                Rotation = GetAngle(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)) + 90;
+                Rotation = GetAngle(transform.position, Camera.main.ScreenToWorldPoint(inputer.GetMousePosition())) + 90;
             }
             else
-               if (Input.GetMouseButtonUp(0))
+               if (inputer.GetPlayerPunchEnd())
             {
                 animator.SetBool("Punch", false);
                 IsActive = false;
