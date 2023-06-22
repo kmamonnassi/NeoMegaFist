@@ -19,6 +19,8 @@ public class AudioReserveEditorWindow : EditorWindow
     private Vector2 scrollPosition = Vector2.zero;
     private Texture reloadIconTex;
     private Texture copyIconTex;
+    private bool isDeveloperFoldoutOpen = false;
+
 
     [MenuItem("Window/Audio/AudioReserve Browser", false, 0)]
     static void OpenWindow()
@@ -51,16 +53,31 @@ public class AudioReserveEditorWindow : EditorWindow
 
     private void OnGUI()
     {
-        if(jsonDataNames == null)
+        Information();
+
+        GUIPartition();
+
+        isDeveloperFoldoutOpen = EditorGUILayout.Foldout(isDeveloperFoldoutOpen, "開発者オプション", true);
+        if(isDeveloperFoldoutOpen)
+        {
+            EditorGUI.indentLevel++;
+
+            if(GUILayout.Button("StreamingAssetsを開く"))
+            {
+                System.Diagnostics.Process.Start(Application.streamingAssetsPath);
+            }
+
+            EditorGUI.indentLevel--;
+        }
+
+        GUIPartition();
+
+        if (jsonDataNames == null)
         {
             return;
         }
 
         float boxWidth = position.size.x * 0.5f;
-
-        Information();
-
-        GUIPartition();
 
         using (new GUILayout.VerticalScope())
         {
