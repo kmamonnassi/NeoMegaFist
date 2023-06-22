@@ -55,21 +55,12 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ThrowPreparation"",
-                    ""type"": ""Button"",
-                    ""id"": ""3a07e33b-d42d-4cf4-99d1-46b48107210e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Throw"",
                     ""type"": ""Button"",
                     ""id"": ""2c77cea1-d790-4537-be59-7e9ab2956a4b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=1)"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -164,17 +155,6 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b107cbc3-1bec-4fdd-acc8-6f0e2ea3eb9a"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ThrowPreparation"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""1c81af02-3e47-455e-a6e4-cd30447c616d"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
@@ -192,6 +172,34 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Catch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Position"",
+            ""id"": ""84694fa2-bbcd-4f6a-9c0c-9fa46648cad2"",
+            ""actions"": [
+                {
+                    ""name"": ""Position"",
+                    ""type"": ""Value"",
+                    ""id"": ""42f611b7-682d-41e6-9f55-051a76dabbbd"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c9a53da9-cddb-4511-847b-d657f1444bd3"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Position"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -232,8 +240,10 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Punch = m_Player.FindAction("Punch", throwIfNotFound: true);
         m_Player_Catch = m_Player.FindAction("Catch", throwIfNotFound: true);
-        m_Player_ThrowPreparation = m_Player.FindAction("ThrowPreparation", throwIfNotFound: true);
         m_Player_Throw = m_Player.FindAction("Throw", throwIfNotFound: true);
+        // Position
+        m_Position = asset.FindActionMap("Position", throwIfNotFound: true);
+        m_Position_Position = m_Position.FindAction("Position", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -298,7 +308,6 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Punch;
     private readonly InputAction m_Player_Catch;
-    private readonly InputAction m_Player_ThrowPreparation;
     private readonly InputAction m_Player_Throw;
     public struct PlayerActions
     {
@@ -307,7 +316,6 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Punch => m_Wrapper.m_Player_Punch;
         public InputAction @Catch => m_Wrapper.m_Player_Catch;
-        public InputAction @ThrowPreparation => m_Wrapper.m_Player_ThrowPreparation;
         public InputAction @Throw => m_Wrapper.m_Player_Throw;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -327,9 +335,6 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
             @Catch.started += instance.OnCatch;
             @Catch.performed += instance.OnCatch;
             @Catch.canceled += instance.OnCatch;
-            @ThrowPreparation.started += instance.OnThrowPreparation;
-            @ThrowPreparation.performed += instance.OnThrowPreparation;
-            @ThrowPreparation.canceled += instance.OnThrowPreparation;
             @Throw.started += instance.OnThrow;
             @Throw.performed += instance.OnThrow;
             @Throw.canceled += instance.OnThrow;
@@ -346,9 +351,6 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
             @Catch.started -= instance.OnCatch;
             @Catch.performed -= instance.OnCatch;
             @Catch.canceled -= instance.OnCatch;
-            @ThrowPreparation.started -= instance.OnThrowPreparation;
-            @ThrowPreparation.performed -= instance.OnThrowPreparation;
-            @ThrowPreparation.canceled -= instance.OnThrowPreparation;
             @Throw.started -= instance.OnThrow;
             @Throw.performed -= instance.OnThrow;
             @Throw.canceled -= instance.OnThrow;
@@ -369,6 +371,52 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Position
+    private readonly InputActionMap m_Position;
+    private List<IPositionActions> m_PositionActionsCallbackInterfaces = new List<IPositionActions>();
+    private readonly InputAction m_Position_Position;
+    public struct PositionActions
+    {
+        private @InputControls m_Wrapper;
+        public PositionActions(@InputControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Position => m_Wrapper.m_Position_Position;
+        public InputActionMap Get() { return m_Wrapper.m_Position; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PositionActions set) { return set.Get(); }
+        public void AddCallbacks(IPositionActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PositionActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PositionActionsCallbackInterfaces.Add(instance);
+            @Position.started += instance.OnPosition;
+            @Position.performed += instance.OnPosition;
+            @Position.canceled += instance.OnPosition;
+        }
+
+        private void UnregisterCallbacks(IPositionActions instance)
+        {
+            @Position.started -= instance.OnPosition;
+            @Position.performed -= instance.OnPosition;
+            @Position.canceled -= instance.OnPosition;
+        }
+
+        public void RemoveCallbacks(IPositionActions instance)
+        {
+            if (m_Wrapper.m_PositionActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPositionActions instance)
+        {
+            foreach (var item in m_Wrapper.m_PositionActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_PositionActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public PositionActions @Position => new PositionActions(this);
     private int m_SchemeSchemeIndex = -1;
     public InputControlScheme SchemeScheme
     {
@@ -383,7 +431,10 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnPunch(InputAction.CallbackContext context);
         void OnCatch(InputAction.CallbackContext context);
-        void OnThrowPreparation(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
+    }
+    public interface IPositionActions
+    {
+        void OnPosition(InputAction.CallbackContext context);
     }
 }
