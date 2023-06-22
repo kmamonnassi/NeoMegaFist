@@ -64,18 +64,18 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Dodge"",
+                    ""name"": ""OverhandThrow"",
                     ""type"": ""Button"",
-                    ""id"": ""dd8f55c6-37ba-482a-8bb7-26c69db16224"",
+                    ""id"": ""a668cbeb-6517-4ea4-a464-f1185df5e2f3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""OverhandThrow"",
+                    ""name"": ""Dodge"",
                     ""type"": ""Button"",
-                    ""id"": ""a668cbeb-6517-4ea4-a464-f1185df5e2f3"",
+                    ""id"": ""dd8f55c6-37ba-482a-8bb7-26c69db16224"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -174,7 +174,7 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1c81af02-3e47-455e-a6e4-cd30447c616d"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -207,7 +207,7 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d5432499-5438-4bce-aff9-72572c766c1e"",
-                    ""path"": ""<Mouse>/middleButton"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -281,8 +281,8 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
         m_Player_Punch = m_Player.FindAction("Punch", throwIfNotFound: true);
         m_Player_Catch = m_Player.FindAction("Catch", throwIfNotFound: true);
         m_Player_Throw = m_Player.FindAction("Throw", throwIfNotFound: true);
-        m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
         m_Player_OverhandThrow = m_Player.FindAction("OverhandThrow", throwIfNotFound: true);
+        m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
         // Position
         m_Position = asset.FindActionMap("Position", throwIfNotFound: true);
         m_Position_Position = m_Position.FindAction("Position", throwIfNotFound: true);
@@ -351,8 +351,8 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Punch;
     private readonly InputAction m_Player_Catch;
     private readonly InputAction m_Player_Throw;
-    private readonly InputAction m_Player_Dodge;
     private readonly InputAction m_Player_OverhandThrow;
+    private readonly InputAction m_Player_Dodge;
     public struct PlayerActions
     {
         private @InputControls m_Wrapper;
@@ -361,8 +361,8 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
         public InputAction @Punch => m_Wrapper.m_Player_Punch;
         public InputAction @Catch => m_Wrapper.m_Player_Catch;
         public InputAction @Throw => m_Wrapper.m_Player_Throw;
-        public InputAction @Dodge => m_Wrapper.m_Player_Dodge;
         public InputAction @OverhandThrow => m_Wrapper.m_Player_OverhandThrow;
+        public InputAction @Dodge => m_Wrapper.m_Player_Dodge;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -384,12 +384,12 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
             @Throw.started += instance.OnThrow;
             @Throw.performed += instance.OnThrow;
             @Throw.canceled += instance.OnThrow;
-            @Dodge.started += instance.OnDodge;
-            @Dodge.performed += instance.OnDodge;
-            @Dodge.canceled += instance.OnDodge;
             @OverhandThrow.started += instance.OnOverhandThrow;
             @OverhandThrow.performed += instance.OnOverhandThrow;
             @OverhandThrow.canceled += instance.OnOverhandThrow;
+            @Dodge.started += instance.OnDodge;
+            @Dodge.performed += instance.OnDodge;
+            @Dodge.canceled += instance.OnDodge;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -406,12 +406,12 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
             @Throw.started -= instance.OnThrow;
             @Throw.performed -= instance.OnThrow;
             @Throw.canceled -= instance.OnThrow;
-            @Dodge.started -= instance.OnDodge;
-            @Dodge.performed -= instance.OnDodge;
-            @Dodge.canceled -= instance.OnDodge;
             @OverhandThrow.started -= instance.OnOverhandThrow;
             @OverhandThrow.performed -= instance.OnOverhandThrow;
             @OverhandThrow.canceled -= instance.OnOverhandThrow;
+            @Dodge.started -= instance.OnDodge;
+            @Dodge.performed -= instance.OnDodge;
+            @Dodge.canceled -= instance.OnDodge;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -490,8 +490,8 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
         void OnPunch(InputAction.CallbackContext context);
         void OnCatch(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
-        void OnDodge(InputAction.CallbackContext context);
         void OnOverhandThrow(InputAction.CallbackContext context);
+        void OnDodge(InputAction.CallbackContext context);
     }
     public interface IPositionActions
     {

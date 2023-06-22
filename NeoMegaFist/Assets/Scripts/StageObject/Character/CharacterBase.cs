@@ -147,7 +147,7 @@ namespace StageObject
             if (IsStun)
             {
                 nowStunDuration -= Time.deltaTime;
-                if (nowStunDuration <= 0 && !catchAndThrow.IsThrown)
+                if (nowStunDuration <= 0 && catchAndThrow.State != ThrownState.Throw)
                 {
                     EndStun();
                 }
