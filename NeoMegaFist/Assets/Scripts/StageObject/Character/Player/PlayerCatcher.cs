@@ -1,7 +1,9 @@
 using DG.Tweening;
+using InputControl;
 using StageObject;
 using UnityEngine;
 using Utility;
+using Zenject;
 
 namespace StageObject
 {
@@ -13,6 +15,8 @@ namespace StageObject
         [SerializeField] private Player player;
         [SerializeField] private float catchInterval = 0.35f;//掴み動作のクールタイム
         [SerializeField] private float baseThrowPower = 50;//投げる力
+
+        [Inject] private IInputer inputer;
 
         public int Priority => 2;
         public float Rotation { get; private set; }
@@ -34,7 +38,7 @@ namespace StageObject
             animator.SetTrigger("Catch");
             IsActive = true;
             isCatching = true;
-            Rotation = GetAngle(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)) + 90;
+            Rotation = GetAngle(transform.position, Camera.main.ScreenToWorldPoint(inputer.GetMousePosition())) + 90;
             DOVirtual.DelayedCall(catchInterval, () =>
             {
                 isCatching = false;
@@ -87,17 +91,17 @@ namespace StageObject
             //スタンしていると何もできない
             if (player.IsStun) return;
 
-            if ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && catchTarget != null)
+            if (inputer.GetPlayerThrowStart() && catchTarget != null)
             {
                 if (catchTarget.IsCatched)
                 {
-                    Vector2 dir = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position).normalized;
+                    Vector2 dir = ((Vector2)Camera.main.ScreenToWorldPoint(inputer.GetMousePosition()) - (Vector2)transform.position).normalized;
                     Throw(dir);
                 }
             }
             else
             //マウスが押されたとき、掴んでいるものがなければ掴み動作、あればそれを投げる
-            if (Input.GetMouseButtonDown(1))
+            if (inputer.GetPlayerCatch() && catchTarget == null)
             {
                 if (!isCatching)
                 {
