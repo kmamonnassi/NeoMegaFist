@@ -18,7 +18,7 @@ public class Test : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            AudioReserveManager.AudioReserve("Player", "çUåÇ", transform);
+            sePlayable.Play("TestSE", "Walk", gameObject.GetInstanceID());
         }
     }
 }
