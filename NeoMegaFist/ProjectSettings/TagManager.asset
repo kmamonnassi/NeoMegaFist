@@ -44,3 +44,6 @@ TagManager:
   - name: PostEffect
     uniqueID: 2709018381
     locked: 0
+  - name: AudioTimer
+    uniqueID: 1031387427
+    locked: 0
