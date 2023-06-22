@@ -12,6 +12,11 @@ namespace InputControl
             inputControl.Enable();
         }
 
+        public Vector2 GetMousePosition()
+        {
+            return inputControl.Position.Position.ReadValue<Vector2>();
+        }
+
         public Vector2 GetPlayerMove()
         {
             return inputControl.Player.Move.ReadValue<Vector2>();
@@ -22,14 +27,34 @@ namespace InputControl
             return inputControl.Player.Catch.triggered;
         }
 
-        public bool GetPlayerThrow()
+        public bool GetPlayerThrowStart()
         {
-            return inputControl.Player.Throw.triggered;
+            return inputControl.Player.Throw.WasPressedThisFrame();
         }
 
-        public bool GetPlayerThrowPreparation()
+        public bool GetPlayerThrow()
         {
-            return inputControl.Player.ThrowPreparation.triggered;
+            return inputControl.Player.Throw.IsPressed();
+        }
+
+        public bool GetPlayerThrowEnd()
+        {
+            return inputControl.Player.Throw.WasReleasedThisFrame();
+        }
+
+        public bool GetPlayerPunchStart()
+        {
+            return inputControl.Player.Punch.WasPressedThisFrame();
+        }
+
+        public bool GetPlayerPunch()
+        {
+            return inputControl.Player.Punch.IsPressed();
+        }
+
+        public bool GetPlayerPunchEnd()
+        {
+            return inputControl.Player.Punch.WasReleasedThisFrame();
         }
     }
 }
