@@ -1,6 +1,7 @@
 using StageObject.Buff;
 using System;
 using UnityEngine;
+using Utility;
 using Zenject;
 
 namespace StageObject
@@ -30,13 +31,15 @@ namespace StageObject
         public event Action<int> OnSetStamina;
         public event Action<int> OnSetMaxStamina;
         public event Action<int> OnStunDamage;
+        public event Action<float> OnInvisible;
+        public event Action OnEndInvisible;
         public event Action OnStun;
         public event Action OnEndStun;
         public event Action OnDead;
 
         private float nowStunDuration;
         private int thrownHitDamage = 50;
-        private float nowDamageCoolTime = 0;
+        private float invisibleTime = 0;
         private IStageObjectCatchAndThrow catchAndThrow;
 
         protected override void OnAwake_Virtual()
@@ -54,7 +57,7 @@ namespace StageObject
 
         public void HitEffectColliderDamage(EffectCollider col)
         {
-            if (nowDamageCoolTime <= 0)
+            if (invisibleTime <= 0)
             {
                 if (col.Damage > 0) Damage(col.Damage);
                 if (col.StunDamage > 0) StunDamage(col.StunDamage);
@@ -64,7 +67,7 @@ namespace StageObject
                     GetComponent<IStageObjectBuffManager>().Add(col.Buffs[i]);
                 }
                 KnockBack(-((Vector2)(transform.position - col.transform.position)).normalized, col.KnockBackPower);
-                nowDamageCoolTime = col.CoolTime;
+                Invisible(col.CoolTime);
             }
         }
 
@@ -144,14 +147,28 @@ namespace StageObject
             if (IsStun)
             {
                 nowStunDuration -= Time.deltaTime;
-                if (nowStunDuration <= 0)
+                if (nowStunDuration <= 0 && !catchAndThrow.IsThrown)
                 {
                     EndStun();
                 }
             }
-            if(nowDamageCoolTime > 0 && !catchAndThrow.IsThrown)
+            if(invisibleTime > 0)
             {
-                nowDamageCoolTime -= Time.deltaTime;
+                invisibleTime -= Time.deltaTime;
+                if(invisibleTime <= 0)
+                {
+                    invisibleTime = 0;
+                    OnEndInvisible?.Invoke();
+                }
+            }
+        }
+
+        public void Invisible(float duration)
+        {
+            if (invisibleTime < duration)
+            {
+                invisibleTime = duration;
+                OnInvisible?.Invoke(duration);
             }
         }
 

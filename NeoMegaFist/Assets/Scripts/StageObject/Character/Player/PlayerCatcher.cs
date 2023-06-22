@@ -18,9 +18,9 @@ namespace StageObject
 
         [Inject] private IInputer inputer;
 
-        public int Priority => 2;
+        public int RotationPriority => 2;
         public float Rotation { get; private set; }
-        public bool IsActive { get; private set; }
+        public bool RotationIsActive { get; private set; }
 
         private bool isCatching = false;//掴み動作を行っているか
         private StageObjectCatchAndThrow catchTarget;//掴んでいるオブジェクト
@@ -36,13 +36,13 @@ namespace StageObject
         public void Catching()
         {
             animator.SetTrigger("Catch");
-            IsActive = true;
+            RotationIsActive = true;
             isCatching = true;
             Rotation = GetAngle(transform.position, Camera.main.ScreenToWorldPoint(inputer.GetMousePosition())) + 90;
             DOVirtual.DelayedCall(catchInterval, () =>
             {
                 isCatching = false;
-                IsActive = false;
+                RotationIsActive = false;
             });
         }
 

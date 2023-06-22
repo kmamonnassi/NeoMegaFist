@@ -523,6 +523,8 @@ GameObject:
   - component: {fileID: 3686736546442695238}
   - component: {fileID: 8503057697391378543}
   - component: {fileID: 5385182116023040047}
+  - component: {fileID: 462145553426228613}
+  - component: {fileID: 8285077083245971072}
   - component: {fileID: 6359026122109345890}
   m_Layer: 7
   m_Name: Player
@@ -639,8 +641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79754fd3055baf4b888717676446aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 3746904736517480673}
   player: {fileID: 6085228258668757946}
+  playerMover: {fileID: 462145553426228613}
   rotater: {fileID: 3686736546442695238}
   moveSpeed: 200
 --- !u!114 &2066858104121686681
@@ -703,6 +705,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrownCollider: {fileID: 0}
   isCatchableObject: 0
+--- !u!114 &462145553426228613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433431035312424676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858242d0b1778c4408b14ba8d412b910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 3746904736517480673}
+--- !u!114 &8285077083245971072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433431035312424676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6144061d03a1f614aa6afe967629b45e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 6085228258668757946}
+  playerMover: {fileID: 462145553426228613}
+  baseDodgeSpeed: 1500
+  baseDodgeDuration: 0.1
+  invisibleDuration: 0.15
 --- !u!58 &6359026122109345890
 CircleCollider2D:
   m_ObjectHideFlags: 0

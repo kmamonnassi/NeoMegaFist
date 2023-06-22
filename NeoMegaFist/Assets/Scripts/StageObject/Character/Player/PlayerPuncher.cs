@@ -14,9 +14,9 @@ namespace StageObject
 
         [Inject] private IInputer inputer; 
 
-        public int Priority => 1;
+        public int RotationPriority => 1;
         public float Rotation { get; private set; }
-        public bool IsActive { get; private set; }
+        public bool RotationIsActive { get; private set; }
 
         private void Awake()
         {
@@ -29,7 +29,7 @@ namespace StageObject
             if (inputer.GetPlayerPunchStart())
             {
                 animator.SetBool("Punch", true);
-                IsActive = true;
+                RotationIsActive = true;
                 player.SetSpeed(player.Speed - decressSpeed);
             }
             else
@@ -41,7 +41,7 @@ namespace StageObject
                if (inputer.GetPlayerPunchEnd())
             {
                 animator.SetBool("Punch", false);
-                IsActive = false;
+                RotationIsActive = false;
                 player.SetSpeed(player.Speed + decressSpeed);
             }
         }

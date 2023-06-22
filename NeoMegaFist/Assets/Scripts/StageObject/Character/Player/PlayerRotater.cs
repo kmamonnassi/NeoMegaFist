@@ -26,10 +26,10 @@ namespace StageObject
             IPlayerRotate rotate = null;
             foreach (IPlayerRotate r in rotates)
             {
-                if (r.IsActive)
+                if (r.RotationIsActive)
                 {
                     if (rotate == null) rotate = r;
-                    if (r.Priority > rotate.Priority)
+                    if (r.RotationPriority > rotate.RotationPriority)
                     {
                         rotate = r;
                     }
@@ -44,8 +44,8 @@ namespace StageObject
 
     public interface IPlayerRotate
     {
-        int Priority { get; }
+        int RotationPriority { get; }
         float Rotation { get; }
-        bool IsActive { get; }
+        bool RotationIsActive { get; }
     }
 }

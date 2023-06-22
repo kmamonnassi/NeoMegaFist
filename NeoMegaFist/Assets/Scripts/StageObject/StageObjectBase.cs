@@ -32,6 +32,16 @@ namespace StageObject
             OnAwake_Virtual();
             updater.AddUpdate(this);
             updater.AddFixedUpdate(this);
+
+            //アップデート関数はひとまとまりにして回す
+            foreach (IUpdate update in GetComponents<IUpdate>())
+            {
+                updater.AddUpdate(update);
+            }
+            foreach (IFixedUpdate update in GetComponents<IFixedUpdate>())
+            {
+                updater.AddFixedUpdate(update);
+            }
         }
 
         void IUpdate.ManagedUpdate()
@@ -50,6 +60,16 @@ namespace StageObject
             IsKilled = true;
             updater.RemoveUpdate(this);
             updater.RemoveFixedUpdate(this);
+
+            //回されたアップデート関数を全て削除する
+            foreach (IUpdate update in GetComponents<IUpdate>())
+            {
+                updater.RemoveUpdate(update);
+            }
+            foreach (IFixedUpdate update in GetComponents<IFixedUpdate>())
+            {
+                updater.RemoveFixedUpdate(update);
+            }
 
             Destroy(gameObject);
             OnKill_Virtual();
