@@ -181,7 +181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1342662667141766700, guid: ad48a2e21a9c1684f8f8faf6d11964e4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -511,6 +511,10 @@ PrefabInstance:
     - target: {fileID: 237211421360932460, guid: 9eebfc4e0db634b4382e9249a37c5285, type: 3}
       propertyPath: m_Name
       value: SceneAudioImporter
+      objectReference: {fileID: 0}
+    - target: {fileID: 237211421360932460, guid: 9eebfc4e0db634b4382e9249a37c5285, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 237211421360932462, guid: 9eebfc4e0db634b4382e9249a37c5285, type: 3}
       propertyPath: m_RootOrder
