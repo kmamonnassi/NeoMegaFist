@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility;
 using Zenject;
 
 namespace StageObject.Buff
 {
-    public class StageObjectBuffManager : MonoBehaviour, IStageObjectBuffManager
+    public class StageObjectBuffManager : MonoBehaviour, IStageObjectBuffManager, IUpdate
     {
         [Inject] private IBuffDB buffDB;
 
@@ -44,13 +45,13 @@ namespace StageObject.Buff
             }
         }
 
-        private void Update()
+        public void ManagedUpdate()
         {
             List<BuffBase> copy = new List<BuffBase>(buffs);
-            foreach(BuffBase buff in copy)
+            foreach (BuffBase buff in copy)
             {
                 buff.Update();
-                if(buff.Duration <= 0)
+                if (buff.Duration <= 0)
                 {
                     buffs.Remove(buff);
                     buff.CallRemove();

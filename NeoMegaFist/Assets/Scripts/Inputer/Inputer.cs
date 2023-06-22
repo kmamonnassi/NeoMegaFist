@@ -42,6 +42,21 @@ namespace InputControl
             return inputControl.Player.Throw.WasReleasedThisFrame();
         }
 
+        public bool GetOverhandThrowStart()
+        {
+            return inputControl.Player.OverhandThrow.WasReleasedThisFrame();
+        }
+
+        public bool GetOverhandThrow()
+        {
+            return inputControl.Player.OverhandThrow.IsPressed();
+        }
+
+        public bool GetOverhandThrowEnd()
+        {
+            return inputControl.Player.OverhandThrow.WasReleasedThisFrame();
+        }
+
         public bool GetPlayerPunchStart()
         {
             return inputControl.Player.Punch.WasPressedThisFrame();
@@ -55,6 +70,21 @@ namespace InputControl
         public bool GetPlayerPunchEnd()
         {
             return inputControl.Player.Punch.WasReleasedThisFrame();
+        }
+
+        public bool GetPlayerDodgeStart()
+        {
+            return inputControl.Player.Dodge.WasPerformedThisFrame();
+        }
+
+        public bool GetPlayerDodge()
+        {
+            return inputControl.Player.Dodge.IsPressed();
+        }
+
+        public bool GetPlayerDodgeEnd()
+        {
+            return inputControl.Player.Dodge.WasReleasedThisFrame();
         }
     }
 }

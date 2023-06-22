@@ -10,8 +10,14 @@ namespace InputControl
         bool GetPlayerThrowStart();
         bool GetPlayerThrow();
         bool GetPlayerThrowEnd();
+        bool GetOverhandThrowStart();
+        bool GetOverhandThrow();
+        bool GetOverhandThrowEnd();
         bool GetPlayerPunchStart();
         bool GetPlayerPunch();
         bool GetPlayerPunchEnd();
+        bool GetPlayerDodgeStart();
+        bool GetPlayerDodge();
+        bool GetPlayerDodgeEnd();
     }
 }
