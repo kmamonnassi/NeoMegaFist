@@ -37,13 +37,14 @@ namespace StageObject
         private float nowStunDuration;
         private int thrownHitDamage = 50;
         private float nowDamageCoolTime = 0;
+        private IStageObjectCatchAndThrow catchAndThrow;
 
         protected override void OnAwake_Virtual()
         {
             hp = maxHP;
             stamina = maxStamina;
             uiManager.Create(this);
-            StageObjectCatchAndThrow catchAndThrow = GetComponent<StageObjectCatchAndThrow>();
+            catchAndThrow = GetComponent<IStageObjectCatchAndThrow>();
             if(catchAndThrow.ThrownCollider != null)
             {
                 catchAndThrow.ThrownCollider.OnHitTarget += (obj) => Damage(thrownHitDamage);
@@ -148,7 +149,7 @@ namespace StageObject
                     EndStun();
                 }
             }
-            if(nowDamageCoolTime > 0)
+            if(nowDamageCoolTime > 0 && !catchAndThrow.IsThrown)
             {
                 nowDamageCoolTime -= Time.deltaTime;
             }

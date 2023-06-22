@@ -140,6 +140,7 @@ MonoBehaviour:
   stunDuration: 7
   CharacterStatusUIOffset: {x: 0, y: -48}
   baseSpeed: 50
+  attackCollider: {fileID: 4505592418873649556}
 --- !u!114 &5619052787277740284
 MonoBehaviour:
   m_ObjectHideFlags: 0
