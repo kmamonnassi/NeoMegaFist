@@ -25,12 +25,14 @@ namespace StageObject
 
         private void OnCollisionEnter2D(Collision2D col)
         {
-            Check(col.gameObject);
+            if(this.enabled)
+                Check(col.gameObject);
         }
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            Check(col.gameObject);
+            if (this.enabled)
+                Check(col.gameObject);
         }
 
         private void Check(GameObject obj)

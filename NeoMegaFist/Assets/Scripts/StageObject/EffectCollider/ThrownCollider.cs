@@ -8,7 +8,6 @@ namespace StageObject
 {
     public class ThrownCollider : EffectCollider, ITimeScalable
     {
-        [SerializeField] private StageObjectCatchAndThrow catchAndThrow;
         [Inject] private IPostEffectCamera postEffectCamera;
         [Inject] private ITimeScaler timeScaler;
 

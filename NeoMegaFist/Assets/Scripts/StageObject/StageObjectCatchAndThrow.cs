@@ -5,7 +5,7 @@ using UnityEngine;
 namespace StageObject
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class StageObjectCatchAndThrow : MonoBehaviour
+    public class StageObjectCatchAndThrow : MonoBehaviour, IStageObjectCatchAndThrow
     {
         [SerializeField] private ThrownCollider thrownCollider;
         [SerializeField] private bool isCatchableObject = true;//このオブジェクトは掴めるかどうか
