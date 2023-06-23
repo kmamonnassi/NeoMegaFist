@@ -384,8 +384,8 @@ GameObject:
   - component: {fileID: 7898415160580974438}
   - component: {fileID: 3173467222001343453}
   - component: {fileID: 995081780534796813}
-  - component: {fileID: 2327787062257590794}
-  - component: {fileID: 8063880500684841279}
+  - component: {fileID: 119283134072288936}
+  - component: {fileID: 5316867667056159445}
   m_Layer: 5
   m_Name: VolumeSettingCanvas
   m_TagString: Untagged
@@ -409,7 +409,7 @@ RectTransform:
   - {fileID: 9061729874330472740}
   - {fileID: 4944173045663316311}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -497,7 +497,7 @@ MonoBehaviour:
   masterVolumeValueText: {fileID: 9215484158514557637}
   bgmVolumeValueText: {fileID: 3576247195639359161}
   seVolumeValueText: {fileID: 7824566316528440762}
---- !u!114 &2327787062257590794
+--- !u!114 &119283134072288936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -506,12 +506,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2899758286400443053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 856918d5adcf91248a7409196cb18ad4, type: 3}
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  view: {fileID: 995081780534796813}
-  model: {fileID: 8063880500684841279}
---- !u!114 &8063880500684841279
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 5316867667056159445}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &5316867667056159445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -520,9 +524,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2899758286400443053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 819221f7a117c1f44925ea147957dc08, type: 3}
+  m_Script: {fileID: 11500000, guid: 3790840f6d950414d9ef86e4594e4947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slidersViewHaveObj: {fileID: 2899758286400443053}
 --- !u!1 &3319460027919378560
 GameObject:
   m_ObjectHideFlags: 0

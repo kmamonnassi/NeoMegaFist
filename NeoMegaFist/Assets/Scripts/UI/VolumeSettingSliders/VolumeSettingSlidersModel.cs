@@ -3,13 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using Audio;
 using Zenject;
+using UniRx;
+using System;
 
 namespace UI.VolumeSettingSliders
 {
-    public class VolumeSettingSlidersModel : MonoBehaviour
+    public class VolumeSettingSlidersModel : IInitializable
     {
         [Inject]
         private IAudioVolumeSettable volumeSettable;
+
+        public Subject<VolumeData> volumeSetHandler = new Subject<VolumeData>();
+
+        void IInitializable.Initialize()
+        {
+            InitVolumeSlider();
+        }
+
+        /// <summary>
+        /// 音量スライダーを初期化
+        /// </summary>
+        private void InitVolumeSlider()
+        {
+            volumeSetHandler.OnNext(GetVolumeData());
+        }
+
+        /// <summary>
+        /// 音声データを取得する
+        /// </summary>
+        public VolumeData GetVolumeData()
+        {
+            return volumeSettable.GetVolumeData();
+        }
 
         /// <summary>
         /// マスター音量を設定する
@@ -40,5 +65,6 @@ namespace UI.VolumeSettingSliders
             volume = Mathf.Clamp01(volume);
             volumeSettable.SetSeVolume(volume);
         }
+
     }
 }

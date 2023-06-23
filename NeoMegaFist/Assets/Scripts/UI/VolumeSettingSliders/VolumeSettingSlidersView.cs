@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
 using TMPro;
+using Audio;
 
 namespace UI.VolumeSettingSliders
 {
@@ -36,13 +37,8 @@ namespace UI.VolumeSettingSliders
         private ReactiveProperty<float> seVolumeValue = new ReactiveProperty<float>();
         public IReadOnlyReactiveProperty<float> seVolumeValueProp => seVolumeValue;
 
-
         private void Awake()
         {
-            masterVolumeSlider.value = 0.5f;
-            bgmVolumeSlider.value = 0.5f;
-            seVolumeSlider.value = 0.5f;
-
             masterVolumeSlider.OnValueChangedAsObservable()
                 .Subscribe(value => OnValueChanged(value, masterVolumeValue, masterVolumeValueText))
                 .AddTo(gameObject);
@@ -56,9 +52,11 @@ namespace UI.VolumeSettingSliders
                 .AddTo(gameObject);
         }
 
-        void Start()
+        public void SetAllVolumeSliderValue(VolumeData volumeData)
         {
-            
+            masterVolumeSlider.value = volumeData.masterVolumeData;
+            bgmVolumeSlider.value = volumeData.bgmVolumeData;
+            seVolumeSlider.value = volumeData.seVolumeData;
         }
 
         /// <summary>
