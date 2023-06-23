@@ -1,11 +1,7 @@
 using UnityEngine;
 using Zenject;
 using CriWare;
-using System.IO;
-using System;
 
-// TODO:Json‚ð‚¢‚¢Š´‚¶‚É•Û‘¶‚·‚é•Ö—˜‚Èclass‚ðì‚é
-// TODO:Json•Û‘¶‚ÅMakeJsonDataPath‚ðŽg‚¤‚ÆƒGƒ‰[‚É‚È‚é
 namespace Audio
 {
     public class AudioVolumeSetting : IInitializable, IAudioVolumeSettable
@@ -23,7 +19,6 @@ namespace Audio
         public float bgmVolumeProp => bgmVolume;
 
         private VolumeData volumeData = new VolumeData();
-        private GetSetAudioJsonData getSetAudioJsonData = new GetSetAudioJsonData();
 
         public AudioVolumeSetting()
         {
@@ -71,14 +66,18 @@ namespace Audio
             volumeData.seVolumeData = seVolume;
             volumeData.bgmVolumeData = bgmVolume;
 
-            getSetAudioJsonData.SaveVolumeData(volumeData);
+            JsonUtilityExtensions.CheckJsonDirectory();
+            JsonUtilityExtensions.WriteJson(volumeData, AudioSettingStaticData.VOLUME_SETTING_JSON_NAME);
         }
 
         private VolumeData LoadVolumeData()
         {
-            VolumeData loadedVolumeData = getSetAudioJsonData.LoadVolumeData();
+            VolumeData loadedVolumeData = JsonUtilityExtensions.ReadJson<VolumeData>(AudioSettingStaticData.VOLUME_SETTING_JSON_NAME);
             if (loadedVolumeData != null)
             {
+                masterVolume = loadedVolumeData.masterVolumeData;
+                seVolume = loadedVolumeData.seVolumeData;
+                bgmVolume = loadedVolumeData.bgmVolumeData;
                 return loadedVolumeData;
             }
             else

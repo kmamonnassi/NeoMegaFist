@@ -7,8 +7,6 @@ using System.Linq;
 using System.Threading;
 using System;
 
-// TODO:json‚ÅƒJƒeƒSƒŠ‚Ìî•ñ‚ğæ‚ê‚é‚æ‚¤‚É‚·‚é
-
 namespace Audio
 {
     public class AudioManager : IInitializable, IAudioLoadable, ISePlayable, IBgmPlayable, ICategoryAudioControllable
