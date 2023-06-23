@@ -23,6 +23,7 @@ namespace Audio
         public float bgmVolumeProp => bgmVolume;
 
         private VolumeData volumeData = new VolumeData();
+        private GetSetAudioJsonData getSetAudioJsonData = new GetSetAudioJsonData();
 
         public AudioVolumeSetting()
         {
@@ -70,79 +71,28 @@ namespace Audio
             volumeData.seVolumeData = seVolume;
             volumeData.bgmVolumeData = bgmVolume;
 
-            //StreamWriter streamWriter;
-            string jsonStr = JsonUtility.ToJson(volumeData, true);
-#if UNITY_EDITOR
-            if (!Directory.Exists(Application.dataPath + AudioSettingStaticData.JSON_DIRECTORY_PATH))
-            {
-                Directory.CreateDirectory(Application.dataPath + AudioSettingStaticData.JSON_DIRECTORY_PATH);
-            }
-
-            //if (!File.Exists(Application.dataPath + AudioSettingStaticData.VOLUME_SETTING_PATH))
-            //{
-            //    File.Create(Application.dataPath + AudioSettingStaticData.VOLUME_SETTING_PATH);
-            //}
-            //streamWriter = new StreamWriter(Application.dataPath + AudioSettingStaticData.VOLUME_SETTING_PATH, false);
-            string dataPath = Application.dataPath + AudioSettingStaticData.VOLUME_SETTING_PATH;
-            File.WriteAllText(dataPath, jsonStr);
-#else
-            if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') + AudioSettingStaticData.JSON_DIRECTORY_PATH))
-            {
-                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') + AudioSettingStaticData.JSON_DIRECTORY_PATH);
-            }
-            string dataPath = AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') + AudioSettingStaticData.VOLUME_SETTING_PATH;
-            File.WriteAllText(dataPath, jsonStr);
-#endif
+            getSetAudioJsonData.SaveVolumeData(volumeData);
         }
 
         private VolumeData LoadVolumeData()
         {
-            string dataStr = string.Empty;
-            StreamReader streamReader = default;
-#if UNITY_EDITOR
-            if (File.Exists(Application.dataPath + AudioSettingStaticData.VOLUME_SETTING_PATH))
+            VolumeData loadedVolumeData = getSetAudioJsonData.LoadVolumeData();
+            if (loadedVolumeData != null)
             {
-                streamReader = new StreamReader(Application.dataPath + AudioSettingStaticData.VOLUME_SETTING_PATH);
+                return loadedVolumeData;
             }
-#else
-        if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') + AudioSettingStaticData.JSON_DIRECTORY_PATH))
-        {
-            Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') + AudioSettingStaticData.JSON_DIRECTORY_PATH);
-        }
-        
-        if(File.Exists(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') + AudioSettingStaticData.VOLUME_SETTING_PATH))
-        {
-            streamReader = new StreamReader(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') + AudioSettingStaticData.VOLUME_SETTING_PATH);
-        }
-#endif
-            if (streamReader != null)
+            else
             {
-                dataStr = streamReader.ReadToEnd();
-                streamReader.Close();
-            }
-
-            if (string.IsNullOrEmpty(dataStr))
-            {
-                streamReader?.Close();
-
                 masterVolume = AudioSettingStaticData.START_VOLUME_MASTER;
                 seVolume = AudioSettingStaticData.START_VOLUME_SE;
                 bgmVolume = AudioSettingStaticData.START_VOLUME_BGM;
 
-                VolumeData unloadedData = new VolumeData();
-                unloadedData.masterVolumeData = masterVolume;
-                unloadedData.seVolumeData = seVolume;
-                unloadedData.bgmVolumeData = bgmVolume;
-                return unloadedData;
+                loadedVolumeData = new VolumeData();
+                loadedVolumeData.masterVolumeData = masterVolume;
+                loadedVolumeData.seVolumeData = seVolume;
+                loadedVolumeData.bgmVolumeData = bgmVolume;
+                return loadedVolumeData;
             }
-
-            VolumeData data = JsonUtility.FromJson<VolumeData>(dataStr);
-
-            masterVolume = data.masterVolumeData;
-            seVolume = data.seVolumeData;
-            bgmVolume = data.bgmVolumeData;
-
-            return data;
         }
 
         VolumeData IAudioVolumeSettable.GetVolumeData()
