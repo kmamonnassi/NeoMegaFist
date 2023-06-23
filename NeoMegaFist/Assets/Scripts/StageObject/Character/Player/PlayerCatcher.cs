@@ -14,7 +14,7 @@ namespace StageObject
         [SerializeField] private PlayerRotater rotater;
         [SerializeField] private CatchCollider catchCollider;
         [SerializeField] private Player player;
-        [SerializeField] private GameObject overhandThrowMark;
+        [SerializeField] private GameObject overhandThrowMark;//上投げで投げる場所を示すマーク
         [SerializeField] private float catchInterval = 0.35f;//掴み動作のクールタイム
         [SerializeField] private float baseThrowPower = 50;//投げる力
         [SerializeField] private float baseOverhandThrowDuration = 0.5f;//上投げの最大飛距離
@@ -117,16 +117,16 @@ namespace StageObject
                 Vector2 mousePos = Camera.main.ScreenToWorldPoint(inputer.GetMousePosition());
                 Vector2 thrownPos = mousePos;
                 var hitWall = Physics2D.Raycast(transform.position, (mousePos - (Vector2)transform.position).normalized, baseOverhandThrowDistance, 1 << LayerMask.NameToLayer("Wall"));
-                
-                if(Vector2.Distance(mousePos, transform.position) > baseOverhandThrowDistance)
+
+                if (Vector2.Distance(mousePos, transform.position) > baseOverhandThrowDistance)
                 {
                     thrownPos = (Vector2)transform.position + (mousePos - (Vector2)transform.position).normalized * baseOverhandThrowDistance;
                 }
-                if(hitWall)
+                if (hitWall)
                 {
+                    if(Vector2.Distance(mousePos, transform.position) > Vector2.Distance(hitWall.point, transform.position))
                     thrownPos = hitWall.point;
-                    Debug.Log("OK");
-				}
+                }
 
                 overhandThrowMark.transform.position = thrownPos;
                 if (inputer.GetOverhandThrowEnd())

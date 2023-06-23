@@ -2,6 +2,7 @@
 using DG.Tweening;
 using System;
 using UnityEngine;
+using Zenject;
 
 namespace StageObject
 {
@@ -10,6 +11,7 @@ namespace StageObject
     {
         [SerializeField] private ThrownCollider thrownCollider;
         [SerializeField] private bool isCatchableObject = true;//このオブジェクトは掴めるかどうか
+        [Inject] private OverhandThrownImpact impactPrefab;
 
         public ThrownState State { get; private set; } = ThrownState.Freedom;
         public bool IsCatchableObject => isCatchableObject;
@@ -87,12 +89,12 @@ namespace StageObject
         public void Thrown(Vector2 dir, float power)
         {
             if (!isCatchableObject || State == ThrownState.Throw) return;
-
             Released();//投げるときは掴み状態が解除される
             State = ThrownState.Throw;
             OnThrown?.Invoke();
             //投げられるときは攻撃用のコライダーをオンにし、それ以外をオフにする
             thrownCollider.gameObject.SetActive(true);
+            thrownCollider.SetState(ThrownState.Throw);
             gameObject.layer = LayerMask.NameToLayer("ThrownStageObject");
 
             //投げの威力と方向をもとに、力を加える
@@ -141,6 +143,19 @@ namespace StageObject
             {
                 OnEndOverhandThrown?.Invoke();
                 transform.position = new Vector3(nowPosition.x, nowPosition.y, 0);
+
+                thrownCollider.SetState(ThrownState.OverhandThrow);
+                thrownCollider.gameObject.SetActive(true);
+
+                OverhandThrownImpact impact = Instantiate(impactPrefab, transform.position, Quaternion.identity, null);
+                impact.Initalize(thrownCollider);
+
+                DOVirtual.DelayedCall(0.1f, () => 
+                {
+                    thrownCollider.gameObject.SetActive(false);
+                    gameObject.layer = LayerMask.NameToLayer("StageObject");
+                    Destroy(impact.gameObject);
+                });
             };
         }
     }
