@@ -38,7 +38,7 @@ namespace StageObject
         public event Action OnDead;
 
         private float nowStunDuration;
-        private int thrownHitDamage = 50;
+        private HitColliderDamage thrownHitDamage = new HitColliderDamage(null, new[] { StageObjectType.Enemy }, 50, 50, 0, 0.5f);
         private float invisibleTime = 0;
         private IStageObjectCatchAndThrow catchAndThrow;
 
@@ -50,23 +50,32 @@ namespace StageObject
             catchAndThrow = GetComponent<IStageObjectCatchAndThrow>();
             if(catchAndThrow.ThrownCollider != null)
             {
-                catchAndThrow.ThrownCollider.OnHitTarget += (obj) => Damage(thrownHitDamage);
-                catchAndThrow.ThrownCollider.OnHitWall += () => Damage(thrownHitDamage);
+                catchAndThrow.ThrownCollider.OnHitTarget += (obj) => 
+                {
+                    thrownHitDamage.Object = obj.gameObject;
+                    Damage(thrownHitDamage);
+                };
+                catchAndThrow.ThrownCollider.OnHitWall += (obj) =>
+                {
+                    thrownHitDamage.Object = obj.gameObject;
+                    Damage(thrownHitDamage);
+                };
             }
         }
 
-        public void HitEffectColliderDamage(EffectCollider col)
+        public void Damage(HitColliderDamage col)
         {
             if (invisibleTime <= 0)
             {
                 if (col.Damage > 0) Damage(col.Damage);
                 if (col.StunDamage > 0) StunDamage(col.StunDamage);
 
+                if(col.Buffs != null)
                 for (int i = 0; i < col.Buffs.Length; i++)
                 {
                     GetComponent<IStageObjectBuffManager>().Add(col.Buffs[i]);
                 }
-                KnockBack(-((Vector2)(transform.position - col.transform.position)).normalized, col.KnockBackPower);
+                KnockBack(((Vector2)(transform.position - col.Object.transform.position)).normalized, col.KnockBackPower);
                 Invisible(col.CoolTime);
             }
         }

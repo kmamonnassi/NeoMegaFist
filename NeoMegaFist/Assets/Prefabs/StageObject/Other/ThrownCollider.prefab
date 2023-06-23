@@ -45,12 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68612cdada7da3148a570e908d0a067f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffs: []
-  hitTargets: 0100000002000000
-  damage: 50
-  stunDamage: 50
-  knockBackPower: 40
-  coolTime: 0.5
+  hitColliderDamage:
+    buffs: []
+    hitTargets: 0100000002000000
+    damage: 50
+    stunDamage: 50
+    knockBackPower: 500
+    coolTime: 0.5
+  ignores: []
   attackCollider: {fileID: 4231278358703829157}
   mainCollider: {fileID: 0}
 --- !u!58 &4231278358703829157

@@ -59,6 +59,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 2234092168577449251, guid: a87dff80a7db59d4abdac00a56279f31, type: 3}
+--- !u!1 &1380511997569280038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 954787821805135289}
+  - component: {fileID: 5615316811241395296}
+  m_Layer: 0
+  m_Name: OverhandThrownImpact
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &954787821805135289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380511997569280038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5935505227243338130}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5615316811241395296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380511997569280038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa715818279e292439fe485dd2a6c79b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactPrefab: {fileID: 5310152549569159290, guid: 55189c8f202b7074385125c209b91c8a, type: 3}
 --- !u!1 &2270528094074378765
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,6 +196,7 @@ Transform:
   - {fileID: 7352068614142589651}
   - {fileID: 954664426797529977}
   - {fileID: 7210997609634791969}
+  - {fileID: 954787821805135289}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -172,6 +218,7 @@ MonoBehaviour:
   - {fileID: 3316303438672740218}
   - {fileID: 9021990175712405658}
   - {fileID: 9062212939089508021}
+  - {fileID: 5615316811241395296}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
