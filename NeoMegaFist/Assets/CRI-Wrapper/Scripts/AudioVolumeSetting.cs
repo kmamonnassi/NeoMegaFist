@@ -22,27 +22,14 @@ namespace Audio
         private float bgmVolume;
         public float bgmVolumeProp => bgmVolume;
 
-        private VolumeData volumeData = null;
+        private VolumeData volumeData = new VolumeData();
 
         public AudioVolumeSetting()
         {
-            volumeData = LoadVolumeData();
-            if (volumeData == null)
-            {
-                masterVolume = AudioSettingStaticData.START_VOLUME_MASTER;
-                seVolume = AudioSettingStaticData.START_VOLUME_SE;
-                bgmVolume = AudioSettingStaticData.START_VOLUME_BGM;
-                volumeData = new VolumeData();
-                volumeData.masterVolumeData = masterVolume;
-                volumeData.seVolumeData = seVolume;
-                volumeData.bgmVolumeData = bgmVolume;
-            }
-            else
-            {
-                masterVolume = volumeData.masterVolumeData;
-                seVolume = volumeData.seVolumeData;
-                bgmVolume = volumeData.bgmVolumeData;
-            }
+            VolumeData loadedData = LoadVolumeData();
+            volumeData.masterVolumeData = loadedData.masterVolumeData;
+            volumeData.seVolumeData = loadedData.seVolumeData;
+            volumeData.bgmVolumeData = loadedData.bgmVolumeData;
         }
 
         // InjectÇégÇ¡ÇΩèâä˙âªÇÕÇ±Ç±Ç≈çsÇ§
@@ -137,11 +124,25 @@ namespace Audio
             if (string.IsNullOrEmpty(dataStr))
             {
                 streamReader?.Close();
-                return null;
+
+                masterVolume = AudioSettingStaticData.START_VOLUME_MASTER;
+                seVolume = AudioSettingStaticData.START_VOLUME_SE;
+                bgmVolume = AudioSettingStaticData.START_VOLUME_BGM;
+
+                VolumeData unloadedData = new VolumeData();
+                unloadedData.masterVolumeData = masterVolume;
+                unloadedData.seVolumeData = seVolume;
+                unloadedData.bgmVolumeData = bgmVolume;
+                return unloadedData;
             }
 
-            VolumeData volumeData = JsonUtility.FromJson<VolumeData>(dataStr);
-            return volumeData;
+            VolumeData data = JsonUtility.FromJson<VolumeData>(dataStr);
+
+            masterVolume = data.masterVolumeData;
+            seVolume = data.seVolumeData;
+            bgmVolume = data.bgmVolumeData;
+
+            return data;
         }
 
         VolumeData IAudioVolumeSettable.GetVolumeData()
