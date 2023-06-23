@@ -14,9 +14,9 @@ TagManager:
   - PostEffectRender
   - StageObject
   - ThrownStageObject
-  - 
-  - 
-  - 
+  - DodgePlayer
+  - OverhandThrownStageObject
+  - Wall
   - 
   - 
   - 

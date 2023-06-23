@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1577836859889181914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 32, y: 32, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5102086217447744948}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d6b25f0560635341b29db5087971d2d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -166,7 +166,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 3
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: a3d425a02dd9afd4bad7fea5ad14e05f, type: 2}
@@ -241,12 +241,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5addf11a5651bb64e92734fee110a4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffs: []
-  hitTargets: 00000000
-  damage: 10
-  stunDamage: 0
-  knockBackPower: 20
-  coolTime: 2
+  hitColliderDamage:
+    buffs: []
+    hitTargets: 00000000
+    damage: 10
+    stunDamage: 0
+    knockBackPower: 20
+    coolTime: 2
+  ignores: []
 --- !u!1001 &8509376616710538779
 PrefabInstance:
   m_ObjectHideFlags: 0

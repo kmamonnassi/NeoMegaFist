@@ -1,6 +1,7 @@
 using StageObject.Buff;
 using System;
 using UnityEngine;
+using Utility;
 using Zenject;
 
 namespace StageObject
@@ -30,13 +31,15 @@ namespace StageObject
         public event Action<int> OnSetStamina;
         public event Action<int> OnSetMaxStamina;
         public event Action<int> OnStunDamage;
+        public event Action<float> OnInvisible;
+        public event Action OnEndInvisible;
         public event Action OnStun;
         public event Action OnEndStun;
         public event Action OnDead;
 
         private float nowStunDuration;
-        private int thrownHitDamage = 50;
-        private float nowDamageCoolTime = 0;
+        private HitColliderDamage thrownHitDamage = new HitColliderDamage(null, new[] { StageObjectType.Enemy }, 50, 50, 0, 0.5f);
+        private float invisibleTime = 0;
         private IStageObjectCatchAndThrow catchAndThrow;
 
         protected override void OnAwake_Virtual()
@@ -47,24 +50,33 @@ namespace StageObject
             catchAndThrow = GetComponent<IStageObjectCatchAndThrow>();
             if(catchAndThrow.ThrownCollider != null)
             {
-                catchAndThrow.ThrownCollider.OnHitTarget += (obj) => Damage(thrownHitDamage);
-                catchAndThrow.ThrownCollider.OnHitWall += () => Damage(thrownHitDamage);
+                catchAndThrow.ThrownCollider.OnHitTarget += (obj) => 
+                {
+                    thrownHitDamage.Object = obj.gameObject;
+                    Damage(thrownHitDamage);
+                };
+                catchAndThrow.ThrownCollider.OnHitWall += (obj) =>
+                {
+                    thrownHitDamage.Object = obj.gameObject;
+                    Damage(thrownHitDamage);
+                };
             }
         }
 
-        public void HitEffectColliderDamage(EffectCollider col)
+        public void Damage(HitColliderDamage col)
         {
-            if (nowDamageCoolTime <= 0)
+            if (invisibleTime <= 0)
             {
                 if (col.Damage > 0) Damage(col.Damage);
                 if (col.StunDamage > 0) StunDamage(col.StunDamage);
 
+                if(col.Buffs != null)
                 for (int i = 0; i < col.Buffs.Length; i++)
                 {
                     GetComponent<IStageObjectBuffManager>().Add(col.Buffs[i]);
                 }
-                KnockBack(-((Vector2)(transform.position - col.transform.position)).normalized, col.KnockBackPower);
-                nowDamageCoolTime = col.CoolTime;
+                KnockBack(((Vector2)(transform.position - col.Object.transform.position)).normalized, col.KnockBackPower);
+                Invisible(col.CoolTime);
             }
         }
 
@@ -144,14 +156,28 @@ namespace StageObject
             if (IsStun)
             {
                 nowStunDuration -= Time.deltaTime;
-                if (nowStunDuration <= 0)
+                if (nowStunDuration <= 0 && catchAndThrow.State != ThrownState.Throw)
                 {
                     EndStun();
                 }
             }
-            if(nowDamageCoolTime > 0 && !catchAndThrow.IsThrown)
+            if(invisibleTime > 0)
             {
-                nowDamageCoolTime -= Time.deltaTime;
+                invisibleTime -= Time.deltaTime;
+                if(invisibleTime <= 0)
+                {
+                    invisibleTime = 0;
+                    OnEndInvisible?.Invoke();
+                }
+            }
+        }
+
+        public void Invisible(float duration)
+        {
+            if (invisibleTime < duration)
+            {
+                invisibleTime = duration;
+                OnInvisible?.Invoke(duration);
             }
         }
 
