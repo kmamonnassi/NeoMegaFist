@@ -2,6 +2,7 @@ using UnityEngine;
 using Zenject;
 using CriWare;
 using System.IO;
+using System;
 
 // TODO:Jsonをいい感じに保存する便利なclassを作る
 // TODO:Json保存でMakeJsonDataPathを使うとエラーになる
@@ -31,6 +32,10 @@ namespace Audio
                 masterVolume = AudioSettingStaticData.START_VOLUME_MASTER;
                 seVolume = AudioSettingStaticData.START_VOLUME_SE;
                 bgmVolume = AudioSettingStaticData.START_VOLUME_BGM;
+                volumeData = new VolumeData();
+                volumeData.masterVolumeData = masterVolume;
+                volumeData.seVolumeData = seVolume;
+                volumeData.bgmVolumeData = bgmVolume;
             }
             else
             {
@@ -53,6 +58,7 @@ namespace Audio
         void IAudioVolumeSettable.SetMasterVolume(float ratio)
         {
             masterVolume = Mathf.Clamp01(ratio);
+            volumeData.masterVolumeData = masterVolume;
             CriAtom.SetCategoryVolume(acfEnumInfo.bgmCategoryNameProp, bgmVolume * masterVolume);
             CriAtom.SetCategoryVolume(acfEnumInfo.seCategoryNameProp, seVolume * masterVolume);
         }
@@ -60,18 +66,19 @@ namespace Audio
         void IAudioVolumeSettable.SetSeVolume(float ratio)
         {
             seVolume = Mathf.Clamp01(ratio);
+            volumeData.seVolumeData = seVolume;
             CriAtom.SetCategoryVolume(acfEnumInfo.seCategoryNameProp, seVolume * masterVolume);
         }
 
         void IAudioVolumeSettable.SetBgmVolume(float ratio)
         {
             bgmVolume = Mathf.Clamp01(ratio);
+            volumeData.bgmVolumeData = bgmVolume;
             CriAtom.SetCategoryVolume(acfEnumInfo.bgmCategoryNameProp, bgmVolume * masterVolume);
         }
 
         void IAudioVolumeSettable.SaveVolumeData()
         {
-            VolumeData volumeData = new VolumeData();
             volumeData.masterVolumeData = masterVolume;
             volumeData.seVolumeData = seVolume;
             volumeData.bgmVolumeData = bgmVolume;
@@ -92,6 +99,10 @@ namespace Audio
             string dataPath = Application.dataPath + AudioSettingStaticData.VOLUME_SETTING_PATH;
             File.WriteAllText(dataPath, jsonStr);
 #else
+            if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') + AudioSettingStaticData.JSON_DIRECTORY_PATH))
+            {
+                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') + AudioSettingStaticData.JSON_DIRECTORY_PATH);
+            }
             string dataPath = AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') + AudioSettingStaticData.VOLUME_SETTING_PATH;
             File.WriteAllText(dataPath, jsonStr);
 #endif
@@ -107,6 +118,11 @@ namespace Audio
                 streamReader = new StreamReader(Application.dataPath + AudioSettingStaticData.VOLUME_SETTING_PATH);
             }
 #else
+        if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') + AudioSettingStaticData.JSON_DIRECTORY_PATH))
+        {
+            Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') + AudioSettingStaticData.JSON_DIRECTORY_PATH);
+        }
+        
         if(File.Exists(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') + AudioSettingStaticData.VOLUME_SETTING_PATH))
         {
             streamReader = new StreamReader(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') + AudioSettingStaticData.VOLUME_SETTING_PATH);
@@ -118,14 +134,18 @@ namespace Audio
                 streamReader.Close();
             }
 
-            // データが無ければnull
             if (string.IsNullOrEmpty(dataStr))
             {
-                streamReader.Close();
+                streamReader?.Close();
                 return null;
             }
 
             VolumeData volumeData = JsonUtility.FromJson<VolumeData>(dataStr);
+            return volumeData;
+        }
+
+        VolumeData IAudioVolumeSettable.GetVolumeData()
+        {
             return volumeData;
         }
     }

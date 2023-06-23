@@ -39,5 +39,10 @@ namespace Audio
         /// ‰¹—Ê‚ð•Û‘¶‚·‚é
         /// </summary>
         void SaveVolumeData();
+
+        /// <summary>
+        /// ‰¹—Ê‚ðŽæ“¾‚·‚é
+        /// </summary>
+        VolumeData GetVolumeData();
     }
 }
