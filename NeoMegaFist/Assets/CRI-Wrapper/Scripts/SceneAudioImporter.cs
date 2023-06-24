@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System;
 using Cysharp.Threading.Tasks;
 using Zenject;
 using CriWare;
@@ -16,7 +13,7 @@ namespace Audio
         [Inject]
         private IBgmPlayable bgmPlayer;
 
-        [HideInInspector]
+        [Label("IsSceneLoadToPlayBgm")]
         public bool isSceneLoadToPlayBgm;
 
         [HideInInspector]
