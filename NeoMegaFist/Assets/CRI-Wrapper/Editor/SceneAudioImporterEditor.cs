@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.UIElements;
 using Audio;
 
 [CustomEditor(typeof(SceneAudioImporter))]
@@ -15,9 +12,7 @@ public class SceneAudioImporterEditor : Editor
         base.OnInspectorGUI();
         SceneAudioImporter importer = target as SceneAudioImporter;
 
-        importer.isSceneLoadToPlayBgm = EditorGUILayout.Toggle("IsSceneLoadToPlayBGM", importer.isSceneLoadToPlayBgm);
-
-        if(importer.isSceneLoadToPlayBgm)
+        if (importer.isSceneLoadToPlayBgm)
         {
             selectedBgmNames = importer.GetSelectedCueSheetNames()[(int)NeoMegaFist_acf.Category.CategoryGroup.BGM];
             if(selectedBgmNames.Length == 0)

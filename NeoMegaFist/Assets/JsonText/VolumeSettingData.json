@@ -1,5 +1,5 @@
 {
-    "masterVolumeData": 0.5,
-    "bgmVolumeData": 0.5,
+    "masterVolumeData": 1.0,
+    "bgmVolumeData": 1.0,
     "seVolumeData": 0.5
 }

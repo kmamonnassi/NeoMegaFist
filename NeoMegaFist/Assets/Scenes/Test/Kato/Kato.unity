@@ -509,7 +509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 237211421360932463, guid: 9eebfc4e0db634b4382e9249a37c5285, type: 3}
       propertyPath: seList.Array.data[0]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 237211421360932463, guid: 9eebfc4e0db634b4382e9249a37c5285, type: 3}
       propertyPath: sceneLoadToPlayBgmName
@@ -614,31 +614,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2617861090996549987, guid: 4d9b8ef456bb3a8409d6aefd60d7055f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2874033438700536910, guid: 4d9b8ef456bb3a8409d6aefd60d7055f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2899758286400443053, guid: 4d9b8ef456bb3a8409d6aefd60d7055f, type: 3}
       propertyPath: m_Name
       value: VolumeSettingCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2899758286400443053, guid: 4d9b8ef456bb3a8409d6aefd60d7055f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4307887268944392671, guid: 4d9b8ef456bb3a8409d6aefd60d7055f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4774215975030713158, guid: 4d9b8ef456bb3a8409d6aefd60d7055f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7777132203870836878, guid: 4d9b8ef456bb3a8409d6aefd60d7055f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9105698221325629308, guid: 4d9b8ef456bb3a8409d6aefd60d7055f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2327787062257590794, guid: 4d9b8ef456bb3a8409d6aefd60d7055f, type: 3}
