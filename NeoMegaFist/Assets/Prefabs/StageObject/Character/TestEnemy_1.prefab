@@ -99,7 +99,6 @@ GameObject:
   - component: {fileID: 455216600428947880}
   - component: {fileID: 1457805015981610760}
   - component: {fileID: 1014622767292156011}
-  - component: {fileID: 6433552883242966641}
   m_Layer: 7
   m_Name: TestEnemy_1
   m_TagString: Untagged
@@ -254,27 +253,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrownCollider: {fileID: 6373101945496131333}
   isCatchableObject: 1
---- !u!114 &6433552883242966641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3116200974191461014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5addf11a5651bb64e92734fee110a4a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitColliderDamage:
-    buffs: []
-    hitTargets: 00000000
-    damage: 10
-    stunDamage: 0
-    knockBackPower: 20
-    coolTime: 2
-  hitList: []
-  ignores: []
 --- !u!1 &3980810911173638930
 GameObject:
   m_ObjectHideFlags: 0
