@@ -1,6 +1,16 @@
+using System;
 using UnityEngine;
 
-public class Wall : MonoBehaviour
+namespace StageObject
 {
-    
+    public class Wall : MonoBehaviour
+    {
+        public event Action<EffectCollider> OnHitEffectColliderEventTrigger;
+
+        public void OnHitEffectCollider(EffectCollider col)
+        {
+            OnHitEffectColliderEventTrigger?.Invoke(col);
+        }
+    }
 }
+
