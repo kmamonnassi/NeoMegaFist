@@ -26,8 +26,9 @@ namespace StageObject
             base.OnFixedUpdate_Virtual();
 
             if (IsStun) return;
+            if (player.IsKilled) return;
 
-            if(!isAttacking)
+            if (!isAttacking)
             {
                 if (Vector2.Distance(transform.position, player.transform.position) > attackDistance)
                 {

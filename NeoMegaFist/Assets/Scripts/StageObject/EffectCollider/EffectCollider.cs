@@ -15,8 +15,8 @@ namespace StageObject
         public event Action<GameObject> OnHitWall;
         public event Action<StageObjectBase> OnHitTarget;
 
-        public List<GameObject> hitList = new List<GameObject>();
         public List<GameObject> ignores = new List<GameObject>();
+        private List<GameObject> hitList = new List<GameObject>();
 
         private void Start()
         {
