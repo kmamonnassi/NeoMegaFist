@@ -1,6 +1,7 @@
 using StageObject.Buff;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace StageObject
@@ -15,6 +16,7 @@ namespace StageObject
         public event Action<StageObjectBase> OnHitTarget;
 
         public List<GameObject> ignores = new List<GameObject>();
+        private List<GameObject> hitList = new List<GameObject>();
 
         private void Start()
         {
@@ -24,13 +26,28 @@ namespace StageObject
         private void OnCollisionEnter2D(Collision2D col)
         {
             if(this.enabled)
-                Check(col.gameObject);
+            {
+                hitList.Add(col.gameObject);
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (this.enabled)
-                Check(col.gameObject);
+            {
+                hitList.Add(col.gameObject);
+            }
+        }
+
+        private void LateUpdate()
+        {
+            if (hitList.Count == 0) return;
+            hitList = hitList.OrderBy(x => Vector2.Distance(x.transform.position, transform.position)).ToList();
+            foreach (GameObject hitObject in hitList)
+            {
+                Check(hitObject);
+            }
+            hitList.Clear();
         }
 
         private void Check(GameObject obj)
@@ -47,9 +64,13 @@ namespace StageObject
                 }
             }
             else
-            if(obj.GetComponent<Wall>() != null)
             {
-                OnHitWall?.Invoke(obj);
+                Wall wall = obj.GetComponent<Wall>();
+                if (wall != null)
+                {
+                    wall.OnHitEffectCollider(this);
+                    OnHitWall?.Invoke(obj);
+                }
             }
         }
 

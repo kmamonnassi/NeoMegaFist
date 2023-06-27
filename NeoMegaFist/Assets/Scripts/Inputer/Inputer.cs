@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace InputControl
 {
@@ -85,6 +86,19 @@ namespace InputControl
         public bool GetPlayerDodgeEnd()
         {
             return inputControl.Player.Dodge.WasReleasedThisFrame();
+        }
+
+        public ControllerType GetControllerType()
+        {
+            var controllerNames = Input.GetJoystickNames();
+            if (controllerNames[0] == "")
+            {
+                return ControllerType.Keyboard;
+            }
+            else
+            {
+                return ControllerType.Gamepad;
+            }
         }
     }
 }

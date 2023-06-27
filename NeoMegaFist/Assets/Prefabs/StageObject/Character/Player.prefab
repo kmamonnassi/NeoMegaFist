@@ -624,7 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5401c27c5a7d2dc45b417b41f57a0e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 50
+  maxHP: 100
   maxStamina: 999
   stunDuration: 2
   CharacterStatusUIOffset: {x: 0, y: -48}
