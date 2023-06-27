@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace StageObject
 {
-    public class EffectColliderShield : Wall
+    public class Shield : MonoBehaviour, IHitEffectCollider
     {
         [SerializeField] private CharacterBase protectTarget;
         [SerializeField] private bool isBrokenByThrownObject;
 
-        private void Awake()
-        {
-            OnHitEffectColliderEventTrigger += Protect;
+		public void OnHitEffectCollider(EffectCollider col)
+		{
+            Protect(col);
         }
 
         private void Protect(EffectCollider col)

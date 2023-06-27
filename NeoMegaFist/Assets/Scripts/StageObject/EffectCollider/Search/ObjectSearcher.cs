@@ -11,6 +11,7 @@ namespace StageObject
         [SerializeField] private StageObjectType[] targets;
         [SerializeField] private float angle = 22.5f;
         [SerializeField] private float distance = 64;
+        [SerializeField] private float offsetLength = 8;
 
         public event Action<StageObjectBase> OnSearched;
 
@@ -28,14 +29,17 @@ namespace StageObject
             foreach(StageObjectBase obj in hitObject)
             {
                 //Ž‹ŠE‚ÌŠp“x“à‚ÉŽû‚Ü‚Á‚Ä‚¢‚é‚©
+                float myAngle = transform.eulerAngles.z - 180;
                 float target_angle = GetAngle(obj.transform.position, transform.position);
                 //target_angle‚ªangle‚ÉŽû‚Ü‚Á‚Ä‚¢‚é‚©‚Ç‚¤‚©
-                if (Mathf.Repeat(transform.eulerAngles.z - target_angle, 360) < Mathf.Repeat(angle, 360) || Mathf.Repeat(transform.eulerAngles.z - target_angle, 360) > Mathf.Repeat(-angle, 360))
+                if (Mathf.Repeat(myAngle - target_angle, 360) < Mathf.Repeat(angle, 360) || Mathf.Repeat(myAngle - target_angle, 360) > Mathf.Repeat(-angle, 360))
                 {
                     Vector2 dir = ((Vector2)(obj.transform.position - transform.position)).normalized;
+
                     //Ray‚ðŽg—p‚µ‚Ätarget‚É“–‚½‚Á‚Ä‚¢‚é‚©”»•Ê
-                    //Debug.DrawRay(transform.position, dir * distance, Color.green, 1);
-                    var hit = Physics2D.Raycast(transform.position, dir, distance, LayerMask.GetMask("Wall", "StageObject"));
+                    Vector2 offset = dir * offsetLength;
+                    Vector2 origin = (Vector2)transform.position + offset;
+                    var hit = Physics2D.Raycast(origin, dir, distance - offsetLength, LayerMask.GetMask("Wall", "StageObject"));
                     if (hit)
                     {
                         Debug.Log(hit.collider.name + "/" + obj.name);

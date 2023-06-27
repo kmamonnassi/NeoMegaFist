@@ -132,6 +132,7 @@ MonoBehaviour:
   targets: 00000000
   angle: 45
   distance: 128
+  offsetLength: 16.1
 --- !u!58 &262523499293055640
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -220,9 +221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495da9f7829f512419b7db53bb3bd4f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 200
+  maxHP: 50
   maxStamina: 15
-  stunDuration: 20
+  stunDuration: 12
   CharacterStatusUIOffset: {x: 0, y: -48}
   animator: {fileID: 2165581161449512376}
   attackDistance: 96
