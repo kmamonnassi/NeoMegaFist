@@ -214,7 +214,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 1495930128}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -315,15 +316,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1495930127 stripped
+--- !u!114 &1495930128 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1580433418073106586, guid: 1ee18cd68198a5e48b2d16eb6ae8a4f6, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1081633206092988521, guid: 1ee18cd68198a5e48b2d16eb6ae8a4f6, type: 3}
   m_PrefabInstance: {fileID: 2521401648859600055}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 408be379b0187cf43a060ab5d7c0c82e, type: 3}
+  m_Script: {fileID: 11500000, guid: fc2da84d96eb24640ae0e238981f5602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1584265842
@@ -355,7 +356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f70b1e8d65eef4a9c42bb46996ec69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 1495930127}
   spriteAsset: {fileID: 11400000, guid: e1821d62439ad5e4f989da902de97ab2, type: 2}
 --- !u!4 &1584265844
 Transform:
