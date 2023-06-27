@@ -12,6 +12,8 @@ namespace StageObject
         [SerializeField] private float attackDistance;
         [SerializeField] private float attackingTime;
         [SerializeField] private float baseSpeed;
+        [SerializeField] private ObjectSearcher searcher;
+        [SerializeField] private bool isAlreadySearched = false;
 
         [Inject] private Player player;
 
@@ -21,12 +23,19 @@ namespace StageObject
 
         private bool isAttacking = false;
 
+        protected override void OnAwake_Virtual()
+        {
+            base.OnAwake_Virtual();
+            searcher.OnSearched += (obj) => isAlreadySearched = true;
+        }
+
         protected override void OnFixedUpdate_Virtual()
         {
             base.OnFixedUpdate_Virtual();
 
             if (IsStun) return;
             if (player.IsKilled) return;
+            if (!isAlreadySearched) return;
 
             if (!isAttacking)
             {

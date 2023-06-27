@@ -1174,7 +1174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8961462859727740850, guid: 72f4fe465539df84d9642d12e225c0c5, type: 3}
       propertyPath: orthographic size
-      value: 270
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1417,6 +1417,10 @@ PrefabInstance:
     - target: {fileID: 3116200974191461014, guid: d10d74398a345f1489744b134fc1b685, type: 3}
       propertyPath: m_Name
       value: TestEnemy_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116200974191461014, guid: d10d74398a345f1489744b134fc1b685, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8192305781693139458, guid: d10d74398a345f1489744b134fc1b685, type: 3}
       propertyPath: m_RootOrder
@@ -1895,6 +1899,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestEnemy_1
       objectReference: {fileID: 0}
+    - target: {fileID: 3116200974191461014, guid: d10d74398a345f1489744b134fc1b685, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8192305781693139458, guid: d10d74398a345f1489744b134fc1b685, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2019,6 +2027,10 @@ PrefabInstance:
     - target: {fileID: 251743973396282698, guid: 9962c642f07e76049989a52319f2bc37, type: 3}
       propertyPath: m_Name
       value: TestEnemy_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 251743973396282698, guid: 9962c642f07e76049989a52319f2bc37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3757919788028298261, guid: 9962c642f07e76049989a52319f2bc37, type: 3}
       propertyPath: m_RootOrder

@@ -9,19 +9,30 @@ namespace StageObject
         [SerializeField] private float shotInterval = 2;
         [SerializeField] private float bulletSpeed = 200;
         [SerializeField] private float bulletLifeTime = 10;
-        [Inject] private DiContainer container;
+        [SerializeField] private ObjectSearcher searcher;
+        [SerializeField] private bool isAlreadySearched = false;
 
         public override StageObjectID ID => StageObjectID.Mushroom;
         public override StageObjectType Type => StageObjectType.Enemy;
         public override Size DefaultSize => Size.Small;
 
+        [Inject] private DiContainer container;
         [Inject] private Player player;
 
         private float nowShotInterval = 0;
 
+        protected override void OnAwake_Virtual()
+        {
+            base.OnAwake_Virtual();
+            searcher.OnSearched += (obj) => isAlreadySearched = true;
+        }
+
         protected override void OnUpdate_Virtual()
         {
             base.OnUpdate_Virtual();
+            if (IsStun) return;
+            if (player.IsKilled) return;
+            if (!isAlreadySearched) return;
 
             nowShotInterval += Time.deltaTime;
             if(nowShotInterval > shotInterval)

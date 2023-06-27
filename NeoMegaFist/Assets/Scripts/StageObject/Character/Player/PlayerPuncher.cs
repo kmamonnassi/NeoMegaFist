@@ -35,6 +35,7 @@ namespace StageObject
             else
                if (inputer.GetPlayerPunch())
             {
+                AudioReserveManager.AudioReserve("ƒvƒŒƒCƒ„[", "UŒ‚", transform);
                 Rotation = GetAngle(transform.position, Camera.main.ScreenToWorldPoint(inputer.GetMousePosition())) + 90;
             }
             else
