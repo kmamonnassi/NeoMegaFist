@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f34de84e28d83a643be306f4c77e22b8, type: 3}
-  m_Name: DisplayInteractSpriteAsset
+  m_Name: Open
   m_EditorClassIdentifier: 
   keyboardInteractSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   controllerInteractSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  displayText: Test
+  displayText: Open
