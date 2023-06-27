@@ -65,11 +65,15 @@ namespace StageObject
             }
             else
             {
-                Wall wall = obj.GetComponent<Wall>();
-                if (wall != null)
+                IHitEffectCollider hitEffectCollider = obj.GetComponent<IHitEffectCollider>();
+                if (hitEffectCollider != null)
                 {
-                    wall.OnHitEffectCollider(this);
-                    OnHitWall?.Invoke(obj);
+                    hitEffectCollider.OnHitEffectCollider(this);
+                    if(hitEffectCollider is Wall)
+                    {
+                        Wall wall = hitEffectCollider as Wall;
+                        OnHitWall?.Invoke(obj);
+                    }
                 }
             }
         }

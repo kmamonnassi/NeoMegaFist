@@ -56,7 +56,7 @@ namespace StageObject
             isAttacking = true;
             await UniTask.Delay(TimeSpan.FromSeconds(attackingTime));
             isAttacking = false;
-            transform.DORotate(new Vector3(0, 0, GetAngle(transform.position, player.transform.position)), 1);
+            transform.DORotate(new Vector3(0, 0, GetAngle(transform.position, player.transform.position)), 1).SetLink(gameObject);
         }
 
         private void Move()
