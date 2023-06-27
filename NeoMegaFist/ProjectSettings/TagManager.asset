@@ -41,6 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 4194907897
+    locked: 0
+  - name: Wall
+    uniqueID: 2736443007
+    locked: 0
+  - name: Character
+    uniqueID: 645228039
+    locked: 0
+  - name: Decoration
+    uniqueID: 928246949
+    locked: 0
+  - name: HPSlider
+    uniqueID: 890955289
+    locked: 0
   - name: PostEffect
     uniqueID: 2709018381
     locked: 0

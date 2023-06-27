@@ -10,7 +10,8 @@ namespace Utility
 
 		private void Update()
 		{
-			foreach (IUpdate update in updates)
+			List<IUpdate> copy = new List<IUpdate>(updates);
+			foreach (IUpdate update in copy)
 			{
 				update.ManagedUpdate();
 			}
@@ -18,7 +19,8 @@ namespace Utility
 
 		private void FixedUpdate()
 		{
-			foreach (IFixedUpdate update in fixedUpdates)
+			List<IFixedUpdate> copy = new List<IFixedUpdate>(fixedUpdates);
+			foreach (IFixedUpdate update in copy)
 			{
 				update.ManagedFixedUpdate();
 			}
