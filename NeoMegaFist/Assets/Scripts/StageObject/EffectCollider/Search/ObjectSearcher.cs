@@ -42,7 +42,6 @@ namespace StageObject
                     var hit = Physics2D.Raycast(origin, dir, distance - offsetLength, LayerMask.GetMask("Wall", "StageObject"));
                     if (hit)
                     {
-                        Debug.Log(hit.collider.name + "/" + obj.name);
                         //Debug.Log(hit.collider.gameObject.name);
                         if (hit.collider.gameObject == obj.gameObject)
                         {
