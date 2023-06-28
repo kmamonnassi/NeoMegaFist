@@ -1,8 +1,4 @@
 {
-    "speakerArray": [
-        "攻撃"
-    ],
-    "containTextArray": [
-        "プレイヤー"
-    ]
+    "speakerArray": [],
+    "containTextArray": []
 }

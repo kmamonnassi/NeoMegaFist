@@ -5,17 +5,52 @@ using UnityEngine.UI;
 
 namespace Utility.PostEffect
 {
+	[DefaultExecutionOrder(1)]
     public class PostEffectCamera : MonoBehaviour, IPostEffectCamera
     {
-		[SerializeField] Camera postEffectCamera = null;
-        [SerializeField] RenderTexture renderTexture = null;
+		[SerializeField] private Camera postEffectCamera = null;
+        [SerializeField] private RenderTexture renderTexture = null;
+
+		private BoxCollider2D cameraConfiner;
 
         private void Awake()
         {
 			renderTexture.Release();
 			renderTexture.width = Screen.width;
             renderTexture.height = Screen.height;
+		}
+
+        private void LateUpdate()
+        {
+			if (cameraConfiner == null) return;
+
+			Vector2 cameraRightTop = postEffectCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0)) - postEffectCamera.transform.position;
+			Vector2 cameraLeftBottom = postEffectCamera.ScreenToWorldPoint(Vector3.zero) - postEffectCamera.transform.position;
+			Vector2 min = cameraConfiner.offset + (Vector2)cameraConfiner.transform.position - (cameraConfiner.size / 2) - cameraLeftBottom;
+			Vector2 max = cameraConfiner.offset + (Vector2)cameraConfiner.transform.position + (cameraConfiner.size / 2) - cameraRightTop;
+			float x = transform.position.x;
+			if(max.x > min.x)
+            {
+				x = Mathf.Clamp(transform.position.x, min.x, max.x);
+			}
+			float y = transform.position.y;
+			if (max.y > min.y)
+			{
+				y = Mathf.Clamp(transform.position.y, min.y, max.y);
+			}
+			Debug.Log(min + "/" + max + "/" + new Vector2(x, y));
+			transform.position = Vector3.Lerp(transform.position, new Vector3(x, y, transform.position.z), Time.deltaTime * 4);
         }
+
+		public void SetConfiner(BoxCollider2D confiner)
+        {
+			cameraConfiner = confiner;
+		}
+
+        public void SetColor(Color color)
+		{
+			postEffectCamera.backgroundColor = color;
+		}
 
 		Vector2 IPostEffectCamera.GetPosition()
 		{
@@ -104,5 +139,5 @@ namespace Utility.PostEffect
 		{
 			return postEffectCamera.WorldToViewportPoint(worldPoint);
 		}
-	}
+    }
 }
