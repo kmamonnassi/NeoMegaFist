@@ -9,7 +9,7 @@ namespace Stage
     {
         [SerializeField] private PlayerInRoomChecker checker;
 
-        [Inject] private IPostEffectCamera cam;
+        [Inject] private ICameraFollowTarget followTarget;
 
         public event Action OnEnterPlayer;
         public event Action OnExitPlayer;
@@ -22,13 +22,12 @@ namespace Stage
 
         private void OnEnterRoom()
         {
-            cam.SetConfiner(checker.Confiner);
+            followTarget.SetConfiner(checker.Confiner);
             OnEnterPlayer?.Invoke();
         }
 
         private void OnExitRoom()
         {
-            cam.SetConfiner(null);
             OnExitPlayer?.Invoke();
         }
     }
