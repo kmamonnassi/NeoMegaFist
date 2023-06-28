@@ -13,7 +13,6 @@ namespace Utility.PostEffect
         void SetOrthograhicSize(float size);
         float GetOrthograhicSize();
 
-        void SetConfiner(BoxCollider2D confiner);
         void Shake(Vector2 power, float time, float interval = 0.01f, bool decay = true);
         void SetColor(Color color);
         Vector2 ScreenToWorldPoint(Vector3 worldPoint, Camera.MonoOrStereoscopicEye eye);
@@ -22,6 +21,7 @@ namespace Utility.PostEffect
         Vector2 ScreenToViewportPoint(Vector3 screenPoint);
         Vector2 ViewportToWorldPoint(Vector3 viewportPoint);
         Vector2 WorldToViewportPoint(Vector3 worldPoint);
-
-    }
+		Vector2 ScreenToWorldPoint(Vector3 worldPoint);
+		Vector2 WorldToScreenPoint(Vector3 screenPoint);
+	}
 }
