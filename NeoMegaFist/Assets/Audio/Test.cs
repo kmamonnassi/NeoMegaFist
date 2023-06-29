@@ -12,8 +12,8 @@ public class Test : MonoBehaviour
     [Inject]
     private ISePlayable sePlayable;
 
-    [Inject]
-    private IDisplayableInteractModel model;
+    //[Inject]
+    //private IDisplayableInteractModel model;
 
     [SerializeField]
     private UI.DisplayInteract.DisplayInteractSpriteAsset spriteAsset;
@@ -28,12 +28,8 @@ public class Test : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            model.ShowUI(spriteAsset, new Vector2(1f, 0f));
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            model.HideUI();
+            Debug.Log("AAA");
+            AudioReserveManager.AudioReserve("Hoge", "Fuga", transform);
         }
     }
 }
