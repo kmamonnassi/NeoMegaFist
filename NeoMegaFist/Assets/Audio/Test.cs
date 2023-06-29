@@ -6,14 +6,18 @@ using Zenject;
 using UnityEngine.InputSystem;
 using UniRx;
 using UI.DisplayInteract;
+using InputControl;
 
 public class Test : MonoBehaviour
 {
     [Inject]
     private ISePlayable sePlayable;
 
+    //[Inject]
+    //private IDisplayableInteractModel model;
+
     [Inject]
-    private IDisplayableInteractModel model;
+    private IInputer inputer;
 
     [SerializeField]
     private UI.DisplayInteract.DisplayInteractSpriteAsset spriteAsset;
@@ -21,19 +25,13 @@ public class Test : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(inputer.GetControllerType());
     }
 
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            model.ShowUI(spriteAsset, new Vector2(1f, 0f));
-        }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            model.HideUI();
-        }
+       
     }
 }
