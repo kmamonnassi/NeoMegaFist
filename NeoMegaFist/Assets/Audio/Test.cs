@@ -6,6 +6,7 @@ using Zenject;
 using UnityEngine.InputSystem;
 using UniRx;
 using UI.DisplayInteract;
+using InputControl;
 
 public class Test : MonoBehaviour
 {
@@ -15,21 +16,22 @@ public class Test : MonoBehaviour
     //[Inject]
     //private IDisplayableInteractModel model;
 
+    [Inject]
+    private IInputer inputer;
+
     [SerializeField]
     private UI.DisplayInteract.DisplayInteractSpriteAsset spriteAsset;
 
 
     void Start()
     {
+        Debug.Log(inputer.GetControllerType());
     }
 
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("AAA");
-            AudioReserveManager.AudioReserve("Hoge", "Fuga", transform);
-        }
+
+       
     }
 }
