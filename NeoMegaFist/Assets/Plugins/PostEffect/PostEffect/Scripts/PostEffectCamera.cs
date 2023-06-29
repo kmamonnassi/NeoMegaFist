@@ -5,17 +5,23 @@ using UnityEngine.UI;
 
 namespace Utility.PostEffect
 {
+	[DefaultExecutionOrder(1)]
     public class PostEffectCamera : MonoBehaviour, IPostEffectCamera
     {
-		[SerializeField] Camera postEffectCamera = null;
-        [SerializeField] RenderTexture renderTexture = null;
+		[SerializeField] private Camera postEffectCamera = null;
+        [SerializeField] private RenderTexture renderTexture = null;
 
         private void Awake()
         {
 			renderTexture.Release();
 			renderTexture.width = Screen.width;
             renderTexture.height = Screen.height;
-        }
+		}
+
+        public void SetColor(Color color)
+		{
+			postEffectCamera.backgroundColor = color;
+		}
 
 		Vector2 IPostEffectCamera.GetPosition()
 		{
@@ -85,6 +91,16 @@ namespace Utility.PostEffect
 			return postEffectCamera.WorldToScreenPoint(screenPoint, eye);
 		}
 
+		Vector2 IPostEffectCamera.ScreenToWorldPoint(Vector3 worldPoint)
+		{
+			return postEffectCamera.ScreenToWorldPoint(worldPoint);
+		}
+
+		Vector2 IPostEffectCamera.WorldToScreenPoint(Vector3 screenPoint)
+		{
+			return postEffectCamera.WorldToScreenPoint(screenPoint);
+		}
+
 		Vector2 IPostEffectCamera.ViewportToScreenPoint(Vector3 viewportPoint)
 		{
 			return postEffectCamera.ViewportToScreenPoint(viewportPoint);
@@ -104,5 +120,5 @@ namespace Utility.PostEffect
 		{
 			return postEffectCamera.WorldToViewportPoint(worldPoint);
 		}
-	}
+    }
 }
