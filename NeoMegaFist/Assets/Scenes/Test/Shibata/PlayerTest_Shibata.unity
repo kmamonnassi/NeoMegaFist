@@ -19919,6 +19919,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 645228039
       objectReference: {fileID: 0}
+    - target: {fileID: 4531014687005106938, guid: d3ad9000cc3e64b41b4a8b7cca06770f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -344.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4692790520025008970, guid: d3ad9000cc3e64b41b4a8b7cca06770f, type: 3}
       propertyPath: m_Name
       value: PlayerParent
@@ -19941,7 +19945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6057577017056737710, guid: d3ad9000cc3e64b41b4a8b7cca06770f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -161.52
+      value: 468.5
       objectReference: {fileID: 0}
     - target: {fileID: 6057577017056737710, guid: d3ad9000cc3e64b41b4a8b7cca06770f, type: 3}
       propertyPath: m_LocalPosition.z

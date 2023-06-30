@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b613a21d08a28ee48b6a9c6d79f70128
+guid: cb79e756d030050419de4273e4a3bb9a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_0
+      name: Player_Punch2_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 19
-        width: 50
-        height: 32
+        x: 0
+        y: 80
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd74d33c7b760024489a7e6cecedad70
-      internalID: -497745762
+      spriteID: dfbaf536ff7ed4e46b37dbe43b7ee81b
+      internalID: 2034741067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_1
+      name: Player_Punch2_1
       rect:
         serializedVersion: 2
-        x: 10
-        y: 13
-        width: 20
-        height: 23
+        x: 80
+        y: 80
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d59dd3e5619499a488a57f3f4d196639
-      internalID: -1717638597
+      spriteID: e3645e5b4299a4c47b9b3ff57f6a8ad0
+      internalID: 1340010942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_2
+      name: Player_Punch2_2
       rect:
         serializedVersion: 2
-        x: 98
-        y: 13
-        width: 20
-        height: 23
+        x: 0
+        y: 0
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f8ac1ef7b6e550459baaff147cd90dd
-      internalID: -426542198
+      spriteID: 3c39d19b84ddc4a44936ccb49a86854b
+      internalID: -1075726558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Punch2_3
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a5f37331ca5aa4988c4184232d6e7d
+      internalID: 1814715023
       vertices: []
       indices: 
       edges: []
@@ -183,9 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_0: -497745762
-      Player_1: -1717638597
-      Player_2: -426542198
+      Player_Punch2_0: 2034741067
+      Player_Punch2_1: 1340010942
+      Player_Punch2_2: -1075726558
+      Player_Punch2_3: 1814715023
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

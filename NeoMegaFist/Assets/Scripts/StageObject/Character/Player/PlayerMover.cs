@@ -25,9 +25,9 @@ namespace StageObject
             rb.velocity = move.MoveVelocity;
         }
 
-        public void Add(IPlayerMove playerWalk)
+        public void Add(IPlayerMove move)
         {
-            moves.Add(playerWalk);
+            moves.Add(move);
         }
 
         public void Remove(IPlayerMove playerWalk)

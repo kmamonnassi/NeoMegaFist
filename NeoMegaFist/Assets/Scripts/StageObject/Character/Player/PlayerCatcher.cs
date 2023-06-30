@@ -4,6 +4,7 @@ using StageObject;
 using System.Collections;
 using UnityEngine;
 using Utility;
+using Utility.PostEffect;
 using Zenject;
 
 namespace StageObject
@@ -21,6 +22,7 @@ namespace StageObject
         [SerializeField] private float baseOverhandThrowDistance = 50;//ã“Š‚°‚ÌÅ‘å”ò‹——£
 
         [Inject] private IInputer inputer;
+        [Inject] private IPostEffectCamera cam;
 
         public int RotationPriority => 2;
         public float Rotation { get; private set; }
@@ -43,7 +45,7 @@ namespace StageObject
             animator.SetTrigger("Catch");
             RotationIsActive = true;
             isCatching = true;
-            Rotation = GetAngle(transform.position, Camera.main.ScreenToWorldPoint(inputer.GetMousePosition())) + 90;
+            Rotation = GetAngle(transform.position, cam.ScreenToWorldPoint(inputer.GetMousePosition())) + 90;
             DOVirtual.DelayedCall(catchInterval, () =>
             {
                 isCatching = false;
@@ -114,7 +116,7 @@ namespace StageObject
 
             if (overhandThrowPreparation)
             {
-                Vector2 mousePos = Camera.main.ScreenToWorldPoint(inputer.GetMousePosition());
+                Vector2 mousePos = cam.ScreenToWorldPoint(inputer.GetMousePosition());
                 Vector2 thrownPos = mousePos;
                 var hitWall = Physics2D.Raycast(transform.position, (mousePos - (Vector2)transform.position).normalized, baseOverhandThrowDistance, 1 << LayerMask.NameToLayer("Wall"));
 
@@ -146,7 +148,7 @@ namespace StageObject
                 {
                     if (inputer.GetPlayerThrowStart())
                     {
-                        Vector2 dir = ((Vector2)Camera.main.ScreenToWorldPoint(inputer.GetMousePosition()) - (Vector2)transform.position).normalized;
+                        Vector2 dir = (cam.ScreenToWorldPoint(inputer.GetMousePosition()) - (Vector2)transform.position).normalized;
                         Throw(dir);
                     }
                     else
