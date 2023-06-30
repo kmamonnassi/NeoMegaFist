@@ -30,10 +30,12 @@ namespace Ui.Menu
             {
                 if(makedMenuObj == null)
                 {
+                    AudioReserveManager.AudioReserve("MenuUI", "メニューを開く音", transform);
                     makedMenuObj = container.InstantiatePrefab(menuObj, transform);
                 }
                 else
                 {
+                    AudioReserveManager.AudioReserve("MenuUI", "メニューを閉じる音", transform);
                     Destroy(makedMenuObj);
                 }
             }

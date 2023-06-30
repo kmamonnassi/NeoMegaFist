@@ -20,8 +20,14 @@ namespace Ui.Menu
         void Start()
         {
             button.OnClickAsObservable()
-                .Subscribe(_ => tabGroup.ShowTab(optionKind))
+                .Subscribe(_ => ShowTab())
                 .AddTo(this.gameObject);
+        }
+
+        private void ShowTab()
+        {
+            AudioReserveManager.AudioReserve("MenuUI", "ƒ^ƒu‚ðŠJ‚¢‚½‰¹", transform);
+            tabGroup.ShowTab(optionKind);
         }
     }
 }
