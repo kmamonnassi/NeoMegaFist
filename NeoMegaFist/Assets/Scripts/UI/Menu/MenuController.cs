@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using InputControl;
 
 namespace Ui.Menu
 {
@@ -13,6 +14,9 @@ namespace Ui.Menu
         [Inject]
         private DiContainer container;
 
+        [Inject]
+        private IInputer inputer;
+
         private GameObject makedMenuObj = null;
 
         void Start()
@@ -22,7 +26,7 @@ namespace Ui.Menu
 
         void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if(inputer.GetPlayerMenuStart())
             {
                 if(makedMenuObj == null)
                 {

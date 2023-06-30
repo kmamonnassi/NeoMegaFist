@@ -102,9 +102,9 @@ namespace InputControl
             }
         }
 
-        public bool GetPlayerMenu()
+        public bool GetPlayerMenuStart()
         {
-            return inputControl.Player.Menu.IsPressed();
+            return inputControl.Player.Menu.WasPerformedThisFrame();
         }
     }
 }
