@@ -52,19 +52,34 @@ public class WallSpriteToRuleTile : EditorWindow
     private void CreateTexture()
     {
         Texture2D texture = new Texture2D(tileSize * 12, tileSize * 10, TextureFormat.RGBA32, false);
+        Color[,] tile_1 = GetPixels(tileSize * 0, 0, tileSize, tileSize);
+        Color[,] tile_2 = GetPixels(tileSize * 1, 0, tileSize, tileSize);
+        Color[,] tile_3 = GetPixels(tileSize * 2, 0, tileSize, tileSize);
+        Color[,] tile_4 = GetPixels(tileSize * 3, 0, tileSize, tileSize);
+
+    }
+
+    private void SetPixels(int posX, int posY, Color[,] colors, Texture2D texture)
+    {
+        for(int x = 0;x < colors.GetLength(0) ;x++)
+        {
+            for (int y = 0; y < colors.GetLength(1); y++)
+            {
+                int _x = posX + x;
+                int _y = posY + y;
+                texture.SetPixel(_x, _y, colors[_x, _y]);
+            }
+        }
     }
 
     private Color[,] GetPixels(int posX, int posY, int width, int height)
     {
-        Color[] c = targetSprite.texture.GetPixels(posX, posY, width, height);
         Color[,] colors = new Color[width, height];
-        int i = 0;
         for(int x = 0; x < width;x++)
         {
             for(int y = 0; y < height;y++)
             {
-                colors[x, y] = c[i];
-                i++;
+                colors[x, y] = targetSprite.texture.GetPixel(posX, posY);
 			}
 		}
         return colors;
