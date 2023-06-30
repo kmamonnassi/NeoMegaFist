@@ -1,24 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UI.VolumeSettingSliders;
+using Ui.VolumeSettingSliders;
 using Zenject;
 
-public class AudioTab : OptionTab
+namespace Ui.Menu
 {
-    //[Inject]
-    private VolumeSettingSlidersModel model;
-
-    [Inject]
-    DiContainer container;
-
-    private void Awake()
+    public class AudioTab : OptionTab
     {
-        
-    }
+        [Inject]
+        private IVolumeSettable volume;
 
-    private void Start()
-    {
-        //Debug.Log(model);
+        public override void SaveSettingData()
+        {
+            if(!isSaved)
+            {
+                volume.SaveVolumeData();
+                isSaved = true;
+            }
+        }
     }
 }

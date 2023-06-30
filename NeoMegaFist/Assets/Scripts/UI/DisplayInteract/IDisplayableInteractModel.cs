@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UI.DisplayInteract
+namespace Ui.DisplayInteract
 {
     interface IDisplayableInteractModel
     {

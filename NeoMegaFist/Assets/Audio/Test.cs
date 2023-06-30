@@ -5,7 +5,7 @@ using Audio;
 using Zenject;
 using UnityEngine.InputSystem;
 using UniRx;
-using UI.DisplayInteract;
+using Ui.DisplayInteract;
 using InputControl;
 
 public class Test : MonoBehaviour
@@ -20,7 +20,7 @@ public class Test : MonoBehaviour
     private IInputer inputer;
 
     [SerializeField]
-    private UI.DisplayInteract.DisplayInteractSpriteAsset spriteAsset;
+    private Ui.DisplayInteract.DisplayInteractSpriteAsset spriteAsset;
 
 
     void Start()

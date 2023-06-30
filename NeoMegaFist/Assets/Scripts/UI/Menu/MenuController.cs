@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace UI.Menu
+namespace Ui.Menu
 {
     public class MenuController : MonoBehaviour
     {
         [SerializeField]
         private GameObject menuObj;
 
-        private GameObject makedMenuObj = null;
-
         [Inject]
         private DiContainer container;
+
+        private GameObject makedMenuObj = null;
 
         void Start()
         {

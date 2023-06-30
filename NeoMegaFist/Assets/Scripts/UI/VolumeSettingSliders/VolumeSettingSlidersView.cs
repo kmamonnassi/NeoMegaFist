@@ -6,7 +6,7 @@ using UniRx;
 using TMPro;
 using Audio;
 
-namespace UI.VolumeSettingSliders
+namespace Ui.VolumeSettingSliders
 {
     public class VolumeSettingSlidersView : MonoBehaviour
     {

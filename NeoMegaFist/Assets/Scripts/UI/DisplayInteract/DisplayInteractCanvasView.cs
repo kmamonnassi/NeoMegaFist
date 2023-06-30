@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using InputControl;
 
-namespace UI.DisplayInteract
+namespace Ui.DisplayInteract
 {
     public class DisplayInteractCanvasView : MonoBehaviour
     {

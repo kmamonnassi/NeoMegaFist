@@ -1,6 +1,6 @@
 using UnityEngine;
 using Zenject;
-using UI.DisplayInteract;
+using Ui.DisplayInteract;
 
 public class DisplayInteractInstaller : MonoInstaller
 {

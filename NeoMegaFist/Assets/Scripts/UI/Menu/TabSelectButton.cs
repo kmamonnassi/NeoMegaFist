@@ -3,35 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using UnityEngine.UI;
-using UniRx.Toolkit;
-using Zenject;
 
-public class TabSelectButton : MonoBehaviour
+namespace Ui.Menu
 {
-    [SerializeField]
-    private OptionKinds optionKind;
-
-    [SerializeField]
-    private Button button;
-
-    [SerializeField]
-    private OptionTabGroup tabGroup;
-
-    [Inject]
-    private UI.VolumeSettingSliders.VolumeSettingSlidersModel model;
-
-    void Start()
+    public class TabSelectButton : MonoBehaviour
     {
-        button.OnClickAsObservable()
-            .Subscribe(_ => tabGroup.ShowTab(optionKind))
-            .AddTo(this.gameObject);
-    }
+        [SerializeField]
+        private OptionKinds optionKind;
 
-    private void Update()
-    {
-        if(Input.GetMouseButtonDown(0))
+        [SerializeField]
+        private Button button;
+
+        [SerializeField]
+        private OptionTabGroup tabGroup;
+
+        void Start()
         {
-            Debug.Log(model.GetVolumeData().bgmVolumeData);
+            button.OnClickAsObservable()
+                .Subscribe(_ => tabGroup.ShowTab(optionKind))
+                .AddTo(this.gameObject);
         }
     }
 }

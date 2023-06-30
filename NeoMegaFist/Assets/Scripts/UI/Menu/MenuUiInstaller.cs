@@ -1,5 +1,7 @@
 using UnityEngine;
 using Zenject;
+using Ui.VolumeSettingSliders;
+using Ui.Menu;
 
 public class MenuUiInstaller : MonoInstaller
 {
@@ -13,7 +15,6 @@ public class MenuUiInstaller : MonoInstaller
             .AsCached()
             .NonLazy();
 
-        Container.BindInterfacesAndSelfTo<UI.VolumeSettingSliders.VolumeSettingSlidersModel>()
-            .AsCached();
+        Container.BindInterfacesAndSelfTo<VolumeSettingSlidersModel>().AsCached();
     }
 }

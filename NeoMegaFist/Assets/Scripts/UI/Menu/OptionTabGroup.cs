@@ -4,54 +4,78 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using Zenject;
 
-// TODO:別の場所に移動させる
-public enum OptionKinds
+namespace Ui.Menu
 {
-    DisplaySetting = 0,
-    AudioSetting = 1,
-}
-
-public class OptionTabGroup : MonoBehaviour
-{
-    [SerializeField]
-    private List<GameObject> tabObjs;
-
-    private Dictionary<OptionKinds, GameObject> tabDic = new Dictionary<OptionKinds, GameObject>();
-
-    private GameObject makedTabObj = null;
-
-    [Inject]
-    private DiContainer container;
-
-    private void Awake()
+    public class OptionTabGroup : MonoBehaviour
     {
-        foreach (var tabObj in tabObjs)
+        [SerializeField]
+        private List<GameObject> tabObjs;
+        
+        [Inject]
+        private DiContainer container;
+
+        [Inject]
+        private BeforeSelectedOptionKind beforeSelectedOptionKinds;
+
+        private Dictionary<OptionKinds, GameObject> tabDic = new Dictionary<OptionKinds, GameObject>();
+
+        private GameObject makedTabObj = null;
+
+        private void Awake()
         {
-            OptionTab optionTab = tabObj.GetComponent<OptionTab>();
-            if (!tabDic.ContainsKey(optionTab.optionKindProp))
+            foreach (var tabObj in tabObjs)
             {
-                tabDic.Add(optionTab.optionKindProp, tabObj);
+                OptionTab optionTab = tabObj.GetComponent<OptionTab>();
+                if (!tabDic.ContainsKey(optionTab.optionKindProp))
+                {
+                    tabDic.Add(optionTab.optionKindProp, tabObj);
+                }
             }
         }
-    }
 
-    private void Start()
-    {
-        // TODO:ここを定数にする
-        ShowTab(OptionKinds.AudioSetting);
-    }
-
-    public void ShowTab(OptionKinds optionKind)
-    {
-        if(makedTabObj != null)
+        private void Start()
         {
-            HideTab();
+            OptionKinds targetOptionKind = beforeSelectedOptionKinds.selectOptionKind;
+            ShowTab(targetOptionKind);
         }
-        makedTabObj = container.InstantiatePrefab(tabDic[optionKind], transform);
-    }
 
-    public void HideTab()
-    {
-        Destroy(makedTabObj);
+        /// <summary>
+        /// タブを表示する
+        /// </summary>
+        /// <param name="optionKind">タブの種類</param>
+        public void ShowTab(OptionKinds optionKind)
+        {
+            if (makedTabObj != null)
+            {
+                HideTab();
+            }
+            makedTabObj = container.InstantiatePrefab(tabDic[optionKind], transform);
+
+            beforeSelectedOptionKinds.selectOptionKind = optionKind;
+        }
+
+        /// <summary>
+        /// タブを非表示にする
+        /// </summary>
+        public void HideTab()
+        {
+            SaveTabData();
+
+            Destroy(makedTabObj);
+        }
+
+        private void OnDestroy()
+        {
+            SaveTabData();
+        }
+
+        /// <summary>
+        /// セーブする
+        /// </summary>
+        private void SaveTabData()
+        {
+            OptionTab tab = makedTabObj.GetComponent<OptionTab>();
+            tab.SaveSettingData();
+        }
     }
 }
