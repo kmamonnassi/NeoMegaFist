@@ -20,5 +20,6 @@ namespace InputControl
         bool GetPlayerDodge();
         bool GetPlayerDodgeEnd();
         public ControllerType GetControllerType();
+        bool GetPlayerMenu();
     }
 }

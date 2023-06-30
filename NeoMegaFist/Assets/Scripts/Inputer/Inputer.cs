@@ -101,6 +101,11 @@ namespace InputControl
                 return ControllerType.Gamepad;
             }
         }
+
+        public bool GetPlayerMenu()
+        {
+            return inputControl.Player.Menu.IsPressed();
+        }
     }
 }
 
