@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using InputControl;
 
-namespace UI.DisplayInteract
+namespace Ui.DisplayInteract
 {
     public class DisplayInteractSpriteAsset : ScriptableObject
     {

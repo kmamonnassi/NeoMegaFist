@@ -6,9 +6,9 @@ using Zenject;
 using UniRx;
 using System;
 
-namespace UI.VolumeSettingSliders
+namespace Ui.VolumeSettingSliders
 {
-    public class VolumeSettingSlidersModel : IInitializable
+    public class VolumeSettingSlidersModel : IInitializable, IVolumeSettable
     {
         [Inject]
         private IAudioVolumeSettable volumeSettable;
@@ -34,6 +34,14 @@ namespace UI.VolumeSettingSliders
         public VolumeData GetVolumeData()
         {
             return volumeSettable.GetVolumeData();
+        }
+
+        /// <summary>
+        /// âπó ÉfÅ[É^Çï€ë∂Ç∑ÇÈ
+        /// </summary>
+        public void SaveVolumeData()
+        {
+            volumeSettable.SaveVolumeData();
         }
 
         /// <summary>
@@ -65,6 +73,5 @@ namespace UI.VolumeSettingSliders
             volume = Mathf.Clamp01(volume);
             volumeSettable.SetSeVolume(volume);
         }
-
     }
 }
