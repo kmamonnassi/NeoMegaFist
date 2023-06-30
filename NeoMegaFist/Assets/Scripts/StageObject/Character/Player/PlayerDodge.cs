@@ -35,7 +35,7 @@ namespace StageObject
                 if (inputer.GetPlayerMove() != Vector2.zero && inputer.GetPlayerDodgeStart() && dodgeInterval == 0)
                 {
                     MoveIsActive = true;
-                    MoveVelocity = inputer.GetPlayerMove() * baseDodgeSpeed;
+                    MoveVelocity = inputer.GetPlayerMove() * baseDodgeSpeed * player.Speed;
                     dodgeDuration = baseDodgeDuration;
                     dodgeInterval = baseDodgeInterval;
                     player.Invisible(invisibleDuration);

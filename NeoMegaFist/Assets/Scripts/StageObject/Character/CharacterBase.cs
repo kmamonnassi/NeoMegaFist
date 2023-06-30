@@ -17,6 +17,7 @@ namespace StageObject
         public Vector2 CharacterStatusUIOffset = new Vector2(0, -48);
 
         [Inject] private ICharacterStatusUIManager uiManager;
+        [Inject] private ICharacterInitalizer initalizer;
 
         public int MaxHP { get => maxHP; }
         public int HP { get => hp; }
@@ -47,6 +48,7 @@ namespace StageObject
             hp = maxHP;
             stamina = maxStamina;
             uiManager.Create(this);
+            initalizer.Initalize(this);
             catchAndThrow = GetComponent<IStageObjectCatchAndThrow>();
             if(catchAndThrow.ThrownCollider != null)
             {
