@@ -8,7 +8,7 @@ namespace Stage
     public class Room : MonoBehaviour
     {
         [SerializeField] private PlayerInRoomChecker checker;
-        [Tooltip("カメラに追従するオブジェクトを指定できるよ。nullでプレイヤー追従")]
+        [Header("カメラに追従するオブジェクトを指定できるよ。nullでプレイヤー追従")]
         [SerializeField] private Transform cameraTarget;
 
         [Inject] private ICameraFollowTarget fixedFollowTarget;

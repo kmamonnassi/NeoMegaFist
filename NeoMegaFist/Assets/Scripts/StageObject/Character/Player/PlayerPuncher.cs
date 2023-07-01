@@ -16,6 +16,7 @@ namespace StageObject
         [SerializeField] private float decressSpeed = 0.8f;
         [SerializeField] private float[] punchTimes;
         [SerializeField] private float nextPunchDuration;
+        [SerializeField] private PlayerCatcher catcher;
 
         [Inject] private IInputer inputer;
         [Inject] private IPostEffectCamera cam;
@@ -37,7 +38,7 @@ namespace StageObject
 
         public void ManagedUpdate()
         {
-            if (player.IsStun) return;
+            if (player.IsStun || catcher.CatchTarget != null) return;
 
             if ((inputer.GetPlayerPunch() || nextPunchPlay) && !isPunching)
             {
