@@ -10,6 +10,7 @@ namespace Stage
         [SerializeField] private PlayerInRoomChecker checker;
         [Header("カメラに追従するオブジェクトを指定できるよ。nullでプレイヤー追従")]
         [SerializeField] private Transform cameraTarget;
+        [SerializeField] private GameObject stageObjects;
 
         [Inject] private ICameraFollowTarget fixedFollowTarget;
 
@@ -24,6 +25,7 @@ namespace Stage
 
         private void OnEnterRoom()
         {
+            stageObjects.SetActive(true);
             fixedFollowTarget.SetConfiner(checker.Confiner);
             fixedFollowTarget.SetTarget(cameraTarget);
             OnEnterPlayer?.Invoke();
@@ -31,6 +33,7 @@ namespace Stage
 
         private void OnExitRoom()
         {
+            stageObjects.SetActive(false);
             OnExitPlayer?.Invoke();
         }
     }
