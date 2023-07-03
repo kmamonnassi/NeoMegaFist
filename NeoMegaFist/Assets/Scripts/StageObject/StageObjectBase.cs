@@ -9,6 +9,7 @@ namespace StageObject
     [RequireComponent(typeof(StageObjectBuffManager), typeof(Rigidbody2D), typeof(StageObjectCatchAndThrow))]
     public abstract class StageObjectBase : MonoBehaviour, IUpdate, IFixedUpdate
     {
+        [SerializeField] private SpriteRenderer[] spriteRenderers;
         [Inject] private IUpdater updater;
 
         public abstract StageObjectID ID { get; }
@@ -18,6 +19,7 @@ namespace StageObject
         public Size Size { get; private set; }
         public float Speed { get; private set; } = 1;
         public bool IsKilled { get; private set; }
+        public SpriteRenderer[] SpriteRenderers => spriteRenderers;
 
         public event Action OnKill;
         public event Action<Size> OnSetSize;

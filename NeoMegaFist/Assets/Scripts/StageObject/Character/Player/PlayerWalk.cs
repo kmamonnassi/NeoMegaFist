@@ -8,6 +8,7 @@ namespace StageObject
 {
     public class PlayerWalk : MonoBehaviour, IPlayerRotate, IUpdate, IFixedUpdate, IPlayerMove
     {
+        [SerializeField] private Animator animator;
         [SerializeField] private Player player;
         [SerializeField] private PlayerMover playerMover;
         [SerializeField] private PlayerRotater rotater;
@@ -33,12 +34,20 @@ namespace StageObject
 
         public void Move()
         {
+            if (!animator.GetBool("Move"))
+            {
+                animator.SetBool("Move", true);
+            }
             Rotation = GetAngle(Vector2.zero, MoveVelocity) + 90;
             RotationIsActive = true;
         }
 
         public void Stop()
         {
+            if (animator.GetBool("Move"))
+            {
+                animator.SetBool("Move", false);
+            }
             MoveVelocity = Vector2.zero;
             RotationIsActive = false;
         }
@@ -69,7 +78,7 @@ namespace StageObject
             MoveVelocity = Vector2.zero;
             if(!player.IsStun)
             {
-                MoveVelocity = inputer.GetPlayerMove() * moveSpeed;
+                MoveVelocity = inputer.GetPlayerMove() * moveSpeed * player.Speed;
             }
 
             if (MoveVelocity != Vector2.zero)

@@ -1,7 +1,7 @@
 using Zenject;
 using UniRx;
 
-namespace UI.DisplayInteract
+namespace Ui.DisplayInteract
 {
     public class DisplayInteractPresenter : IInitializable
     {

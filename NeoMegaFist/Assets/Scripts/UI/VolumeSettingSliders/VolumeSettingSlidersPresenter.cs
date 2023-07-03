@@ -5,7 +5,7 @@ using UniRx;
 using Zenject;
 using System;
 
-namespace UI.VolumeSettingSliders
+namespace Ui.VolumeSettingSliders
 {
     public class VolumeSettingSlidersPresenter : IInitializable
     {

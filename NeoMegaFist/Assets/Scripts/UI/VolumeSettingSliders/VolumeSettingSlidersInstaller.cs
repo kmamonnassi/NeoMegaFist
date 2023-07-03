@@ -1,6 +1,6 @@
 using UnityEngine;
 using Zenject;
-using UI.VolumeSettingSliders;
+using Ui.VolumeSettingSliders;
 
 public class VolumeSettingSlidersInstaller : MonoInstaller
 {

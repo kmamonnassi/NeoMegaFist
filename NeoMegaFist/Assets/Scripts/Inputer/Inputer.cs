@@ -91,7 +91,8 @@ namespace InputControl
         public ControllerType GetControllerType()
         {
             var controllerNames = Input.GetJoystickNames();
-            if (controllerNames[0] == "")
+            bool nonController = controllerNames.Length == 0 || controllerNames[0] == "";
+            if (nonController)
             {
                 return ControllerType.Keyboard;
             }
@@ -99,6 +100,11 @@ namespace InputControl
             {
                 return ControllerType.Gamepad;
             }
+        }
+
+        public bool GetPlayerMenuStart()
+        {
+            return inputControl.Player.Menu.WasPerformedThisFrame();
         }
     }
 }

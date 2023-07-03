@@ -8,8 +8,10 @@ namespace Stage
     public class Room : MonoBehaviour
     {
         [SerializeField] private PlayerInRoomChecker checker;
+        [Header("カメラに追従するオブジェクトを指定できるよ。nullでプレイヤー追従")]
+        [SerializeField] private Transform cameraTarget;
 
-        [Inject] private ICameraFollowTarget followTarget;
+        [Inject] private ICameraFollowTarget fixedFollowTarget;
 
         public event Action OnEnterPlayer;
         public event Action OnExitPlayer;
@@ -22,7 +24,8 @@ namespace Stage
 
         private void OnEnterRoom()
         {
-            followTarget.SetConfiner(checker.Confiner);
+            fixedFollowTarget.SetConfiner(checker.Confiner);
+            fixedFollowTarget.SetTarget(cameraTarget);
             OnEnterPlayer?.Invoke();
         }
 

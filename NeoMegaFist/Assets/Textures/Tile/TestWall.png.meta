@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: W_0
+      name: 2
       rect:
         serializedVersion: 2
         x: 0
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: W_1
+      name: 4
       rect:
         serializedVersion: 2
         x: 48
@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: W_2
+      name: 0
       rect:
         serializedVersion: 2
         x: 0
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: W_3
+      name: 1
       rect:
         serializedVersion: 2
         x: 48
@@ -194,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: W_4
+      name: 5
       rect:
         serializedVersion: 2
         x: 96
@@ -215,11 +215,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: W_5
+      name: 8
       rect:
         serializedVersion: 2
         x: 144
-        y: 432
+        y: 384
         width: 48
         height: 48
       alignment: 0
@@ -236,7 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: W_6
+      name: 7
       rect:
         serializedVersion: 2
         x: 96
@@ -257,11 +257,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: W_7
+      name: 6
       rect:
         serializedVersion: 2
         x: 144
-        y: 384
+        y: 432
         width: 48
         height: 48
       alignment: 0
@@ -278,7 +278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: W_8
+      name: 9
       rect:
         serializedVersion: 2
         x: 192
@@ -299,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: W_9
+      name: 10
       rect:
         serializedVersion: 2
         x: 240
@@ -887,90 +887,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TestWall_20
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 432
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1624824ac25f5334893e888ce60ed410
-      internalID: 198930879
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_21
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 432
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 215cc4d6994f0944b8d7aee7bc21b448
-      internalID: -1756781849
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_22
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 384
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d842977f63e1c6140a796508e40014da
-      internalID: -924414887
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_23
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 384
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e12085fd70c04014f828d21dfdc49618
-      internalID: 1035871045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: TestWall_24
       rect:
         serializedVersion: 2
@@ -1065,6 +981,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      0: -6690012
+      1: -836401316
+      10: 635687897
+      2: -1894119649
+      4: -1257221882
+      5: -218302655
+      6: 1577420262
+      7: -2053990205
+      8: 95478791
+      9: 83242014
       TestWall_0: 1413943423
       TestWall_1: 254102211
       TestWall_10: 851604877
@@ -1097,8 +1023,6 @@ TextureImporter:
       TestWall_7: -1003482432
       TestWall_8: 1457834530
       TestWall_9: 1888482264
-      W_0: -1894119649
-      W_1: -1257221882
       W_10: 601001290
       W_11: 127889063
       W_12: -588175340
@@ -1109,7 +1033,6 @@ TextureImporter:
       W_17: -1740147202
       W_18: 1125544564
       W_19: 1983858554
-      W_2: -6690012
       W_20: -167386876
       W_21: -779108168
       W_22: 865891841
@@ -1119,13 +1042,6 @@ TextureImporter:
       W_26: 1086129525
       W_27: 630535559
       W_28: -1087293322
-      W_3: -836401316
-      W_4: -218302655
-      W_5: 95478791
-      W_6: -2053990205
-      W_7: 1577420262
-      W_8: 83242014
-      W_9: 635687897
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

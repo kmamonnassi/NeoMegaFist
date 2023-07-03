@@ -1,5 +1,7 @@
 // https://baba-s.hatenablog.com/entry/2022/09/07/090000
 
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -54,3 +56,5 @@ namespace Kogane.Internal
         }
     }
 }
+
+#endif
