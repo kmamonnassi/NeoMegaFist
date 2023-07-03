@@ -13,6 +13,7 @@ namespace StageObject
         [SerializeField] private Animator animator;
         [SerializeField] private PlayerRotater rotater;
         [SerializeField] private Player player;
+        [SerializeField] private EffectCollider[] punchColliders;
         [SerializeField] private float decressSpeed = 0.8f;
         [SerializeField] private float[] punchTimes;
         [SerializeField] private float nextPunchDuration;
@@ -34,6 +35,10 @@ namespace StageObject
         private void Awake()
         {
             rotater.Add(this);
+            for(int i = 0; i < punchColliders.Length; i++)
+            {
+                punchColliders[i].OnHitTarget += (obj) => AudioReserveManager.AudioReserve("プレイヤー", "通常攻撃_" + i + "が敵やオブジェクトにヒットした", transform);
+            }
         }
 
         public void ManagedUpdate()
@@ -47,17 +52,17 @@ namespace StageObject
                     case 0:
                         Punch(1);
                         animator.Play("Punch_1");
-                        AudioReserveManager.AudioReserve("プレイヤー", "攻撃_1", transform);
+                        AudioReserveManager.AudioReserve("プレイヤー", "通常攻撃_1", transform);
                         break;
                     case 1:
                         Punch(2);
                         animator.Play("Punch_2");
-                        AudioReserveManager.AudioReserve("プレイヤー", "攻撃_2", transform);
+                        AudioReserveManager.AudioReserve("プレイヤー", "通常攻撃_2", transform);
                         break;
                     case 2:
                         Punch(3);
                         animator.Play("Punch_3");
-                        AudioReserveManager.AudioReserve("プレイヤー", "攻撃_3", transform);
+                        AudioReserveManager.AudioReserve("プレイヤー", "通常攻撃_3", transform);
                         break;
                 }
             }

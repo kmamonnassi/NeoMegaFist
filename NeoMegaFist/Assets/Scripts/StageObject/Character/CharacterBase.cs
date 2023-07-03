@@ -39,7 +39,7 @@ namespace StageObject
         public event Action OnDead;
 
         private float nowStunDuration;
-        private HitColliderDamage thrownHitDamage = new HitColliderDamage(null, new[] { StageObjectType.Enemy }, 50, 50, 0, 0.5f);
+        private HitColliderDamage thrownHitDamage = new HitColliderDamage(null, new[] { StageObjectType.Enemy }, 50, 50, 0, 0.1f);
         private float invisibleTime = 0;
         private IStageObjectCatchAndThrow catchAndThrow;
 

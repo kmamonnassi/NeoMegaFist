@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 59bc919f8e1bf4a44808739c9a034818
+guid: b4109f7179c5d5b4a8b1ee281572d4af
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Punch3_0
+      name: Player_Grab_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,20 +118,20 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11a8712154d02764d90e57ace5a69e6c
-      internalID: 1772458943
+      spriteID: f780b1c3d3b0c5347b1d87b45941e824
+      internalID: -1158279464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Punch3_1
+      name: Player_Grab_1
       rect:
         serializedVersion: 2
         x: 80
@@ -139,20 +139,20 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ff84be58001cf240aad53680cc2db56
-      internalID: -58407807
+      spriteID: 73b7335b0e11330408d5b339f769bf67
+      internalID: -97604580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Punch3_2
+      name: Player_Grab_2
       rect:
         serializedVersion: 2
         x: 160
@@ -160,65 +160,23 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c839ae536cb8a80459c4195a11993d23
-      internalID: 1380840266
+      spriteID: b1db2d1ed5aaea047b685fef211fa439
+      internalID: -1836514853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Punch3_3
+      name: Player_Grab_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b45dad1497df55b41906db6a69b4049f
-      internalID: 1819401333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Punch3_4
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 775d90f7f6bd68a459b14da4a6b26f79
-      internalID: -237765913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Punch3_5
-      rect:
-        serializedVersion: 2
-        x: 160
         y: 0
         width: 80
         height: 80
@@ -229,8 +187,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dac14bb767df3c142a0c8912cc91e8a0
-      internalID: -329314927
+      spriteID: 924c7caff2758d94f8f1a2e1b96b7dbd
+      internalID: -511802942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Grab_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdd8ae4d90be9a64e9775de7481096ea
+      internalID: 1902799000
       vertices: []
       indices: 
       edges: []
@@ -246,12 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Punch3_0: 1772458943
-      Player_Punch3_1: -58407807
-      Player_Punch3_2: 1380840266
-      Player_Punch3_3: 1819401333
-      Player_Punch3_4: -237765913
-      Player_Punch3_5: -329314927
+      Player_Grab_0: -1158279464
+      Player_Grab_1: -97604580
+      Player_Grab_2: -1836514853
+      Player_Grab_3: -511802942
+      Player_Grab_4: 1902799000
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
