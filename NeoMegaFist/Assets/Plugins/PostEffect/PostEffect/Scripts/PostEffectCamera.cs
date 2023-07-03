@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,8 +11,9 @@ namespace Utility.PostEffect
     {
 		[SerializeField] private Camera postEffectCamera = null;
         [SerializeField] private RenderTexture renderTexture = null;
+		[SerializeField] private Transform shakeParent;
 
-        private void Awake()
+		private void Awake()
         {
 			renderTexture.Release();
 			renderTexture.width = Screen.width;
@@ -55,10 +57,10 @@ namespace Utility.PostEffect
 
 		public void Shake(Vector2 power, float time, float interval = 0.01f, bool decay = true)
 		{
-			StartCoroutine(ShakeCoroutine(power, time, interval, decay));
+			ShakeCoroutine(power, time, interval, decay);
 		}
 
-		private IEnumerator ShakeCoroutine(Vector2 power, float time, float interval, bool decay)
+		private async void ShakeCoroutine(Vector2 power, float time, float interval, bool decay)
 		{
 			float nowTime = 0;
 			float beforeTime = 0;
@@ -73,10 +75,10 @@ namespace Utility.PostEffect
 					if (decay) truePower *= nowTime / time;
 					offset.x = Random.Range(-truePower.x, truePower.x);
 					offset.y = Random.Range(-truePower.y, truePower.y);
-					transform.position += (Vector3)offset;
+					shakeParent.position += (Vector3)offset;
 				}
-				yield return null;
-				transform.position -= (Vector3)offset;
+				await UniTask.DelayFrame(1);
+				shakeParent.position -= (Vector3)offset;
 				offset = Vector2.zero;
 			}
 		}
