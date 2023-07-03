@@ -19,8 +19,8 @@ namespace StageObject
         public Collider2D AttackCollider => attackCollider;
         public Collider2D MainCollider => mainCollider;
 
-        private const float THROWN_CAMERA_SHAKE_POWER = 0.01f;
-        private const float OVERHAND_THROWN_CAMERA_SHAKE_POWER = 5;
+        private const float THROWN_CAMERA_SHAKE_POWER = 0.02f;
+        private const float OVERHAND_THROWN_CAMERA_SHAKE_POWER = 10;
 
         public void SetState(ThrownState state)
         {
@@ -44,23 +44,42 @@ namespace StageObject
                     postEffectCamera.Shake(new Vector2(OVERHAND_THROWN_CAMERA_SHAKE_POWER, OVERHAND_THROWN_CAMERA_SHAKE_POWER), 0.1f, 0.01f, true);
 
                 }
-                timeScaler.Add(this);
-                DOVirtual.DelayedCall(0.1f, () => 
+
+                //ヒットストップ
+                //timeScaler.Add(this);
+                //DOVirtual.DelayedCall(0.15f, () =>
+                //{
+                //    timeScaler.Remove(this);
+                //});
+
+                Rigidbody2D obj_rb = obj.GetComponent<Rigidbody2D>();
+                obj_rb.simulated = false;
+                rb.simulated = false;
+                DOVirtual.DelayedCall(0.15f, () =>
                 {
-                    timeScaler.Remove(this);
-                    Time.timeScale = 1;
+                    obj_rb.simulated = true;
+                    rb.simulated = true;
                 });
+                AudioReserveManager.AudioReserve("敵", "ストレート投げされたオブジェクトが敵に衝突", transform);
             };
 
             OnHitWall += (obj) =>
             {
                 postEffectCamera.Shake(new Vector2(OVERHAND_THROWN_CAMERA_SHAKE_POWER, OVERHAND_THROWN_CAMERA_SHAKE_POWER), 0.1f, 0.01f, true);
-                timeScaler.Add(this);
-                DOVirtual.DelayedCall(0.1f, () =>
+
+                //ヒットストップ
+                //timeScaler.Add(this);
+                //DOVirtual.DelayedCall(0.15f, () =>
+                //{
+                //    timeScaler.Remove(this);
+                //});
+
+                rb.simulated = false;
+                DOVirtual.DelayedCall(0.15f, () =>
                 {
-                    timeScaler.Remove(this);
-                    Time.timeScale = 1; 
+                    rb.simulated = true;
                 });
+                AudioReserveManager.AudioReserve("プレイヤー", "ストレート投げされたオブジェクトが壁に衝突", transform);
             };
         }
     }

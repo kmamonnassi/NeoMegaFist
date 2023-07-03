@@ -85,6 +85,7 @@ namespace StageObject
             OnReleased?.Invoke();
             rb.simulated = true;
             gameObject.layer = LayerMask.NameToLayer("StageObject");
+            AudioReserveManager.AudioReserve("敵", "この敵のスタンが解除されて掴みが解除された", transform);
         }
 
         /// <summary>投げるとき</summary>
@@ -158,6 +159,7 @@ namespace StageObject
                     gameObject.layer = LayerMask.NameToLayer("StageObject");
                     Destroy(impact.gameObject);
                 });
+                AudioReserveManager.AudioReserve("ステージにあるオブジェクト", "上投げをされたオブジェクトが着地", transform);
             };
         }
     }

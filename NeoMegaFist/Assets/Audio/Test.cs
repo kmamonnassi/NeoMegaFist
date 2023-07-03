@@ -10,28 +10,17 @@ using InputControl;
 
 public class Test : MonoBehaviour
 {
-    [Inject]
-    private ISePlayable sePlayable;
-
-    //[Inject]
-    //private IDisplayableInteractModel model;
-
-    [Inject]
-    private IInputer inputer;
-
-    [SerializeField]
-    private Ui.DisplayInteract.DisplayInteractSpriteAsset spriteAsset;
-
-
     void Start()
     {
-        Debug.Log(inputer.GetControllerType());
     }
 
 
     void Update()
     {
-
+        if(Input.GetMouseButtonDown(0))
+        {
+            AudioReserveManager.AudioReserve("Hoge", "Huga", transform);
+        }
        
     }
 }

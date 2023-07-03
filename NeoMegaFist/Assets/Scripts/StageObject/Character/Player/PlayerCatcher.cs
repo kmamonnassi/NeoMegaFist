@@ -35,6 +35,7 @@ namespace StageObject
         private bool throwPreparation = false;//投げの準備中
         private bool overhandThrowPreparation = false;//上投げの準備中
         public StageObjectCatchAndThrow CatchTarget { get; private set; }//掴んでいるオブジェクト
+        private Tween catchingTween;
 
         private void Awake()
         {
@@ -46,6 +47,7 @@ namespace StageObject
         /// <summary>掴み動作</summary>
         public void Catching()
         {
+            AudioReserveManager.AudioReserve("プレイヤー", "掴み開始", transform);
             animator.SetTrigger("Catch");
             RotationIsActive = true;
             PlayingCatchMotion = true;
@@ -61,7 +63,13 @@ namespace StageObject
         private void Catched(StageObjectBase stageObject)
         {
             if (CatchTarget != null) return;
+            AudioReserveManager.AudioReserve("プレイヤー", "実際に掴んだ", transform);
             CatchTarget = stageObject.GetComponent<StageObjectCatchAndThrow>();
+            catchingTween = DOVirtual.Float(0, 1, 0.15f, x => 
+            {
+                CatchTarget.transform.position = Vector3.Lerp(CatchTarget.transform.position, transform.position, x);
+            }).SetEase(Ease.InCubic);
+            catchingTween.onComplete += () => catchingTween = null;
             CatchTarget.Catched();
 
             //掴んでいるものが離れた時、掴んでいるものを示す変数をnullにする
@@ -76,6 +84,7 @@ namespace StageObject
         /// <summary>掴んだオブジェクトを投げる</summary>
         public void Throw(Vector2 dir)
         {
+            AudioReserveManager.AudioReserve("プレイヤー", "ストレート投げ", transform);
             CatchTarget?.Thrown(dir, baseThrowPower);
         }
 
@@ -115,6 +124,7 @@ namespace StageObject
 
         public void OverhandThrow(Vector2 position)
         {
+            AudioReserveManager.AudioReserve("プレイヤー", "上投げ", transform);
             if (CatchTarget != null)
             {
                 CatchTarget.OverhandThrown(position, baseOverhandThrowDuration);
@@ -192,7 +202,7 @@ namespace StageObject
         public void ManagedUpdate()
         {
             //掴んでいるものがあれば、それを自身に追従させる
-            if(CatchTarget != null)
+            if(CatchTarget != null && catchingTween == null)
             {
                 if(CatchTarget.State == ThrownState.Catch)
                 {
