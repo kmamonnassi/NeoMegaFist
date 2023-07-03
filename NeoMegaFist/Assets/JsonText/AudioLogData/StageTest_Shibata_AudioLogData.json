@@ -1,4 +1,12 @@
 {
-    "speakerArray": [],
-    "containTextArray": []
+    "speakerArray": [
+        "攻撃_1",
+        "攻撃_2",
+        "攻撃_3"
+    ],
+    "containTextArray": [
+        "プレイヤー",
+        "プレイヤー",
+        "プレイヤー"
+    ]
 }
