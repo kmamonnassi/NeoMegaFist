@@ -135,26 +135,6 @@ public class WallSpriteToRuleTile : EditorWindow
     private void CreateTexture()
     {
         Texture2D texture = new Texture2D(tileSize * 12, tileSize * 10, TextureFormat.RGBA32, false);
-<<<<<<< HEAD
-        Color[,] tile_1 = GetPixels(tileSize * 0, 0, tileSize, tileSize);
-        Color[,] tile_2 = GetPixels(tileSize * 1, 0, tileSize, tileSize);
-        Color[,] tile_3 = GetPixels(tileSize * 2, 0, tileSize, tileSize);
-        Color[,] tile_4 = GetPixels(tileSize * 3, 0, tileSize, tileSize);
-
-    }
-
-    private void SetPixels(int posX, int posY, Color[,] colors, Texture2D texture)
-    {
-        for(int x = 0;x < colors.GetLength(0) ;x++)
-        {
-            for (int y = 0; y < colors.GetLength(1); y++)
-            {
-                int _x = posX + x;
-                int _y = posY + y;
-                texture.SetPixel(_x, _y, colors[_x, _y]);
-            }
-        }
-=======
 
         Color[,] tile_1 = GetPixels(0, 0, tileSize, tileSize, targetSprite.texture);
         Color[,] tile_2 = GetPixels(tileSize, 0, tileSize, tileSize, targetSprite.texture);
@@ -342,7 +322,6 @@ public class WallSpriteToRuleTile : EditorWindow
         tilingRule.m_Neighbors = tilingRuleNeighbors[idx].ToList();
         tilingRule.m_Sprites[0] = sprites[spriteIndex[idx]];
         return tilingRule;
->>>>>>> 20527f0050cf7b1ed73f9bb8053e28bd8edd5e68
     }
 
     private void CreateSlicedSpriteMetaData(int posX, int posY, int width, int height, Texture2D texture, ISpriteEditorDataProvider dataProvider, List<SpriteNameFileIdPair> nameFileIdPairs)
@@ -370,13 +349,8 @@ public class WallSpriteToRuleTile : EditorWindow
         {
             for(int y = height - 1; y >= 0;y--)
             {
-<<<<<<< HEAD
-                colors[x, y] = targetSprite.texture.GetPixel(posX, posY);
-			}
-=======
                 colors[x, y] = texture.GetPixel(posX + x, y + texture.height - posY - height);
             }
->>>>>>> 20527f0050cf7b1ed73f9bb8053e28bd8edd5e68
 		}
         return colors;
     }
