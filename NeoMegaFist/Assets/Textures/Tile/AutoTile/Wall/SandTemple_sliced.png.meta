@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b926a0d136aa7824aac6fe4240785018
+guid: 5aaf55efecd1839449637c72536f660f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -21,7 +21,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -69,10 +69,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 1
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,862 +110,862 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 384
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6845f639268a2a4781c8519ed81c0ee
-      internalID: -1894119649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 384
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 30c51277797032d4d8e3e384f56663f4
-      internalID: -1257221882
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 0
+      name: SandTemple_sliced_0
       rect:
         serializedVersion: 2
         x: 0
         y: 432
         width: 48
         height: 48
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b556a4c81f365145a67d692e41a3580
-      internalID: -6690012
+      spriteID: 35acbda2413b7314bbb56acbb1274059
+      internalID: 59623511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1
+      name: SandTemple_sliced_1
       rect:
         serializedVersion: 2
         x: 48
         y: 432
         width: 48
         height: 48
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f9ff6ddda1132e4290fb62b606dbfd9
-      internalID: -836401316
+      spriteID: 5f582c5d941f428479e1094943b26950
+      internalID: 973066807
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5
+      name: SandTemple_sliced_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27d46a41e4b7f92408a164e3b09b8fa0
+      internalID: 535610799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 384
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd2f153a0a161c4785b05eaf0cb3778
+      internalID: 1687785380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_4
       rect:
         serializedVersion: 2
         x: 96
         y: 432
         width: 48
         height: 48
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7220d3f402f127344baabff2e66a2168
-      internalID: -218302655
+      spriteID: 2420ba94cc92d8049ac9fb32d9acfdc0
+      internalID: -2135226154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 8
+      name: SandTemple_sliced_5
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 432
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 094be986aa0880a4e992e7c7f33fe121
+      internalID: 173119491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 384
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12af1f6c9dc47f240b41c67a2aa0958a
+      internalID: 1607380326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_7
       rect:
         serializedVersion: 2
         x: 144
         y: 384
         width: 48
         height: 48
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6501f1485d6b3e347a00b0def0060173
-      internalID: 95478791
+      spriteID: 59938beacb4d7834cb68e17ae400b374
+      internalID: 1504761279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 7
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 384
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 986c8131f8f1fff4ca310ca2549a8bbb
-      internalID: -2053990205
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 6
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 432
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bbbf3f705e3d8964f8fb2b46f53d0de7
-      internalID: 1577420262
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 9
+      name: SandTemple_sliced_8
       rect:
         serializedVersion: 2
         x: 192
         y: 432
         width: 48
         height: 48
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49107d0a2e503c14fb7290323cab210a
-      internalID: 83242014
+      spriteID: 5e08ec8677a5d2449930b0e1fd7d2067
+      internalID: 658169412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 10
+      name: SandTemple_sliced_9
       rect:
         serializedVersion: 2
         x: 240
         y: 432
         width: 48
         height: 48
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c02cf34515004142828c6720e2073c4
-      internalID: 635687897
+      spriteID: 7274a69d30406ea4c8fa0f4046acc0c8
+      internalID: -1722752544
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: W_10
+      name: SandTemple_sliced_10
       rect:
         serializedVersion: 2
         x: 192
         y: 384
         width: 48
         height: 48
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d3a1e8fd4990bf4d8586f2097cbfc58
-      internalID: 601001290
+      spriteID: 2d44a17db4fc99d408edad34247bb8e9
+      internalID: 146795083
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: W_11
+      name: SandTemple_sliced_11
       rect:
         serializedVersion: 2
         x: 240
         y: 384
         width: 48
         height: 48
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ed3abff1e05f664ba90f26918081478
-      internalID: 127889063
+      spriteID: d10f8dee04ab33b43a2848fd14ece066
+      internalID: -1853117233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: W_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 288
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 661d5f5eb2d4e57499bc5c0fc665f7ee
-      internalID: -588175340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: W_13
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 288
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d88a6395169ac7349b3e15650a6289ed
-      internalID: -200038275
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: W_14
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f95f1b61dea2d94ba4e392c9d97562e
-      internalID: -840113706
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: W_15
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 192
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8a8ed16e5ccf3d04295f344eda4c7c1f
-      internalID: 1175432082
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: W_28
+      name: SandTemple_sliced_12
       rect:
         serializedVersion: 2
         x: 288
         y: 432
         width: 48
         height: 48
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4e8ff516c082a144a2c574fdeebaac7
-      internalID: -1087293322
+      spriteID: 03d01d4d6704b3e41910230637ced9f0
+      internalID: -1230607712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TestWall_0
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 288
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ef9488f7045f734fb2974358e9ab3aa
-      internalID: 1413943423
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_1
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 288
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0f0742ec7f0ee54688a918632cbdd37
-      internalID: 254102211
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_2
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 192
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e092c98e7515e449b7245330a1d7ac3
-      internalID: -1192892141
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_3
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 192
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2baf6a38a14b545428392deb080fcedf
-      internalID: 153636010
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_4
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 288
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d0044d69bc4a8047aad0604182934b4
-      internalID: 1724290646
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_5
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 288
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d41117b6682e3f45b4a5acd590b8b23
-      internalID: 6534490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_6
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 192
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60597ff16bb53ed4ca0a6db3f4463320
-      internalID: 36945387
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_7
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 192
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19d77eac9e8370d4881b56d4cf251bd3
-      internalID: -1003482432
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 95d43afe11590ef41b32126439468cd1
-      internalID: 1457834530
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_9
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 96
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01355f31b80455f43a35963a4593b2e7
-      internalID: 1888482264
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_10
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b25f66462a56104ca19592f09b861a0
-      internalID: 851604877
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_11
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ac1241357bbc8544b39eb85a41c0ac0
-      internalID: 495404801
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_12
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 96
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9dbba018c8b41044e88343242e2be025
-      internalID: 710725981
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_13
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 96
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27785790f83657b4fa67bf05b78cfb5d
-      internalID: 1178158765
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_14
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f28676cdbc6b1647b96a2173dfbc256
-      internalID: -2019409092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_15
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: db0b39b1e32f2ef4cbdb7b2e1867eb27
-      internalID: 1837760538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TestWall_16
+      name: SandTemple_sliced_13
       rect:
         serializedVersion: 2
         x: 336
         y: 432
         width: 48
         height: 48
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e686e71d4e8679a45a2ec4cdb4c95cf0
-      internalID: 614668698
+      spriteID: 4c7255eaed2802f42bf55ec5c5768549
+      internalID: -150496756
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TestWall_17
+      name: SandTemple_sliced_14
       rect:
         serializedVersion: 2
         x: 384
         y: 432
         width: 48
         height: 48
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb859abbd96025a4e86aa2c9695a3d8f
-      internalID: -1712790290
+      spriteID: e97c9c8cc810913468d4954140b07077
+      internalID: 1433450928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TestWall_18
+      name: SandTemple_sliced_15
       rect:
         serializedVersion: 2
         x: 336
         y: 384
         width: 48
         height: 48
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c92c112687a1d34ca224f178a7dfe5c
-      internalID: -1374104785
+      spriteID: bb97f613ed8da21419e6d632436a8282
+      internalID: 1160784056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TestWall_19
+      name: SandTemple_sliced_16
       rect:
         serializedVersion: 2
         x: 384
         y: 384
         width: 48
         height: 48
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e66b516b3575f1d4ca3d2b56e703936a
-      internalID: -508157769
+      spriteID: 4e36a862689f0984bb4dfa0f4bd25c7d
+      internalID: -1173023703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TestWall_24
+      name: SandTemple_sliced_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e725d100f17aa444babe8e28a635d17
+      internalID: 2138943899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0bb3dcb8d090f6499b1fa870a0a79f2
+      internalID: 920901673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 229e2a0d43c4ec24e9f9ba7798301932
+      internalID: -387130111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_20
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9af3f2058d1a674b8efb5e27d1c9196
+      internalID: 226586002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_21
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dfb8170d33127a4b94f9723c336fd80
+      internalID: -220284093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_22
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 288
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa7f3b5671d94384b83811b796286b9b
+      internalID: 77222811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_23
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d4bdd6853d1ea47879c789667653cc
+      internalID: 1218083351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_24
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 192
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69d549d9423f5304892e6fab527b7d88
+      internalID: 81315271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_25
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 288
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5afada491b434094cba21c93f6bf42ed
+      internalID: -1655914029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_26
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 288
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9afb83eab45143047bfd71d60df2038a
+      internalID: 1898362605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_27
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1675679272ff0343ac31871e350be44
+      internalID: 1748181064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_28
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 192
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4777fdbfd1521b14ba2f20636096b457
+      internalID: 1723447856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8235ce0a4e724114d83a73ba56c0cce3
+      internalID: -358359208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_30
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5670664e1e772cd40bfaeb6a058c1738
+      internalID: -1942284192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d399bdac1e716b04d8d6fc008c90c7e5
+      internalID: -950503463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_32
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25511f34c5d80854094deba3b7dad48c
+      internalID: -655080211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef7b8ab933bcba644988c05bf585ecbf
+      internalID: 1627151070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_34
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1182c2bf2bcd56f458d4a27a2d440c5d
+      internalID: -326856900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_35
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1751a696124e2e46b6c8a046f40d6a4
+      internalID: 459498306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_36
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74f5f780ddd65be4d9f47e83a15ed4af
+      internalID: 792192749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandTemple_sliced_37
       rect:
         serializedVersion: 2
         x: 384
         y: 96
         width: 96
         height: 96
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e0a4a16f25c06d43a8af4f087998b3a
-      internalID: 1514423461
+      spriteID: 0883e2ee3052b534f830586194ff66fc
+      internalID: -335591743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TestWall_25
+      name: SandTemple_sliced_38
       rect:
         serializedVersion: 2
         x: 480
         y: 96
         width: 96
         height: 96
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1cb69b82f610ba4a9bda937bd5da6f2
-      internalID: 1485252298
+      spriteID: c336a05d8a0e1bf4cbfff02b0a924f73
+      internalID: -1839629976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TestWall_26
+      name: SandTemple_sliced_39
       rect:
         serializedVersion: 2
         x: 384
         y: 0
         width: 96
         height: 96
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d323b520fdd035649aa9b7f22dc3d935
-      internalID: -810427479
+      spriteID: 2b69a29bd2f5714478279064f6b0a321
+      internalID: 637360803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TestWall_27
+      name: SandTemple_sliced_40
       rect:
         serializedVersion: 2
         x: 480
         y: 0
         width: 96
         height: 96
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 141657aff2eb70240ab575ee0dee3502
-      internalID: -1051292990
+      spriteID: 634e8a26746c2fb439c4fe8eaabe7c60
+      internalID: -253048172
       vertices: []
       indices: 
       edges: []
@@ -981,67 +981,47 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      0: -6690012
-      1: -836401316
-      10: 635687897
-      2: -1894119649
-      4: -1257221882
-      5: -218302655
-      6: 1577420262
-      7: -2053990205
-      8: 95478791
-      9: 83242014
-      TestWall_0: 1413943423
-      TestWall_1: 254102211
-      TestWall_10: 851604877
-      TestWall_11: 495404801
-      TestWall_12: 710725981
-      TestWall_13: 1178158765
-      TestWall_14: -2019409092
-      TestWall_15: 1837760538
-      TestWall_16: 614668698
-      TestWall_17: -1712790290
-      TestWall_18: -1374104785
-      TestWall_19: -508157769
-      TestWall_2: -1192892141
-      TestWall_20: 198930879
-      TestWall_21: -1756781849
-      TestWall_22: -924414887
-      TestWall_23: 1035871045
-      TestWall_24: 1514423461
-      TestWall_25: 1485252298
-      TestWall_26: -810427479
-      TestWall_27: -1051292990
-      TestWall_28: -1433492756
-      TestWall_29: 1255215179
-      TestWall_3: 153636010
-      TestWall_30: -367209168
-      TestWall_31: -1119319631
-      TestWall_4: 1724290646
-      TestWall_5: 6534490
-      TestWall_6: 36945387
-      TestWall_7: -1003482432
-      TestWall_8: 1457834530
-      TestWall_9: 1888482264
-      W_10: 601001290
-      W_11: 127889063
-      W_12: -588175340
-      W_13: -200038275
-      W_14: -840113706
-      W_15: 1175432082
-      W_16: -2064100223
-      W_17: -1740147202
-      W_18: 1125544564
-      W_19: 1983858554
-      W_20: -167386876
-      W_21: -779108168
-      W_22: 865891841
-      W_23: -1326798555
-      W_24: 762537971
-      W_25: 378756089
-      W_26: 1086129525
-      W_27: 630535559
-      W_28: -1087293322
+      SandTemple_0: -4055220992575788145
+      SandTemple_1: -4050241752510671483
+      SandTemple_10: 8416652557545094478
+      SandTemple_11: -1047594637786674779
+      SandTemple_12: 2421860640644918199
+      SandTemple_13: -1584507919067270498
+      SandTemple_14: 1839498980714778540
+      SandTemple_15: 2329092746210310258
+      SandTemple_16: -5079204082003929902
+      SandTemple_17: -596346911774142222
+      SandTemple_18: -4638221219727866060
+      SandTemple_19: -7521680464594413887
+      SandTemple_2: -7864525285116754004
+      SandTemple_20: -4616834346918310105
+      SandTemple_21: 6651979954730242029
+      SandTemple_22: 6824991648070187742
+      SandTemple_23: -4402773149735356011
+      SandTemple_24: -769225739564540243
+      SandTemple_25: 625990901874433485
+      SandTemple_26: -8110680082254576417
+      SandTemple_27: 646273369111983223
+      SandTemple_28: -5310282407234965422
+      SandTemple_29: 8805488895243515925
+      SandTemple_3: -7677262697833758903
+      SandTemple_30: 6992051593646842193
+      SandTemple_31: -2726944730746103078
+      SandTemple_32: 6455234059047062698
+      SandTemple_33: -3086667344771482031
+      SandTemple_34: -2872648250896380468
+      SandTemple_35: 3189359180204190937
+      SandTemple_36: -7376456229277137753
+      SandTemple_37: 4735465893010017542
+      SandTemple_38: -1813270442196017955
+      SandTemple_39: -6235275245015716238
+      SandTemple_4: 240763719440107458
+      SandTemple_40: -4596492894335664358
+      SandTemple_5: -6294049977669385241
+      SandTemple_6: 6761719525418451862
+      SandTemple_7: 6675846258912525241
+      SandTemple_8: -2389228390791790695
+      SandTemple_9: 7735387888392353629
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
