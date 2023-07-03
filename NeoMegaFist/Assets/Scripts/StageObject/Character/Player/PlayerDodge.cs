@@ -34,6 +34,7 @@ namespace StageObject
             {
                 if (inputer.GetPlayerMove() != Vector2.zero && inputer.GetPlayerDodgeStart() && dodgeInterval == 0)
                 {
+                    AudioReserveManager.AudioReserve("ƒvƒŒƒCƒ„[", "‰ñ”ğ", transform);
                     MoveIsActive = true;
                     MoveVelocity = inputer.GetPlayerMove() * baseDodgeSpeed * player.Speed;
                     dodgeDuration = baseDodgeDuration;
