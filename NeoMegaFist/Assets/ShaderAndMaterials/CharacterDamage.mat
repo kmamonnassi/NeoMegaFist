@@ -55,6 +55,8 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     - _Power: 0.5
+    - _ShakePower: 2
+    - _ShakeSpeed: 30
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

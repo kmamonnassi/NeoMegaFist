@@ -100,6 +100,7 @@ namespace StageObject
         [SerializeField] private int stunDamage;
         [SerializeField] private int knockBackPower;
         [SerializeField] private float coolTime = 0.5f;
+        [SerializeField] private float hitStopTime = 0.1f;
 
         public BuffData[] Buffs { get => buffs; set => buffs = value; }
         public StageObjectType[] HitTargets { get => hitTargets; set => hitTargets = value; }
@@ -107,6 +108,7 @@ namespace StageObject
         public int StunDamage { get => stunDamage; set => stunDamage = value; }
         public int KnockBackPower { get => knockBackPower; set => knockBackPower = value; }
         public float CoolTime { get => coolTime; set => coolTime = value; }
+        public float HitStopTime { get => hitStopTime; set => hitStopTime = value; }
 
         public GameObject Object { get; set; }
 

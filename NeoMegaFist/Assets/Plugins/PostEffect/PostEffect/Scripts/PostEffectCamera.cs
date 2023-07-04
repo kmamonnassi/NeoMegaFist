@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -76,10 +77,13 @@ namespace Utility.PostEffect
 					offset.x = Random.Range(-truePower.x, truePower.x);
 					offset.y = Random.Range(-truePower.y, truePower.y);
 					shakeParent.position += (Vector3)offset;
+					shakeParent.DOMove(offset, interval).onComplete += () =>
+					{
+						shakeParent.position -= (Vector3)offset;
+						offset = Vector2.zero;
+					};
 				}
 				await UniTask.DelayFrame(1);
-				shakeParent.position -= (Vector3)offset;
-				offset = Vector2.zero;
 			}
 		}
 

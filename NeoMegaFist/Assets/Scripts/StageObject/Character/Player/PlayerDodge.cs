@@ -5,7 +5,7 @@ using Zenject;
 
 namespace StageObject
 {
-    public class PlayerDodge : MonoBehaviour, IPlayerMove, IUpdate
+    public class PlayerDodge : MonoBehaviour, IPlayerMove, IUpdate, IFixedUpdate
     {
         [SerializeField] private Player player;
         [SerializeField] private PlayerMover playerMover;
@@ -22,6 +22,7 @@ namespace StageObject
 
         private float dodgeDuration;
         private float dodgeInterval;
+        private bool isPlayerMove;
 
         private void Start()
         {
@@ -32,11 +33,11 @@ namespace StageObject
         {
             if(dodgeDuration == 0)
             {
-                if (inputer.GetPlayerMove() != Vector2.zero && inputer.GetPlayerDodgeStart() && dodgeInterval == 0)
+                isPlayerMove = inputer.GetPlayerMove() != Vector2.zero && inputer.GetPlayerDodgeStart() && dodgeInterval == 0;
+                if (isPlayerMove)
                 {
                     AudioReserveManager.AudioReserve("ÉvÉåÉCÉÑÅ[", "âÒî", transform);
                     MoveIsActive = true;
-                    MoveVelocity = inputer.GetPlayerMove() * baseDodgeSpeed * player.Speed;
                     dodgeDuration = baseDodgeDuration;
                     dodgeInterval = baseDodgeInterval;
                     player.Invisible(invisibleDuration);
@@ -66,6 +67,11 @@ namespace StageObject
                     dodgeInterval = 0;
                 }
             }
+        }
+
+        public void ManagedFixedUpdate()
+        {
+            MoveVelocity = inputer.GetPlayerMove() * baseDodgeSpeed * player.Speed;
         }
     }
 }
