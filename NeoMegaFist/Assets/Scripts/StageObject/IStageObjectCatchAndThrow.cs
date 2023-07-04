@@ -13,6 +13,8 @@ namespace StageObject
         event Action OnReleased;
         event Action OnThrown;
         event Action OnEndThrown;
+        event Action OnOverhandThrown;
+        event Action OnEndOverhandThrown;
 
         void Catched();
         void Released();

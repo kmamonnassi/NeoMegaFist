@@ -37,7 +37,17 @@ namespace StageObject
             rotater.Add(this);
             for(int i = 0; i < punchColliders.Length; i++)
             {
-                punchColliders[i].OnHitTarget += (obj) => AudioReserveManager.AudioReserve("プレイヤー", "通常攻撃_" + i + "が敵やオブジェクトにヒットした", transform);
+                punchColliders[i].OnHitTarget += (obj) =>
+                {
+                    Rigidbody2D obj_rb = obj.GetComponent<Rigidbody2D>();
+                    obj_rb.simulated = false;
+                    DOVirtual.DelayedCall(0.1f, () =>
+                    {
+                        obj_rb.simulated = true;
+                    });
+                    AudioReserveManager.AudioReserve("プレイヤー", "通常攻撃_" + i + "が敵やオブジェクトにヒットした", transform);
+                    Debug.Log("OK");
+                };
             }
         }
 

@@ -626,6 +626,10 @@ MonoBehaviour:
   animator: {fileID: 6365721693259468050}
   rotater: {fileID: 3686736546442695238}
   player: {fileID: 6085228258668757946}
+  punchColliders:
+  - {fileID: 6902781851983803325}
+  - {fileID: 3986360944825013986}
+  - {fileID: 1771640287318193530}
   decressSpeed: 0.5
   punchTimes:
   - 0.25
@@ -667,6 +671,8 @@ MonoBehaviour:
   baseThrowPower: 1200
   baseOverhandThrowDuration: 0.75
   baseOverhandThrowDistance: 256
+  raycastOffset: 4.1
+  throwPreparationLineLength: 320
 --- !u!114 &5385182116023040047
 MonoBehaviour:
   m_ObjectHideFlags: 0
