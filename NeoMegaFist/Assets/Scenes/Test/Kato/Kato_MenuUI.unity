@@ -323,10 +323,10 @@ GameObject:
   - component: {fileID: 1695597905}
   - component: {fileID: 1695597904}
   - component: {fileID: 1695597909}
-  - component: {fileID: 1695597907}
   - component: {fileID: 1695597908}
+  - component: {fileID: 1695597907}
   m_Layer: 0
-  m_Name: ModalCanvas
+  m_Name: MenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

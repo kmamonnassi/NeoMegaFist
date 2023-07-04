@@ -18,10 +18,11 @@ namespace Ui.Menu
         private IInputer inputer;
 
         private GameObject makedMenuObj = null;
+        private MenuObjView menuView;
 
         void Start()
         {
-            
+
         }
 
         void Update()
@@ -32,11 +33,15 @@ namespace Ui.Menu
                 {
                     AudioReserveManager.AudioReserve("MenuUI", "メニューを開く音", transform);
                     makedMenuObj = container.InstantiatePrefab(menuObj, transform);
+                    menuView = makedMenuObj.GetComponent<MenuObjView>();
+                    menuView.PlayOpenAnimation();
                 }
                 else
                 {
                     AudioReserveManager.AudioReserve("MenuUI", "メニューを閉じる音", transform);
-                    Destroy(makedMenuObj);
+                    menuView = makedMenuObj.GetComponent<MenuObjView>();
+                    menuView.PlayCloseAnimation();
+                    //Destroy(makedMenuObj);
                 }
             }
         }
