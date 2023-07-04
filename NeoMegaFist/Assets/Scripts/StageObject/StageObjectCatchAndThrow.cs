@@ -145,6 +145,7 @@ namespace StageObject
             .onComplete += () => 
             {
                 OnEndOverhandThrown?.Invoke();
+                State = ThrownState.Freedom;
                 transform.position = new Vector3(nowPosition.x, nowPosition.y, 0);
 
                 thrownCollider.SetState(ThrownState.OverhandThrow);

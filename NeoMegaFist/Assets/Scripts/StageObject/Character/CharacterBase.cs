@@ -39,7 +39,8 @@ namespace StageObject
         public event Action OnDead;
 
         private float nowStunDuration;
-        private HitColliderDamage thrownHitDamage = new HitColliderDamage(null, new[] { StageObjectType.Enemy }, 50, 50, 0, 0.1f);
+        private HitColliderDamage thrownHitDamage = new HitColliderDamage(null, new[] { StageObjectType.Enemy }, 50, 50, -50, 0.1f);
+        private HitColliderDamage overhandThrownHitDamage = new HitColliderDamage(null, new[] { StageObjectType.Enemy }, 50, 50, 0, 0.1f);
         private float invisibleTime = 0;
         private IStageObjectCatchAndThrow catchAndThrow;
 
@@ -61,6 +62,11 @@ namespace StageObject
                 {
                     thrownHitDamage.Object = obj.gameObject;
                     Damage(thrownHitDamage);
+                };
+                catchAndThrow.OnEndOverhandThrown += () =>
+                {
+                    overhandThrownHitDamage.Object = gameObject;
+                    Damage(overhandThrownHitDamage);
                 };
             }
         }
@@ -158,7 +164,7 @@ namespace StageObject
             if (IsStun)
             {
                 nowStunDuration -= Time.deltaTime;
-                if (nowStunDuration <= 0 && catchAndThrow.State != ThrownState.Throw)
+                if (nowStunDuration <= 0 && catchAndThrow.State == ThrownState.Freedom)
                 {
                     EndStun();
                 }

@@ -1,4 +1,8 @@
 {
-    "speakerArray": [],
-    "containTextArray": []
+    "speakerArray": [
+        "Huga"
+    ],
+    "containTextArray": [
+        "Hoge"
+    ]
 }
