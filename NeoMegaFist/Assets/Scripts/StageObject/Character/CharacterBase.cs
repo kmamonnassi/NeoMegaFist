@@ -28,6 +28,7 @@ namespace StageObject
         public event Action<int> OnSetHP;
         public event Action<int> OnSetMaxHP;
         public event Action<int> OnDamage;
+        public event Action<HitColliderDamage> OnDamageByCollider;
         public event Action<int> OnHeal;
         public event Action<int> OnSetStamina;
         public event Action<int> OnSetMaxStamina;
@@ -85,6 +86,7 @@ namespace StageObject
                 }
                 KnockBack(((Vector2)(transform.position - col.Object.transform.position)).normalized, col.KnockBackPower);
                 Invisible(col.CoolTime);
+                OnDamageByCollider?.Invoke(col);
             }
         }
 
