@@ -35,8 +35,8 @@ namespace StageObject
                 {
                     Vector2 diff = transform.position - obj.transform.position;
                     Vector2 dir = diff.normalized;
-                    obj.GetComponent<StageObjectCatchAndThrow>().Thrown(dir, rb.velocity.magnitude / 2);
-                    postEffectCamera.Shake(new Vector2(THROWN_CAMERA_SHAKE_POWER, THROWN_CAMERA_SHAKE_POWER) * rb.velocity.magnitude, 0.1f, 0.1f);
+                    obj.GetComponent<StageObjectCatchAndThrow>().Thrown(dir, rb.velocity.magnitude / 4);
+                    //postEffectCamera.Shake(new Vector2(THROWN_CAMERA_SHAKE_POWER, THROWN_CAMERA_SHAKE_POWER) * rb.velocity.magnitude, 0.1f, 0.1f);
                 }
                 else
                 if(State == ThrownState.OverhandThrow)

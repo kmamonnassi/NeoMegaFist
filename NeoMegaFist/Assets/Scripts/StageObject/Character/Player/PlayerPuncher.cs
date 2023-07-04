@@ -8,7 +8,7 @@ using Zenject;
 
 namespace StageObject
 {
-    public class PlayerPuncher : MonoBehaviour, IPlayerRotate, IUpdate
+    public class PlayerPuncher : MonoBehaviour, IPlayerRotate, IUpdate, ITimeScalable
     {
         [SerializeField] private Animator animator;
         [SerializeField] private PlayerRotater rotater;
@@ -21,10 +21,14 @@ namespace StageObject
 
         [Inject] private IInputer inputer;
         [Inject] private IPostEffectCamera cam;
+        [Inject] private ITimeScaler timeScaler;
 
         public int RotationPriority => 1;
         public float Rotation { get; private set; }
         public bool RotationIsActive { get; private set; }
+
+        public int Priority => 1;
+        public float Scale => 0f;
 
         private int nowPunchId;
         private bool isPunching = false;
@@ -37,7 +41,10 @@ namespace StageObject
             rotater.Add(this);
             for(int i = 0; i < punchColliders.Length; i++)
             {
-                punchColliders[i].OnHitTarget += (obj) => AudioReserveManager.AudioReserve("プレイヤー", "通常攻撃_" + i + "が敵やオブジェクトにヒットした", transform);
+                punchColliders[i].OnHitTarget += (obj) =>
+                {
+                    AudioReserveManager.AudioReserve("プレイヤー", "通常攻撃_" + i + "が敵やオブジェクトにヒットした", transform);
+                };
             }
         }
 
