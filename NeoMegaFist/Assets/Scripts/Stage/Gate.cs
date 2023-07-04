@@ -9,26 +9,14 @@ namespace Stage
         [SerializeField] private string nextSceneName;
         [SerializeField] private Vector2 playerPosition;
 
+        [Inject] private Player player;
+
         private void OnTriggerEnter2D(Collider2D col)
         {
-            GoToNextRoom(col.gameObject);
         }
 
         private void OnCollisionEnter2D(Collision2D col)
         {
-            GoToNextRoom(col.gameObject);
-        }
-
-        private bool GoToNextRoom(GameObject target)
-        {
-            if(target.GetComponent<Player>() != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }

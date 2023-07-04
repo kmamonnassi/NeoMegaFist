@@ -5,7 +5,6 @@ using UnityEditor;
 using System.IO;
 using UniRx;
 using System.Linq;
-using System;
 using Audio;
 
 
@@ -62,11 +61,12 @@ public class AudioReserveEditorWindow : EditorWindow
         {
             EditorGUI.indentLevel++;
 
-            if(GUILayout.Button("StreamingAssets‚ðŠJ‚­"))
+            // StreamingAssets‚ðŠJ‚­
+            if (GUILayout.Button("StreamingAssets‚ðŠJ‚­"))
             {
                 System.Diagnostics.Process.Start(Application.streamingAssetsPath);
             }
-
+            
             EditorGUI.indentLevel--;
         }
 

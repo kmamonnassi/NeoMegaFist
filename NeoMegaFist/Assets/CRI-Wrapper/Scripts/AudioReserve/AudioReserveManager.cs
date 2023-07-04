@@ -44,7 +44,9 @@ public class AudioReserveManager : MonoBehaviour
     /// <param name="audioTime">çƒê∂ó\íËÇÃí∑Ç≥</param>
     public static void AudioReserve(string speakerName, string contentText, Transform speakerObjTrans, float audioTime = 0.5f)
     {
+#if UNITY_EDITOR
         instance.AudioReservePrivate(speakerName, contentText, speakerObjTrans, audioTime);
+#endif
     }
 
     /// <summary>
@@ -57,8 +59,12 @@ public class AudioReserveManager : MonoBehaviour
     /// <param name="audioTime">çƒê∂ó\íËÇÃí∑Ç≥</param>
     public static void AudioReserve(string speakerName, string contentText, Transform speakerObjTrans, Color imageColor, float audioTime = 0.5f)
     {
+#if UNITY_EDITOR
         instance.AudioReservePrivate(speakerName, contentText, speakerObjTrans, imageColor, audioTime);
+#endif
     }
+
+
 
     private void AudioReservePrivate(string speakerName, string contentText, Transform speakerObjTrans, float audioTime)
     {
