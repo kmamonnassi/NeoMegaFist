@@ -7,6 +7,9 @@ public class AudioReserveManager : MonoBehaviour
     [SerializeField]
     private AudioTimerObjPool objPool;
 
+    [SerializeField]
+    private bool isHideUi = true;
+
     private static AudioReserveManager instance { get; set; }
 
     private AudioReserveContainer reserveContainer;
@@ -68,13 +71,19 @@ public class AudioReserveManager : MonoBehaviour
 
     private void AudioReservePrivate(string speakerName, string contentText, Transform speakerObjTrans, float audioTime)
     {
-        objPool.GetActiveFalseObj(speakerObjTrans, audioTime);
+        if(!isHideUi)
+        {
+            objPool.GetActiveFalseObj(speakerObjTrans, audioTime);
+        }
         reserveContainer.RegisterAudioReserve(speakerName, contentText);
     }
 
     private void AudioReservePrivate(string speakerName, string contentText, Transform speakerObjTrans, Color imageColor, float audioTime)
     {
-        objPool.GetActiveFalseObj(speakerObjTrans, imageColor, audioTime);
+        if(!isHideUi)
+        {
+            objPool.GetActiveFalseObj(speakerObjTrans, imageColor, audioTime);
+        }
         reserveContainer.RegisterAudioReserve(speakerName, contentText);
     }
 }
