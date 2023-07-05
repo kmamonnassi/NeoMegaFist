@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9e85b5163aa55e4382d0755e1b94f3b
+guid: ef42e317efb50d44ba2e5a9225728d7e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Move_0
+      name: PunchHit_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 80
-        width: 80
-        height: 80
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 804f2348b4251e740bf5d0789eaea94d
-      internalID: 1293027554
+      spriteID: 39f991a0e353c4b459ca4f6569e552e8
+      internalID: -1942461130
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Move_1
+      name: PunchHit_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 80
-        width: 80
-        height: 80
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,41 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56022d72dd032fb47915cf2bb35a4727
-      internalID: -1991059036
+      spriteID: e7a2bf0ab74ef3642b4a1671dddae787
+      internalID: 595640466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Move_2
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 80
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f96980aa5d5135042907512413db617d
-      internalID: -1005609635
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Move_3
+      name: PunchHit_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 80
-        height: 80
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20206044508755641bf78fdd9cf5aa32
-      internalID: -1799581965
+      spriteID: a208710de68c3c8488295521b600377a
+      internalID: 1704532527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Move_4
+      name: PunchHit_3
       rect:
         serializedVersion: 2
-        x: 80
+        x: 32
         y: 0
-        width: 80
-        height: 80
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,29 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b0c461280c7e4c4d801ebb2676e51da
-      internalID: -1358238736
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Move_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ceed767336fd5754d8a9204056210aa1
-      internalID: -1213012765
+      spriteID: 7cfac8ce4895c9441a665341e78efa5b
+      internalID: -992789388
       vertices: []
       indices: 
       edges: []
@@ -246,12 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Move_0: 1293027554
-      Player_Move_1: -1991059036
-      Player_Move_2: -1005609635
-      Player_Move_3: -1799581965
-      Player_Move_4: -1358238736
-      Player_Move_5: -1213012765
+      PunchHit_0: -1942461130
+      PunchHit_1: 595640466
+      PunchHit_2: 1704532527
+      PunchHit_3: -992789388
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

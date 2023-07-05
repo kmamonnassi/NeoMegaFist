@@ -52,6 +52,10 @@ MonoBehaviour:
     stunDamage: 8
     knockBackPower: 10
     coolTime: 0.25
+    hitStopTime: 0.1
+  onHitWallToIgnore: 1
+  onHitWallToIgnoreRaycastLength: 64
+  onHitWallToIgnoreRaycastOffset: 4.1
   ignores: []
 --- !u!61 &4224028299232808131
 BoxCollider2D:
@@ -150,6 +154,10 @@ MonoBehaviour:
     stunDamage: 8
     knockBackPower: 30
     coolTime: 0.25
+    hitStopTime: 0.1
+  onHitWallToIgnore: 1
+  onHitWallToIgnoreRaycastLength: 64
+  onHitWallToIgnoreRaycastOffset: 4.1
   ignores: []
 --- !u!61 &1181844197286966907
 BoxCollider2D:
@@ -422,6 +430,10 @@ MonoBehaviour:
     stunDamage: 8
     knockBackPower: 5
     coolTime: 0.25
+    hitStopTime: 0.1
+  onHitWallToIgnore: 1
+  onHitWallToIgnoreRaycastLength: 64
+  onHitWallToIgnoreRaycastOffset: 4.1
   ignores: []
 --- !u!61 &7604807885504684654
 BoxCollider2D:
@@ -636,6 +648,7 @@ MonoBehaviour:
   - 0.25
   - 0.3
   nextPunchDuration: 0.5
+  raycastOffset: 4.1
   catcher: {fileID: 8503057697391378543}
 --- !u!114 &3686736546442695238
 MonoBehaviour:
