@@ -3,16 +3,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Utility.PostEffect;
+using Zenject;
 
 namespace StageObject
 {
     public class EffectCollider : MonoBehaviour
     {
         [SerializeField] private HitColliderDamage hitColliderDamage = new HitColliderDamage(null, new [] { StageObjectType.Enemy, StageObjectType.StageObject }, 50, 50, 50, 0.5f);
+        [SerializeField] private bool onHitWallToIgnore = false;
+        [SerializeField] private float onHitWallToIgnoreRaycastLength = 10;
+        [SerializeField] private float onHitWallToIgnoreRaycastOffset = 0;
 
         public HitColliderDamage HitColliderDamage => hitColliderDamage;
 
         public event Action<GameObject> OnHitWall;
+        /// <summary>“G‚ÌUŒ‚‚ğó‚¯‚½Ú×‚ÈˆÊ’u‚ğæ“¾(”ñ„§)</summary>
+        public event Action<StageObjectBase, Vector2> OnHitTargetByPosition;
         public event Action<StageObjectBase> OnHitTarget;
 
         public List<GameObject> ignores = new List<GameObject>();
@@ -55,12 +62,38 @@ namespace StageObject
             if (ignores.Contains(obj)) return;
 
             StageObjectBase stageObject = obj.GetComponent<StageObjectBase>();
+
             if (stageObject != null)
             {
+                CharacterBase character = stageObject.GetComponent<CharacterBase>();
+                if (character != null)
+                {
+                    if (character.InvisibleTime > 0) return;
+				}
+
+                Vector2 dir = ((Vector2)(obj.transform.position - transform.position)).normalized;
+                float rayLength = onHitWallToIgnoreRaycastLength - Vector2.Distance(transform.position, (Vector2)transform.position + dir * onHitWallToIgnoreRaycastOffset);
+                Vector2 rayOrigin = (Vector2)transform.position + dir * onHitWallToIgnoreRaycastOffset;
+
+                if (onHitWallToIgnore)
+                {
+                    RaycastHit2D hitWall = Physics2D.Raycast(rayOrigin, dir, rayLength, LayerMask.GetMask("Wall"));
+                    if (hitWall) 
+                    {
+                        if (Vector2.Distance(obj.transform.position, rayOrigin) > Vector2.Distance(hitWall.point, rayOrigin)) return;
+					}
+                }
+
                 if (Array.Exists(hitColliderDamage.HitTargets, x => stageObject.Type == x))
                 {
+                    RaycastHit2D hitTarget = Physics2D.Raycast(rayOrigin, dir, rayLength, LayerMask.GetMask("StageObject"));
+                    if(hitTarget)
+                    {
+                        OnHitTargetByPosition?.Invoke(stageObject, hitTarget.point);
+                    }
+
                     OnHitTarget?.Invoke(stageObject);
-                    stageObject.GetComponent<CharacterBase>()?.Damage(hitColliderDamage);
+                    character.Damage(hitColliderDamage);
                 }
             }
             else
