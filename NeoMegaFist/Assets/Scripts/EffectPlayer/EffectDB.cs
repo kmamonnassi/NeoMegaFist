@@ -9,12 +9,11 @@ namespace Effect
 
 		public EffectView GetPrefab(string name)
 		{
-			EffectView targetPrefab = null;
 			foreach(EffectView prefab in effectPrefabs)
 			{
 				if(prefab.name.Equals(name))
 				{
-					return targetPrefab;
+					return prefab;
 				}
 			}
 			return null;

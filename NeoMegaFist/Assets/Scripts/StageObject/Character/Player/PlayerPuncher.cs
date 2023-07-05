@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Effect;
 using InputControl;
 using UnityEngine;
 using Utility;
@@ -17,10 +18,14 @@ namespace StageObject
         [SerializeField] private float decressSpeed = 0.8f;
         [SerializeField] private float[] punchTimes;
         [SerializeField] private float nextPunchDuration;
+        [SerializeField] private float raycastOffset = 4.1f;
+        [SerializeField] private float punchHitEffectRandomize = 8;
+        [SerializeField] private float punchHitEffectDepth = 12;
         [SerializeField] private PlayerCatcher catcher;
 
         [Inject] private IInputer inputer;
         [Inject] private IPostEffectCamera cam;
+        [Inject] private IEffectPlayer effectPlayer;
 
         public int RotationPriority => 1;
         public float Rotation { get; private set; }
@@ -46,9 +51,20 @@ namespace StageObject
                         obj_rb.simulated = true;
                     });
                     AudioReserveManager.AudioReserve("プレイヤー", "通常攻撃_" + i + "が敵やオブジェクトにヒットした", transform);
-                    Debug.Log("OK");
+                };
+
+                punchColliders[i].OnHitTargetByPosition += (obj, pos) =>
+                {
+                    Vector2 effectPos = pos + ((Vector2)obj.transform.position - pos).normalized * punchHitEffectDepth;
+                    effectPos += new Vector2(Random.Range(-punchHitEffectRandomize, punchHitEffectRandomize), Random.Range(-punchHitEffectRandomize, punchHitEffectRandomize));
+                    effectPlayer.PlayEffect("PunchHit", effectPos);
                 };
             }
+
+            punchColliders[2].OnHitTargetByPosition += (obj, pos) =>
+            {
+                effectPlayer.PlayEffect("PunchImpact", obj.transform.position, Quaternion.Euler(0,0, GetAngle(obj.transform.position, pos) - 90));
+            };
         }
 
         public void ManagedUpdate()
