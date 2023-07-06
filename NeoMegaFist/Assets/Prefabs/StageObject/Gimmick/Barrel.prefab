@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 645228039
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2d6b25f0560635341b29db5087971d2d, type: 3}
+  m_Sprite: {fileID: 1696528508, guid: b000d7d1f6142b242a2a560368ffd4d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,6 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8192305781693139458}
+  - component: {fileID: 5074675268823970004}
   - component: {fileID: 1653613031368778659}
   - component: {fileID: 2165581161449512376}
   - component: {fileID: 455216600428947880}
@@ -122,6 +123,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5074675268823970004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116200974191461014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d3edd67d0cee8459c24fe18ef5b68a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers:
+  - {fileID: 8326951337915930785}
+  animator: {fileID: 2165581161449512376}
+  thrownCol: {fileID: 6373101945496131333}
+  onBreakWaitKillTime: 1
+  colliders:
+  - {fileID: 4885471063018556253}
+  - {fileID: 1457805015981610760}
 --- !u!114 &1653613031368778659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +165,7 @@ Animator:
   m_GameObject: {fileID: 3116200974191461014}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 856c602609dd60f4b8c52547737da02b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -216,7 +237,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 16
+  m_Radius: 8
 --- !u!114 &1014622767292156011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +268,10 @@ PrefabInstance:
       propertyPath: wallHitCollider
       value: 
       objectReference: {fileID: 3938058987592176310, guid: 862adfa5f31044e4bad4d648ac29c6f4, type: 3}
+    - target: {fileID: 4231278358703829157, guid: e0c86373c051ff249bb5b1c93e1ff9fe, type: 3}
+      propertyPath: m_Radius
+      value: 8.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4534448211744403578, guid: e0c86373c051ff249bb5b1c93e1ff9fe, type: 3}
       propertyPath: m_Name
       value: ThrownCollider
@@ -307,6 +332,11 @@ PrefabInstance:
 --- !u!4 &4465833511391303983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4939877979124572887, guid: e0c86373c051ff249bb5b1c93e1ff9fe, type: 3}
+  m_PrefabInstance: {fileID: 8751667476548107256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &4885471063018556253 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4231278358703829157, guid: e0c86373c051ff249bb5b1c93e1ff9fe, type: 3}
   m_PrefabInstance: {fileID: 8751667476548107256}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6373101945496131333 stripped

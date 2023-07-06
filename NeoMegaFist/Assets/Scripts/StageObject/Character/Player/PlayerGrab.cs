@@ -9,11 +9,11 @@ using Zenject;
 
 namespace StageObject
 {
-    public class PlayerCatcher : MonoBehaviour, IPlayerRotate, IUpdate
+    public class PlayerGrab : MonoBehaviour, IPlayerRotate, IUpdate
     {
         [SerializeField] private Animator animator;
         [SerializeField] private PlayerRotater rotater;
-        [SerializeField] private CatchCollider catchCollider;
+        [SerializeField] private GrabCollider catchCollider;
         [SerializeField] private Player player;
         [SerializeField] private LineRenderer throwPreparationLine;
         [SerializeField] private GameObject overhandThrowMark;//上投げで投げる場所を示すマーク
@@ -85,6 +85,7 @@ namespace StageObject
         public void Throw(Vector2 dir)
         {
             AudioReserveManager.AudioReserve("プレイヤー", "ストレート投げ", transform);
+            CatchTarget.transform.position = CatchTarget.transform.position + (Vector3)dir * raycastOffset;
             CatchTarget?.Thrown(dir, baseThrowPower);
         }
 
@@ -144,7 +145,7 @@ namespace StageObject
             Vector2 dir = (cam.ScreenToWorldPoint(inputer.GetMousePosition()) - (Vector2)transform.position).normalized;
             float rayLength = throwPreparationLineLength - Vector2.Distance(transform.position, (Vector2)transform.position + dir * raycastOffset);
             Vector2 rayOrigin = (Vector2)transform.position + dir * raycastOffset;
-            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, dir, rayLength, LayerMask.GetMask("Wall"));
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, dir, rayLength, LayerMask.GetMask("Wall", "LowWall"));
             
             throwPreparationLine.positionCount = 1;
             throwPreparationLine.SetPosition(0, transform.position);
@@ -207,6 +208,7 @@ namespace StageObject
                 if(CatchTarget.State == ThrownState.Catch)
                 {
                     CatchTarget.transform.position = transform.position;
+                    CatchTarget.transform.eulerAngles = transform.eulerAngles;
                 }
             }
 
@@ -240,7 +242,7 @@ namespace StageObject
             }
             else
             //マウスが押されたとき、掴んでいるものがなければ掴み動作、あればそれを投げる
-            if (inputer.GetPlayerCatch() && CatchTarget == null)
+            if (inputer.GetPlayerGrab() && CatchTarget == null)
             {
                 if (!PlayingCatchMotion)
                 {

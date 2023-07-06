@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Catch",
+                    "name": "Grab",
                     "type": "Button",
                     "id": "5c801068-702e-4f2d-bec5-9bc2e1f10cd2",
                     "expectedControlType": "Button",
@@ -176,7 +176,7 @@
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Catch",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

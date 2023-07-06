@@ -21,7 +21,7 @@ namespace StageObject
         [SerializeField] private float raycastOffset = 4.1f;
         [SerializeField] private float punchHitEffectRandomize = 8;
         [SerializeField] private float punchHitEffectDepth = 12;
-        [SerializeField] private PlayerCatcher catcher;
+        [SerializeField] private PlayerGrab catcher;
 
         [Inject] private IInputer inputer;
         [Inject] private IPostEffectCamera cam;
@@ -58,13 +58,15 @@ namespace StageObject
                     Vector2 effectPos = pos + ((Vector2)obj.transform.position - pos).normalized * punchHitEffectDepth;
                     effectPos += new Vector2(Random.Range(-punchHitEffectRandomize, punchHitEffectRandomize), Random.Range(-punchHitEffectRandomize, punchHitEffectRandomize));
                     effectPlayer.PlayEffect("PunchHit", effectPos);
+
+                    effectPlayer.PlayEffect("PunchImpact", (Vector2)obj.transform.position + ((Vector2)obj.transform.position - pos).normalized * punchHitEffectDepth, Quaternion.Euler(0, 0, GetAngle(obj.transform.position, pos) - 90));
+
+                    if(obj is CharacterBase)
+                    {
+                        CharacterBase c = obj as CharacterBase;
+                    }
                 };
             }
-
-            punchColliders[2].OnHitTargetByPosition += (obj, pos) =>
-            {
-                effectPlayer.PlayEffect("PunchImpact", obj.transform.position, Quaternion.Euler(0,0, GetAngle(obj.transform.position, pos) - 90));
-            };
         }
 
         public void ManagedUpdate()
@@ -113,7 +115,7 @@ namespace StageObject
             {
                 nowPunchId = 0;
             });
-            await UniTask.DelayFrame(1);
+            await UniTask.DelayFrame(10);
             punchWaitTween.onUpdate += () =>
             {
                 if (inputer.GetPlayerPunch())

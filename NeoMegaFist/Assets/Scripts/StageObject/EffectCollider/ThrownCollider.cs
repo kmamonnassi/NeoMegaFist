@@ -11,7 +11,6 @@ namespace StageObject
         [SerializeField] private Collider2D attackCollider;
         [SerializeField] private Collider2D mainCollider;
         [Inject] private IPostEffectCamera postEffectCamera;
-        [Inject] private ITimeScaler timeScaler;
 
         public int Priority => 2;
         public float Scale => 0f;
