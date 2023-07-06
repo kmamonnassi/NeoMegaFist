@@ -1,13 +1,18 @@
+using Effect;
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 namespace StageObject
 {
-    public class Barrel : StageObjectBase
+    public class Barrel : StageObjectBase, IHitEffectCollider
     {
         [SerializeField] private Animator animator;
         [SerializeField] private ThrownCollider thrownCol;
         [SerializeField] private float onBreakWaitKillTime = 1;
+        [SerializeField] private Collider2D[] colliders;
+
+        [Inject] private IEffectPlayer effectPlayer;
 
         public override StageObjectID ID => StageObjectID.Barrel;
         public override StageObjectType Type => StageObjectType.StageObject;
@@ -18,10 +23,15 @@ namespace StageObject
         protected override void OnAwake_Virtual()
         {
             base.OnAwake_Virtual();
-
+            catchAndThrow = GetComponent<IStageObjectCatchAndThrow>();
             catchAndThrow.OnCatched += () =>
             {
                 animator.Play("Rolling");
+            };
+
+            catchAndThrow.OnEndOverhandThrown += () =>
+            {
+                Break();
             };
 
             thrownCol.OnHitWall += (wall) =>
@@ -33,18 +43,19 @@ namespace StageObject
             {
                 Break();
             };
+
         }
 
         private void Break()
         {
             catchAndThrow.EndThrown();
-            animator.Play("Break");
+            effectPlayer.PlayEffect("BreakBarrel", transform.position);
+            Destroy(gameObject);
         }
 
-        private IEnumerator WaitKill()
+        public void OnHitEffectCollider(EffectCollider col)
         {
-            yield return new WaitForSeconds(onBreakWaitKillTime);
-            Destroy(gameObject);
+            Break();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace StageObject
         public List<GameObject> ignores = new List<GameObject>();
         private List<GameObject> hitList = new List<GameObject>();
 
-        private void Start()
+        protected virtual void Start()
         {
             hitColliderDamage.Object = gameObject;
         }
@@ -63,6 +63,17 @@ namespace StageObject
 
             StageObjectBase stageObject = obj.GetComponent<StageObjectBase>();
 
+            IHitEffectCollider hitEffectCollider = obj.GetComponent<IHitEffectCollider>();
+            if (hitEffectCollider != null)
+            {
+                hitEffectCollider.OnHitEffectCollider(this);
+                if (hitEffectCollider is Wall)
+                {
+                    Wall wall = hitEffectCollider as Wall;
+                    OnHitWall?.Invoke(obj);
+                }
+            }
+
             if (stageObject != null)
             {
                 CharacterBase character = stageObject.GetComponent<CharacterBase>();
@@ -91,22 +102,8 @@ namespace StageObject
                     {
                         OnHitTargetByPosition?.Invoke(stageObject, hitTarget.point);
                     }
-
                     OnHitTarget?.Invoke(stageObject);
-                    character.Damage(hitColliderDamage);
-                }
-            }
-            else
-            {
-                IHitEffectCollider hitEffectCollider = obj.GetComponent<IHitEffectCollider>();
-                if (hitEffectCollider != null)
-                {
-                    hitEffectCollider.OnHitEffectCollider(this);
-                    if(hitEffectCollider is Wall)
-                    {
-                        Wall wall = hitEffectCollider as Wall;
-                        OnHitWall?.Invoke(obj);
-                    }
+                    character?.Damage(hitColliderDamage);
                 }
             }
         }
