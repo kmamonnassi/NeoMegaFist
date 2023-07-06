@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace StageObject
 {
-    public class CatchCollider : MonoBehaviour
+    public class GrabCollider : MonoBehaviour
     {
         public event Action<StageObjectBase> OnCatch;
 
@@ -25,7 +25,7 @@ namespace StageObject
             StageObjectCatchAndThrow catchAndThrow = obj.GetComponent<StageObjectCatchAndThrow>();
             
             //衝突したコライダがステージオブジェクトであり、サイズが掴めるサイズで掴むことのできるオブジェクト限定で、
-            if (stageObject != null && stageObject.Size.IsCatchable() && catchAndThrow.IsCatchableObject)
+            if (stageObject != null && stageObject.Size.IsCatchable() && catchAndThrow.IsCatchableObject && (catchAndThrow.State == ThrownState.Throw || catchAndThrow.State == ThrownState.Freedom))
             {
                 //このステージオブジェクトがキャラクターを継承していて、スタンしていれば掴むことができる
                 CharacterBase character = stageObject.GetComponent<CharacterBase>();

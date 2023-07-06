@@ -69,6 +69,10 @@ namespace StageObject
                     overhandThrownHitDamage.Object = gameObject;
                     Damage(overhandThrownHitDamage);
                 };
+                catchAndThrow.OnOverhandThrown += (pos, duration) =>
+                {
+                    Invisible(duration);
+                };
             }
         }
 

@@ -46,7 +46,7 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Catch"",
+                    ""name"": ""Grab"",
                     ""type"": ""Button"",
                     ""id"": ""5c801068-702e-4f2d-bec5-9bc2e1f10cd2"",
                     ""expectedControlType"": ""Button"",
@@ -198,7 +198,7 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Catch"",
+                    ""action"": ""Grab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -299,7 +299,7 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Punch = m_Player.FindAction("Punch", throwIfNotFound: true);
-        m_Player_Catch = m_Player.FindAction("Catch", throwIfNotFound: true);
+        m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
         m_Player_Throw = m_Player.FindAction("Throw", throwIfNotFound: true);
         m_Player_OverhandThrow = m_Player.FindAction("OverhandThrow", throwIfNotFound: true);
         m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
@@ -370,7 +370,7 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Punch;
-    private readonly InputAction m_Player_Catch;
+    private readonly InputAction m_Player_Grab;
     private readonly InputAction m_Player_Throw;
     private readonly InputAction m_Player_OverhandThrow;
     private readonly InputAction m_Player_Dodge;
@@ -381,7 +381,7 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
         public PlayerActions(@InputControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Punch => m_Wrapper.m_Player_Punch;
-        public InputAction @Catch => m_Wrapper.m_Player_Catch;
+        public InputAction @Grab => m_Wrapper.m_Player_Grab;
         public InputAction @Throw => m_Wrapper.m_Player_Throw;
         public InputAction @OverhandThrow => m_Wrapper.m_Player_OverhandThrow;
         public InputAction @Dodge => m_Wrapper.m_Player_Dodge;
@@ -401,9 +401,9 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
             @Punch.started += instance.OnPunch;
             @Punch.performed += instance.OnPunch;
             @Punch.canceled += instance.OnPunch;
-            @Catch.started += instance.OnCatch;
-            @Catch.performed += instance.OnCatch;
-            @Catch.canceled += instance.OnCatch;
+            @Grab.started += instance.OnGrab;
+            @Grab.performed += instance.OnGrab;
+            @Grab.canceled += instance.OnGrab;
             @Throw.started += instance.OnThrow;
             @Throw.performed += instance.OnThrow;
             @Throw.canceled += instance.OnThrow;
@@ -426,9 +426,9 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
             @Punch.started -= instance.OnPunch;
             @Punch.performed -= instance.OnPunch;
             @Punch.canceled -= instance.OnPunch;
-            @Catch.started -= instance.OnCatch;
-            @Catch.performed -= instance.OnCatch;
-            @Catch.canceled -= instance.OnCatch;
+            @Grab.started -= instance.OnGrab;
+            @Grab.performed -= instance.OnGrab;
+            @Grab.canceled -= instance.OnGrab;
             @Throw.started -= instance.OnThrow;
             @Throw.performed -= instance.OnThrow;
             @Throw.canceled -= instance.OnThrow;
@@ -517,7 +517,7 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnPunch(InputAction.CallbackContext context);
-        void OnCatch(InputAction.CallbackContext context);
+        void OnGrab(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
         void OnOverhandThrow(InputAction.CallbackContext context);
         void OnDodge(InputAction.CallbackContext context);

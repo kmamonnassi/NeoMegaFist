@@ -304,6 +304,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3213156483052453577, guid: b913683371620db41b21cc13c9e2b653, type: 3}
+      propertyPath: overhandThrowMark
+      value: 
+      objectReference: {fileID: 7975547705557009881}
+    - target: {fileID: 3213156483052453577, guid: b913683371620db41b21cc13c9e2b653, type: 3}
+      propertyPath: throwPreparationLine
+      value: 
+      objectReference: {fileID: 6555429305583385830}
     - target: {fileID: 3746904736517480673, guid: b913683371620db41b21cc13c9e2b653, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
