@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 8727979613864068882}
   - component: {fileID: 7782361616206518600}
   - component: {fileID: 5609472452516804856}
-  - component: {fileID: 8233761171250118655}
-  - component: {fileID: 938822316170020028}
   m_Layer: 5
   m_Name: UiInputGuardCanvas
   m_TagString: Untagged
@@ -35,7 +33,7 @@ RectTransform:
   m_Children:
   - {fileID: 6115703361252730887}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -105,31 +103,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8233761171250118655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4012718915925300636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36ad1d602a236ca4fa4f607eaf36928b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &938822316170020028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4012718915925300636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec4bafe70c60164d8961b22f504a2f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiInputGuardCanvasObj: {fileID: 4012718915925300636}
 --- !u!1 &6392250197214167251
 GameObject:
   m_ObjectHideFlags: 0

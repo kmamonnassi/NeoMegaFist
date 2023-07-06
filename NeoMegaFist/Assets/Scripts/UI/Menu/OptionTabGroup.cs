@@ -14,44 +14,45 @@ namespace Ui.Menu
         [Inject]
         private DiContainer container;
 
-        [Inject]
-        private BeforeSelectedOptionKind beforeSelectedOptionKinds;
+        private BeforeSelectedSettingKind beforeSelectedSettingKinds;
 
-        private Dictionary<OptionKinds, GameObject> tabDic = new Dictionary<OptionKinds, GameObject>();
+        private Dictionary<SettingKinds, GameObject> tabDic = new Dictionary<SettingKinds, GameObject>();
 
         private GameObject makedTabObj = null;
 
         private void Awake()
         {
+            beforeSelectedSettingKinds = Locator<BeforeSelectedSettingKind>.GetT();
+
             foreach (var tabObj in tabObjs)
             {
-                OptionTab optionTab = tabObj.GetComponent<OptionTab>();
-                if (!tabDic.ContainsKey(optionTab.optionKindProp))
+                SettingTabBase settingTab = tabObj.GetComponent<SettingTabBase>();
+                if (!tabDic.ContainsKey(settingTab.settingKindProp))
                 {
-                    tabDic.Add(optionTab.optionKindProp, tabObj);
+                    tabDic.Add(settingTab.settingKindProp, tabObj);
                 }
             }
         }
 
         private void Start()
         {
-            OptionKinds targetOptionKind = beforeSelectedOptionKinds.selectOptionKind;
-            ShowTab(targetOptionKind);
+            SettingKinds targetSettingKind = beforeSelectedSettingKinds.selectSettingKind;
+            ShowTab(targetSettingKind);
         }
 
         /// <summary>
         /// タブを表示する
         /// </summary>
-        /// <param name="optionKind">タブの種類</param>
-        public void ShowTab(OptionKinds optionKind)
+        /// <param name="settingKind">タブの種類</param>
+        public void ShowTab(SettingKinds settingKind)
         {
             if (makedTabObj != null)
             {
                 HideTab();
             }
-            makedTabObj = container.InstantiatePrefab(tabDic[optionKind], transform);
+            makedTabObj = container.InstantiatePrefab(tabDic[settingKind], transform);
 
-            beforeSelectedOptionKinds.selectOptionKind = optionKind;
+            beforeSelectedSettingKinds.selectSettingKind = settingKind;
         }
 
         /// <summary>
@@ -74,7 +75,7 @@ namespace Ui.Menu
         /// </summary>
         private void SaveTabData()
         {
-            OptionTab tab = makedTabObj.GetComponent<OptionTab>();
+            SettingTabBase tab = makedTabObj.GetComponent<SettingTabBase>();
             tab.SaveSettingData();
         }
     }

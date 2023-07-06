@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Ui.Menu
 {
-    public class AudioTab : OptionTab
+    public class AudioTab : SettingTabBase
     {
         [Inject]
         private IVolumeSettable volume;

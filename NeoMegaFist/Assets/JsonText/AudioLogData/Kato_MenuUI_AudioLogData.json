@@ -1,9 +1,11 @@
 {
     "speakerArray": [
         "メニューを開く音",
-        "メニューを閉じる音"
+        "メニューを閉じる音",
+        "タブを開いた音"
     ],
     "containTextArray": [
+        "MenuUI",
         "MenuUI",
         "MenuUI"
     ]
