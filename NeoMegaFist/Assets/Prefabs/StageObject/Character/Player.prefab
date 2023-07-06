@@ -51,7 +51,11 @@ MonoBehaviour:
     damage: 8
     stunDamage: 8
     knockBackPower: 10
-    coolTime: 0.25
+    coolTime: 0.2
+    hitStopTime: 0.1
+  onHitWallToIgnore: 1
+  onHitWallToIgnoreRaycastLength: 64
+  onHitWallToIgnoreRaycastOffset: 4.1
   ignores: []
 --- !u!61 &4224028299232808131
 BoxCollider2D:
@@ -149,7 +153,11 @@ MonoBehaviour:
     damage: 8
     stunDamage: 8
     knockBackPower: 30
-    coolTime: 0.25
+    coolTime: 0.5
+    hitStopTime: 0.1
+  onHitWallToIgnore: 1
+  onHitWallToIgnoreRaycastLength: 64
+  onHitWallToIgnoreRaycastOffset: 4.1
   ignores: []
 --- !u!61 &1181844197286966907
 BoxCollider2D:
@@ -206,7 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3833026419376650916}
   - component: {fileID: 7967747551630480783}
-  - component: {fileID: 7573304313066226886}
+  - component: {fileID: 2280452037702705508}
   m_Layer: 0
   m_Name: CatchCollider
   m_TagString: Untagged
@@ -274,7 +282,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 64, y: 96}
   m_EdgeRadius: 0
---- !u!114 &7573304313066226886
+--- !u!114 &2280452037702705508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -283,7 +291,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2486585601162220384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b600ef176413f3840ad29e2262f4853e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fe78f9540eebf0429c72aa19a072790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4077528001475419748
@@ -421,7 +429,11 @@ MonoBehaviour:
     damage: 8
     stunDamage: 8
     knockBackPower: 5
-    coolTime: 0.25
+    coolTime: 0.3
+    hitStopTime: 0.1
+  onHitWallToIgnore: 1
+  onHitWallToIgnoreRaycastLength: 64
+  onHitWallToIgnoreRaycastOffset: 4.1
   ignores: []
 --- !u!61 &7604807885504684654
 BoxCollider2D:
@@ -484,10 +496,10 @@ GameObject:
   - component: {fileID: 9182400037740137005}
   - component: {fileID: 2066858104121686681}
   - component: {fileID: 3686736546442695238}
-  - component: {fileID: 8503057697391378543}
   - component: {fileID: 5385182116023040047}
   - component: {fileID: 462145553426228613}
   - component: {fileID: 8285077083245971072}
+  - component: {fileID: 3213156483052453577}
   - component: {fileID: 6359026122109345890}
   m_Layer: 7
   m_Name: Player
@@ -636,7 +648,10 @@ MonoBehaviour:
   - 0.25
   - 0.3
   nextPunchDuration: 0.5
-  catcher: {fileID: 8503057697391378543}
+  raycastOffset: 4.1
+  punchHitEffectRandomize: 8
+  punchHitEffectDepth: 12
+  catcher: {fileID: 3213156483052453577}
 --- !u!114 &3686736546442695238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,30 +664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed31451fa23d7b0499a83a9acf0a6c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8503057697391378543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8433431035312424676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313f7a57391833488825322d80c71c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 6365721693259468050}
-  rotater: {fileID: 3686736546442695238}
-  catchCollider: {fileID: 7573304313066226886}
-  player: {fileID: 6085228258668757946}
-  throwPreparationLine: {fileID: 0}
-  overhandThrowMark: {fileID: 0}
-  catchInterval: 0.2
-  baseThrowPower: 1200
-  baseOverhandThrowDuration: 0.75
-  baseOverhandThrowDistance: 256
-  raycastOffset: 4.1
-  throwPreparationLineLength: 320
 --- !u!114 &5385182116023040047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,6 +709,30 @@ MonoBehaviour:
   baseDodgeDuration: 0.1
   baseDodgeInterval: 0
   invisibleDuration: 0.15
+--- !u!114 &3213156483052453577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433431035312424676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f19e0dd138c10d40b951a2678b0acaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6365721693259468050}
+  rotater: {fileID: 3686736546442695238}
+  catchCollider: {fileID: 2280452037702705508}
+  player: {fileID: 6085228258668757946}
+  throwPreparationLine: {fileID: 0}
+  overhandThrowMark: {fileID: 0}
+  catchInterval: 0.35
+  baseThrowPower: 1200
+  baseOverhandThrowDuration: 0.75
+  baseOverhandThrowDistance: 250
+  raycastOffset: 4.1
+  throwPreparationLineLength: 320
 --- !u!58 &6359026122109345890
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -28,6 +28,7 @@ namespace StageObject
         public event Action<int> OnSetHP;
         public event Action<int> OnSetMaxHP;
         public event Action<int> OnDamage;
+        public event Action<HitColliderDamage> OnDamageByCollider;
         public event Action<int> OnHeal;
         public event Action<int> OnSetStamina;
         public event Action<int> OnSetMaxStamina;
@@ -41,7 +42,7 @@ namespace StageObject
         private float nowStunDuration;
         private HitColliderDamage thrownHitDamage = new HitColliderDamage(null, new[] { StageObjectType.Enemy }, 50, 50, -50, 0.1f);
         private HitColliderDamage overhandThrownHitDamage = new HitColliderDamage(null, new[] { StageObjectType.Enemy }, 50, 50, 0, 0.1f);
-        private float invisibleTime = 0;
+        public float InvisibleTime { get; private set; } = 0;
         private IStageObjectCatchAndThrow catchAndThrow;
 
         protected override void OnAwake_Virtual()
@@ -68,12 +69,16 @@ namespace StageObject
                     overhandThrownHitDamage.Object = gameObject;
                     Damage(overhandThrownHitDamage);
                 };
+                catchAndThrow.OnOverhandThrown += (pos, duration) =>
+                {
+                    Invisible(duration);
+                };
             }
         }
 
         public void Damage(HitColliderDamage col)
         {
-            if (invisibleTime <= 0)
+            if (InvisibleTime <= 0)
             {
                 if (col.Damage > 0) Damage(col.Damage);
                 if (col.StunDamage > 0) StunDamage(col.StunDamage);
@@ -85,6 +90,7 @@ namespace StageObject
                 }
                 KnockBack(((Vector2)(transform.position - col.Object.transform.position)).normalized, col.KnockBackPower);
                 Invisible(col.CoolTime);
+                OnDamageByCollider?.Invoke(col);
             }
         }
 
@@ -169,12 +175,12 @@ namespace StageObject
                     EndStun();
                 }
             }
-            if(invisibleTime > 0)
+            if(InvisibleTime > 0)
             {
-                invisibleTime -= Time.deltaTime;
-                if(invisibleTime <= 0)
+                InvisibleTime -= Time.deltaTime;
+                if(InvisibleTime <= 0)
                 {
-                    invisibleTime = 0;
+                    InvisibleTime = 0;
                     OnEndInvisible?.Invoke();
                 }
             }
@@ -182,9 +188,9 @@ namespace StageObject
 
         public void Invisible(float duration)
         {
-            if (invisibleTime < duration)
+            if (InvisibleTime < duration)
             {
-                invisibleTime = duration;
+                InvisibleTime = duration;
                 OnInvisible?.Invoke(duration);
             }
         }

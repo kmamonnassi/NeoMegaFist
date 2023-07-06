@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMat: {fileID: 2100000, guid: 64d874f73fa3ac34485b1eca5ad465bf, type: 2}
-  effectDuration: 0.1
+  effectDuration: 0.2
