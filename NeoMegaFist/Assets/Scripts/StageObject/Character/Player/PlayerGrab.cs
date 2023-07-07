@@ -22,6 +22,7 @@ namespace StageObject
         [SerializeField] private float baseOverhandThrowDuration = 0.5f;//上投げの最大飛距離
         [SerializeField] private float baseOverhandThrowDistance = 50;//上投げの最大飛距離
         [SerializeField] private float raycastOffset = 4.1f;
+        [SerializeField] private float throwOffset = 16f;
         [SerializeField] private float throwPreparationLineLength = 320f;
 
         [Inject] private IInputer inputer;
@@ -85,7 +86,7 @@ namespace StageObject
         public void Throw(Vector2 dir)
         {
             AudioReserveManager.AudioReserve("プレイヤー", "ストレート投げ", transform);
-            CatchTarget.transform.position = CatchTarget.transform.position + (Vector3)dir * raycastOffset;
+            CatchTarget.transform.position = CatchTarget.transform.position + (Vector3)dir * throwOffset;
             CatchTarget?.Thrown(dir, baseThrowPower);
         }
 
