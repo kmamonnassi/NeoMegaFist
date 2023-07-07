@@ -1,7 +1,8 @@
 using CriWare;
 using UnityEditor;
 
-// TODO:‚±‚ê‚Å‚¢‚¢‚Ì‚©‚í‚©‚ç‚ñ
+#if UNITY_EDITOR
+
 [InitializeOnLoad]
 public class CriWareGameViewMuteButton
 {
@@ -11,11 +12,13 @@ public class CriWareGameViewMuteButton
     {
         EditorApplication.update += () =>
         {
-            if (isAudioMute == EditorUtility.audioMasterMute) return;
-
             isAudioMute = EditorUtility.audioMasterMute;
 
+#pragma warning disable CS0618 // Œ^‚Ü‚½‚Íƒƒ“ƒo[‚ª‹ŒŒ^®‚Å‚·
             CriAtomExAsr.SetBusVolume(0, isAudioMute ? 0f : 1f);
+#pragma warning restore CS0618 // Œ^‚Ü‚½‚Íƒƒ“ƒo[‚ª‹ŒŒ^®‚Å‚·
         };
     }
 }
+
+#endif
