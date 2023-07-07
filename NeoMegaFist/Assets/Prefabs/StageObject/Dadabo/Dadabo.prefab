@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 2697023107738594086}
   - component: {fileID: 4146907697772415377}
   - component: {fileID: 1210320665922217594}
+  - component: {fileID: 1245210287016166266}
   m_Layer: 7
   m_Name: Dadabo
   m_TagString: Untagged
@@ -229,16 +230,17 @@ MonoBehaviour:
   CharacterStatusUIOffset: {x: 0, y: -48}
   objectSearcher: {fileID: 280401796651464469}
   assultCollider: {fileID: 1210320665922217594}
+  aStarPath: {fileID: 1245210287016166266}
   moveSpeed: 50
   walkAreaRadius: 96
-  stayDurationMin: 2
-  stayDurationMax: 4
+  stayDurationMin: 5
+  stayDurationMax: 7
   walkDurationMin: 1
   walkDurationMax: 2
   followPlayerSpeed: 100
   assultDistance: 128
   assultPreparationTime: 2
-  assultSpeed: 400
+  assultSpeed: 500
 --- !u!114 &5149901441702561837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +374,18 @@ MonoBehaviour:
   onHitWallToIgnoreRaycastLength: 10
   onHitWallToIgnoreRaycastOffset: 0
   ignores: []
+--- !u!114 &1245210287016166266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7603035130274689496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc0978da06ed344c97b5e38ff8c7997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1563262671285389112
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,4 +1,6 @@
 using DG.Tweening;
+using Stage;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +10,7 @@ namespace StageObject
     {
         [SerializeField] private ObjectSearcher objectSearcher;
         [SerializeField] private EffectCollider assultCollider;
+        [SerializeField] private AStarPath aStarPath;
         [SerializeField] private float moveSpeed = 1000;
         [SerializeField] private float walkAreaRadius = 64;
         [SerializeField] private float stayDurationMin = 1;
@@ -15,11 +18,13 @@ namespace StageObject
         [SerializeField] private float walkDurationMin = 1;
         [SerializeField] private float walkDurationMax = 2;
         [SerializeField] private float followPlayerSpeed = 100;
+        [SerializeField] private float followValidateInterval = 2;
         [SerializeField] private float assultDistance = 128;
         [SerializeField] private float assultPreparationTime = 2;
         [SerializeField] private float assultSpeed = 2;
 
         [Inject] private Player player;
+        [Inject] private ITilemapGetter tilemapGetter;
 
         public override StageObjectID ID => StageObjectID.Dadabo;
         public override StageObjectType Type => StageObjectType.Enemy;
@@ -30,6 +35,9 @@ namespace StageObject
         private Vector2 walkPoint;
         private Vector2 walkDir;
         private float walkDuration;
+        private float nowFollowValidateTime;
+        List<RouteCellInfo> routes;
+        private int routesIndex;
         private float nowWalkDuration;
         private float nowAssultPreparationTime;
         private Vector2 assultDir;
@@ -48,6 +56,7 @@ namespace StageObject
         {
             base.OnAwake_Virtual();
             walkPoint = transform.position;
+            nowFollowValidateTime = followValidateInterval;
             OnDamageByCollider += (col) => Notice();
             objectSearcher.OnSearched += (obj) => Notice();
             assultCollider.OnHitWall += wall =>
@@ -136,9 +145,27 @@ namespace StageObject
             else
             if(state == State.FollowPlayer && isNotice)
             {
-                Vector2 dir = ((Vector2)(player.transform.position - transform.position)).normalized;
-                transform.eulerAngles = new Vector3(0, 0, Vector2.zero.GetAngle(dir) + 90);
-                rb.velocity = dir * followPlayerSpeed;
+                nowFollowValidateTime += Time.deltaTime;
+                if(nowFollowValidateTime > followValidateInterval)
+                {
+                    nowFollowValidateTime = 0;
+                    aStarPath.AstarSearchPathFinding(tilemapGetter.GetWalls, player.transform.position, transform.position);
+                    routesIndex = 0;
+                    routes = new List<RouteCellInfo>(aStarPath.Routes);
+                }
+
+                Vector2 pos = routes[routesIndex].pos + new Vector3(24, 24, 0);
+                if (Vector2.Distance(transform.position, pos) > 5)
+                {
+                    Vector2 dir = (pos - (Vector2)transform.position).normalized;
+                    rb.velocity = dir * followPlayerSpeed;
+                    transform.eulerAngles = new Vector3(0, 0, Vector2.zero.GetAngle(dir) + 90);
+                }
+                else
+                if(routesIndex < routes.Count - 1)
+                {
+                    routesIndex++;
+                }
             }
             else
             if(state == State.AssultPreparation && isNotice)
