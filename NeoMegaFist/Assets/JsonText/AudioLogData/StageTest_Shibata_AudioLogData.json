@@ -1,12 +1,4 @@
 {
-    "speakerArray": [
-        "通常攻撃_1",
-        "通常攻撃_3が敵やオブジェクトにヒットした",
-        "回避"
-    ],
-    "containTextArray": [
-        "プレイヤー",
-        "プレイヤー",
-        "プレイヤー"
-    ]
+    "speakerArray": [],
+    "containTextArray": []
 }
