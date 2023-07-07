@@ -24,7 +24,7 @@ namespace StageObject
             mySearcherCollider.radius = distance;
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             foreach(StageObjectBase obj in hitObject)
             {
