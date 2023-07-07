@@ -14,6 +14,7 @@ namespace StageObject
         Mushroom = 1002,
         BigMushroom = 1003,
         Barrel = 1004,
+        Dadabo = 1005,
 
         //É{ÉX
     }
