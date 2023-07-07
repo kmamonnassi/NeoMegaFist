@@ -2,6 +2,9 @@ namespace Ui.Menu
 {
     public static class MenuUiStaticData
     {
-        public const OptionKinds INIT_OPTION_KIND = OptionKinds.AudioSetting;
+        /// <summary>
+        /// “x‚Ìİ’è€–Ú‚Å‰Šú‰»‚·‚é‚Ì‚©
+        /// </summary>
+        public const SettingKinds INIT_SETTING_KIND = SettingKinds.AudioSetting;
     }
 }

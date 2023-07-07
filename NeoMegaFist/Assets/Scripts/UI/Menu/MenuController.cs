@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using InputControl;
+using Ui.Modal;
+using Utility;
 
 namespace Ui.Menu
 {
@@ -12,31 +14,42 @@ namespace Ui.Menu
         private GameObject menuObj;
 
         [Inject]
-        private DiContainer container;
+        private IInputer inputer;
 
         [Inject]
-        private IInputer inputer;
+        private IInputGuardable inputGuardable;
+
+        [Inject]
+        private IModalHistoryControllable modalHistory;
 
         private GameObject makedMenuObj = null;
 
-        void Start()
+        private void Awake()
         {
-            
+            Locator<BeforeSelectedSettingKind>.Bind(new BeforeSelectedSettingKind());
         }
 
-        void Update()
+        void Start()
         {
-            if(inputer.GetPlayerMenuStart())
+
+        }
+
+        async void Update()
+        {
+            if (inputer.GetPlayerMenuStart() && !inputGuardable.isAnimationProp)
             {
-                if(makedMenuObj == null)
+                if (makedMenuObj == null)
                 {
                     AudioReserveManager.AudioReserve("MenuUI", "メニューを開く音", transform);
-                    makedMenuObj = container.InstantiatePrefab(menuObj, transform);
+                    
+                    makedMenuObj = modalHistory.Add(menuObj, transform, "Open");
                 }
                 else
                 {
                     AudioReserveManager.AudioReserve("MenuUI", "メニューを閉じる音", transform);
-                    Destroy(makedMenuObj);
+
+                    await modalHistory.RemoveAll();
+                    makedMenuObj = null;
                 }
             }
         }

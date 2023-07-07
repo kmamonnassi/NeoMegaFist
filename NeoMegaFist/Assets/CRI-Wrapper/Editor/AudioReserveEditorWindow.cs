@@ -151,7 +151,7 @@ public class AudioReserveEditorWindow : EditorWindow
         streamReader.Close();
 
         AudioReserveLogData audioLogData = JsonUtility.FromJson<AudioReserveLogData>(dataStr);
-        audioReserveDic = audioLogData.speakerArray.Select((k, i) => new { k, v = audioLogData.containTextArray[i] }).ToDictionary(a => a.k, a => a.v);
+        audioReserveDic = audioLogData.containTextArray.Select((k, i) => new { k, v = audioLogData.speakerArray[i] }).ToDictionary(a => a.k, a => a.v);
 
         audioReserveDic = audioReserveDic.OrderBy((x) => x.Value).ToDictionary(a => a.Key, a => a.Value);
     }

@@ -9,7 +9,7 @@ namespace Ui.Menu
     public class TabSelectButton : MonoBehaviour
     {
         [SerializeField]
-        private OptionKinds optionKind;
+        private SettingKinds optionKind;
 
         [SerializeField]
         private Button button;
