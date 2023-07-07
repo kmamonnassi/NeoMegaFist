@@ -19,8 +19,18 @@ public class Test : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            AudioReserveManager.AudioReserve("Hoge", "Huga", transform);
+            AudioReserveManager.AudioReserve("Hoge", "AAA", transform);
         }
-       
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            AudioReserveManager.AudioReserve("Hoge", "BBB", transform);
+        }
+
+        if (Input.GetMouseButtonDown(2))
+        {
+            AudioReserveManager.AudioReserve("Huga", "CCC", transform);
+        }
+
     }
 }
