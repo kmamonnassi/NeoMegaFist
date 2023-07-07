@@ -24,7 +24,11 @@ namespace Ui.Modal
             animator = GetComponent<Animator>();
         }
 
-        protected void SetStateEvents(string enterStateName, string exitStateName)
+        /// <summary>
+        /// UIを開く時のを設定する。Startメソッド等で設定する。ステート名とそれに移動するためのboolの名前は同じである必要がある
+        /// </summary>
+        /// <param name="enterStateName">UIを開く時のステート名</param>
+        protected void SetStateEvents(string enterStateName)
         {
             ObservableStateMachineTrigger trigger = animator.GetBehaviour<ObservableStateMachineTrigger>();
 
@@ -41,12 +45,20 @@ namespace Ui.Modal
                 .AddTo(gameObject);
         }
 
+        /// <summary>
+        /// UIを開くアニメーションをする
+        /// </summary>
+        /// <param name="enterStateName">UIを開く時のステート名</param>
         public void PlayOpenAnimation(string enterStateName)
         {
             animator = GetComponent<Animator>();
             animator.SetBool(enterStateName, true);
         }
 
+        /// <summary>
+        /// UIを閉じるアニメーションをする
+        /// </summary>
+        /// <param name="exitStateName">UIを閉じる時のステート名</param>
         public async UniTask PlayCloseAnimation(string exitStateName)
         {
             animator = GetComponent<Animator>();

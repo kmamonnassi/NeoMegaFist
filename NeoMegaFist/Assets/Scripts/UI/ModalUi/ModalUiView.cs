@@ -9,12 +9,9 @@ namespace Ui.Modal
         [SerializeField]
         private string enterStateName;
 
-        [SerializeField]
-        private string exitStateName;
-
         void Start()
         {
-            SetStateEvents(enterStateName, exitStateName);
+            SetStateEvents(enterStateName);
         }
     }
 }

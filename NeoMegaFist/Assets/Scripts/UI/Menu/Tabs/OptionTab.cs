@@ -6,6 +6,6 @@ namespace Ui.Menu
 {
     public class OptionTab : SettingTabBase
     {
-        
+        // ‹ï‘Ì“I‚ÈŽÀ‘•‚Í‚Ü‚¾‚È‚¢
     }
 }

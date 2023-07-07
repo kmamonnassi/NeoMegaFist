@@ -9,7 +9,7 @@ namespace Ui.Menu
     {
         void Start()
         {
-            SetStateEvents("Open", "Close");
+            SetStateEvents("Open");
         }
     }
 }

@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using System.Linq;
 using Cysharp.Threading.Tasks;
-using UnityEngine.UI;
 
 namespace Ui.Modal
 {
@@ -101,12 +99,10 @@ namespace Ui.Modal
             modalUiList.Clear();
         }
 
-        public void InputGuardEnable(bool enable)
+        void IInputGuardable.InputGuardEnable(bool enable)
         {
             inputGuardObj.SetActive(enable);
             isAnimation = enable;
         }
-
-
     }
 }

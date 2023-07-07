@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using InputControl;
-using Cysharp.Threading.Tasks;
 using Ui.Modal;
+using Utility;
 
 namespace Ui.Menu
 {
@@ -12,9 +12,6 @@ namespace Ui.Menu
     {
         [SerializeField]
         private GameObject menuObj;
-
-        [Inject]
-        private DiContainer container;
 
         [Inject]
         private IInputer inputer;
@@ -26,7 +23,6 @@ namespace Ui.Menu
         private IModalHistoryControllable modalHistory;
 
         private GameObject makedMenuObj = null;
-        private MenuObjView menuView;
 
         private void Awake()
         {
@@ -51,9 +47,7 @@ namespace Ui.Menu
                 else
                 {
                     AudioReserveManager.AudioReserve("MenuUI", "ÉÅÉjÉÖÅ[Çï¬Ç∂ÇÈâπ", transform);
-                    menuView = makedMenuObj.GetComponent<MenuObjView>();
 
-                    //await modalHistory.Remove("Close", "");
                     await modalHistory.RemoveAll();
                     makedMenuObj = null;
                 }

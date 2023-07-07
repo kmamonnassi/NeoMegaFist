@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cysharp.Threading.Tasks;
 using Zenject;
+using Utility;
 
 namespace Ui.Menu
 {

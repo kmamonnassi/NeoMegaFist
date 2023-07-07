@@ -20,7 +20,9 @@ namespace Ui.Modal
         /// <param name="targetModalName">戻りたいモーダルの名前</param>
         public UniTask Remove(string exitStateName, string targetModalName = "");
 
-        // TODO:サマリー書く
+        /// <summary>
+        /// 履歴を全部消す
+        /// </summary>
         public UniTask RemoveAll();
     }
 }
