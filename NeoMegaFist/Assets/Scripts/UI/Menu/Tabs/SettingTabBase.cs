@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Ui.Menu
 {
-    public class OptionTab : MonoBehaviour
+    public class SettingTabBase : MonoBehaviour
     {
         [SerializeField]
-        private OptionKinds optionKind;
-        public OptionKinds optionKindProp => optionKind;
+        private SettingKinds settingKind;
+        public SettingKinds settingKindProp => settingKind;
 
         protected bool isSaved = false;
 
