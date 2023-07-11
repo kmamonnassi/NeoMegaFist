@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -15,7 +13,6 @@ namespace PostProcessingVolume
         [Inject]
         DiContainer diContainer;
 
-
         private PostProcessingVolumeData volumeData;
 
         private BloomSetting bloomSetting;
@@ -26,8 +23,6 @@ namespace PostProcessingVolume
 
             volumeData = LoadVolumeData();
             bloomSetting.SetBloomIntensity(volumeData.bloomIntensity);
-            // TODO:セーブデータからロードする
-            // TODO:EditorならSerializeFieldから持ってきたい
         }
 
         /// <summary>
@@ -44,7 +39,14 @@ namespace PostProcessingVolume
         /// </summary>
         private PostProcessingVolumeData LoadVolumeData()
         {
-            PostProcessingVolumeData loadedVolumeData = JsonUtilityExtensions.ReadJson<PostProcessingVolumeData>(PostProcessingVolumeSettingStaticData.PPS_SETTING_JSON_NAME);
+            PostProcessingVolumeData loadedVolumeData;
+
+#if UNITY_EDITOR
+            loadedVolumeData = GetVolumeDataFromVolumeComponent();
+            return loadedVolumeData;
+#else
+
+            loadedVolumeData = JsonUtilityExtensions.ReadJson<PostProcessingVolumeData>(PostProcessingVolumeSettingStaticData.PPS_SETTING_JSON_NAME);
             if(loadedVolumeData != null)
             {
                 return loadedVolumeData;
@@ -55,12 +57,23 @@ namespace PostProcessingVolume
                 loadedVolumeData.bloomIntensity = PostProcessingVolumeSettingStaticData.START_BLOOM_INTENSITY;
                 return loadedVolumeData;
             }
+#endif
+        }
+
+        /// <summary>
+        /// Volumeコンポーネントからデータを取得する
+        /// </summary>
+        private PostProcessingVolumeData GetVolumeDataFromVolumeComponent()
+        {
+            PostProcessingVolumeData data = new PostProcessingVolumeData();
+            data.bloomIntensity = bloomSetting.GetBloomIntensity();
+
+            return data;
         }
 
         void IPostProcessingVolumeSavable.SavePostProcessingVolumeData()
         {
-            PostProcessingVolumeData volumeData = new PostProcessingVolumeData();
-            volumeData.bloomIntensity = bloomSetting.GetBloomIntensity();
+            PostProcessingVolumeData volumeData = GetVolumeDataFromVolumeComponent();
 
             JsonUtilityExtensions.CheckJsonDirectory();
             JsonUtilityExtensions.WriteJson(volumeData, PostProcessingVolumeSettingStaticData.PPS_SETTING_JSON_NAME);
