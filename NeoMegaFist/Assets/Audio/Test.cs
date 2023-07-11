@@ -10,6 +10,9 @@ using InputControl;
 
 public class Test : MonoBehaviour
 {
+    [Inject]
+    private PostProcessingVolume.BloomSetting bloomSetting;
+
     void Start()
     {
     }
@@ -19,17 +22,7 @@ public class Test : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            AudioReserveManager.AudioReserve("Hoge", "AAA", transform);
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            AudioReserveManager.AudioReserve("Hoge", "BBB", transform);
-        }
-
-        if (Input.GetMouseButtonDown(2))
-        {
-            AudioReserveManager.AudioReserve("Huga", "CCC", transform);
+            bloomSetting.SetBloomIntensity(0f);
         }
 
     }
