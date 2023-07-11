@@ -317,20 +317,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8285077083245971072, guid: b913683371620db41b21cc13c9e2b653, type: 3}
-      propertyPath: baseDodgeSpeed
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8285077083245971072, guid: b913683371620db41b21cc13c9e2b653, type: 3}
       propertyPath: baseDodgeDuration
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8285077083245971072, guid: b913683371620db41b21cc13c9e2b653, type: 3}
       propertyPath: baseDodgeInterval
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8285077083245971072, guid: b913683371620db41b21cc13c9e2b653, type: 3}
-      propertyPath: invisibleDuration
-      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8433431035312424676, guid: b913683371620db41b21cc13c9e2b653, type: 3}
       propertyPath: m_Name
