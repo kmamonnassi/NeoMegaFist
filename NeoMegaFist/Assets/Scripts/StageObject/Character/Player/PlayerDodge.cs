@@ -9,6 +9,8 @@ namespace StageObject
     {
         [SerializeField] private Player player;
         [SerializeField] private PlayerMover playerMover;
+        [SerializeField] private AfterImage afterImage;
+        [SerializeField] private ParticleSystem dodgeEffect;
         [SerializeField] private float baseDodgeSpeed;
         [SerializeField] private float baseDodgeDuration;
         [SerializeField] private float baseDodgeInterval;
@@ -22,7 +24,6 @@ namespace StageObject
 
         private float dodgeDuration;
         private float dodgeInterval;
-        private bool isPlayerMove;
 
         private void Start()
         {
@@ -33,8 +34,7 @@ namespace StageObject
         {
             if(dodgeDuration == 0)
             {
-                isPlayerMove = inputer.GetPlayerMove() != Vector2.zero && inputer.GetPlayerDodgeStart() && dodgeInterval == 0;
-                if (isPlayerMove)
+                if (inputer.GetPlayerDodgeStart() && dodgeInterval == 0)
                 {
                     AudioReserveManager.AudioReserve("ÉvÉåÉCÉÑÅ[", "âÒî", transform);
                     MoveIsActive = true;
@@ -42,6 +42,8 @@ namespace StageObject
                     dodgeInterval = baseDodgeInterval;
                     player.Invisible(invisibleDuration);
                     player.gameObject.layer = LayerMask.NameToLayer("DodgePlayer");
+                    afterImage.gameObject.SetActive(true);
+                    dodgeEffect.Play();
                 }
                 else
                 {
@@ -56,6 +58,8 @@ namespace StageObject
                 {
                     dodgeDuration = 0;
                     player.gameObject.layer = LayerMask.NameToLayer("StageObject");
+                    afterImage.gameObject.SetActive(false);
+                    dodgeEffect.Stop();
                 }
             }
             else

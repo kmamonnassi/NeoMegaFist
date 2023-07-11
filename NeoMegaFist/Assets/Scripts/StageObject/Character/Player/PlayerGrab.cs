@@ -127,7 +127,7 @@ namespace StageObject
             {
                 OverhandThrow(thrownPos);
             }
-            if (CatchTarget == null)
+            if (CatchTarget == null || inputer.GetPlayerThrowStart())
             {
                 overhandThrowPreparation = false;
                 overhandThrowMark.SetActive(false);
@@ -180,7 +180,7 @@ namespace StageObject
                     break;
                 }
             }
-            if (CatchTarget == null)
+            if (CatchTarget == null || inputer.GetOverhandThrowStart())
             {
                 throwPreparation = false;
                 throwPreparationLine.gameObject.SetActive(false);
