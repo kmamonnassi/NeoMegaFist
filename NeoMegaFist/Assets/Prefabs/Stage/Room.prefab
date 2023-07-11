@@ -248,4 +248,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7d5011cadd90048b7713a550862fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  confiner: {fileID: 5250792306020531541}
+  playerConfiner: {fileID: 8798517588013035122}
+  cameraConfiner: {fileID: 5250792306020531541}
