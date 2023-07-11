@@ -269,7 +269,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -48}
+  m_Offset: {x: 0, y: -32}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -280,7 +280,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 64, y: 96}
+  m_Size: {x: 48, y: 64}
   m_EdgeRadius: 0
 --- !u!114 &2280452037702705508
 MonoBehaviour:
@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe78f9540eebf0429c72aa19a072790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayOffset: 0
 --- !u!1 &4077528001475419748
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +733,7 @@ MonoBehaviour:
   baseOverhandThrowDuration: 0.75
   baseOverhandThrowDistance: 250
   raycastOffset: 4.1
+  throwOffset: 16
   throwPreparationLineLength: 320
 --- !u!58 &6359026122109345890
 CircleCollider2D:

@@ -126,5 +126,10 @@ namespace Utility.PostEffect
 		{
 			return postEffectCamera.WorldToViewportPoint(worldPoint);
 		}
+
+        public Ray ScreenPointToRay(Vector3 mousePosition)
+        {
+			return postEffectCamera.ScreenPointToRay(mousePosition);
+        }
     }
 }

@@ -151,8 +151,7 @@ namespace StageObject
                 beforeScale = additiveScale * overhandThrownScale.Evaluate(x);
                 transform.localScale += beforeScale;
             })
-            .SetEase(Ease.Linear)
-            .onComplete += () => 
+            .SetEase(Ease.Linear).onComplete += () => 
             {
                 OnEndOverhandThrown?.Invoke();
                 State = ThrownState.Freedom;
