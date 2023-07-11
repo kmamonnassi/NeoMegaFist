@@ -30,7 +30,7 @@ namespace StageObject
             {
                 Vector2 dir = ((Vector2)(stageObject.transform.position - transform.position)).normalized;
                 Vector2 origin = (Vector3)(dir * rayOffset) + transform.position;
-                float dist = Vector2.Distance(transform.position, transform.position);
+                float dist = Vector2.Distance(stageObject.transform.position, transform.position);
                 int mask = LayerMask.GetMask("Wall", "LowWall");
                 Debug.DrawRay(origin, dir * dist, Color.green, 1);
                 var hit = Physics2D.Raycast(origin, dir, dist, mask);
