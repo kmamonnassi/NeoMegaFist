@@ -26,7 +26,7 @@ namespace Stage
         private void OnEnterRoom()
         {
             stageObjects.SetActive(true);
-            fixedFollowTarget.SetConfiner(checker.Confiner);
+            fixedFollowTarget.SetConfiner(checker.CameraConfiner);
             fixedFollowTarget.SetTarget(cameraTarget);
             OnEnterPlayer?.Invoke();
         }

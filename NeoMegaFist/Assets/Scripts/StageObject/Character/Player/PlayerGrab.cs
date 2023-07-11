@@ -96,20 +96,30 @@ namespace StageObject
             overhandThrowMark.SetActive(true);
         }
 
+        Vector2 thrownPos = Vector2.zero;
         private void OverhandThrowPreparation()
         {
             Vector2 mousePos = cam.ScreenToWorldPoint(inputer.GetMousePosition());
-            Vector2 thrownPos = mousePos;
-            var hitWall = Physics2D.Raycast(transform.position, (mousePos - (Vector2)transform.position).normalized, baseOverhandThrowDistance, 1 << LayerMask.NameToLayer("Wall"));
+            Vector2 rayDir = (mousePos - (Vector2)transform.position).normalized;
+            var hitWall = Physics2D.Raycast(transform.position, rayDir, baseOverhandThrowDistance, LayerMask.GetMask("Wall"));
 
+            thrownPos = mousePos;
             if (Vector2.Distance(mousePos, transform.position) > baseOverhandThrowDistance)
             {
-                thrownPos = (Vector2)transform.position + (mousePos - (Vector2)transform.position).normalized * baseOverhandThrowDistance;
+                thrownPos = (Vector2)transform.position + rayDir * baseOverhandThrowDistance;
             }
+
             if (hitWall)
             {
                 if (Vector2.Distance(mousePos, transform.position) > Vector2.Distance(hitWall.point, transform.position))
-                    thrownPos = hitWall.point;
+                    thrownPos = hitWall.point - rayDir;
+            }
+
+            var hitCheckThrownPos = Physics2D.OverlapPoint(thrownPos, LayerMask.GetMask("Wall", "LowWall"));
+            if (hitCheckThrownPos)
+            {
+                var hitAllWall = Physics2D.Raycast(transform.position, rayDir, baseOverhandThrowDistance, LayerMask.GetMask("Wall", "LowWall"));
+                thrownPos = hitAllWall.point - rayDir; 
             }
 
             overhandThrowMark.transform.position = thrownPos;
