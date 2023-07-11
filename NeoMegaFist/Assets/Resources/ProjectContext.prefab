@@ -225,6 +225,7 @@ MonoBehaviour:
   - {fileID: 5615316811241395296}
   - {fileID: 3033234559373971997}
   - {fileID: 5920776217371994070}
+  - {fileID: 3583365744902477616}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
@@ -567,6 +568,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4676308845271460794, guid: f705105448cdc8d4a924e984d85cced7, type: 3}
   m_PrefabInstance: {fileID: 5999654294977327779}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3583365744902477616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7131909485113779603, guid: f705105448cdc8d4a924e984d85cced7, type: 3}
+  m_PrefabInstance: {fileID: 5999654294977327779}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f0fe2fec9dff64c9c757e00a132746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7111914026203446752
 PrefabInstance:
   m_ObjectHideFlags: 0

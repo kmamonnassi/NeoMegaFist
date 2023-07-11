@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
@@ -16,12 +13,20 @@ namespace PostProcessingVolume
         }
 
         /// <summary>
-        /// ブルームの明るさを設定する
+        /// ブルームの強度を設定する
         /// </summary>
         /// <param name="intensity">明るさ設定</param>
         public void SetBloomIntensity(float intensity)
         {
             bloom.intensity.value = intensity;
+        }
+
+        /// <summary>
+        /// ブルームの強度を取得する
+        /// </summary>
+        public float GetBloomIntensity()
+        {
+            return bloom.intensity.value;
         }
     }
 }

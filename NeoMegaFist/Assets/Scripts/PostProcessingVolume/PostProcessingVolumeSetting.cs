@@ -7,7 +7,7 @@ using Zenject;
 
 namespace PostProcessingVolume
 {
-    public class PostProcessingVolumeSetting : MonoBehaviour
+    public class PostProcessingVolumeSetting : MonoBehaviour, IPostProcessingVolumeSavable
     {
         [SerializeField]
         private Volume volume;
@@ -15,17 +15,55 @@ namespace PostProcessingVolume
         [Inject]
         DiContainer diContainer;
 
+
+        private PostProcessingVolumeData volumeData;
+
         private BloomSetting bloomSetting;
 
         private void Awake()
         {
-            bloomSetting = new BloomSetting(volume);
-            diContainer.BindInstance(bloomSetting);
+            BindSettingClass();
 
-
+            volumeData = LoadVolumeData();
+            bloomSetting.SetBloomIntensity(volumeData.bloomIntensity);
             // TODO:セーブデータからロードする
+            // TODO:EditorならSerializeFieldから持ってきたい
         }
 
-        
+        /// <summary>
+        /// 各項目を設定するクラスをBindする
+        /// </summary>
+        private void BindSettingClass()
+        {
+            bloomSetting = new BloomSetting(volume);
+            diContainer.BindInstance(bloomSetting);
+        }
+
+        /// <summary>
+        /// PPSのパラメーターをロードする
+        /// </summary>
+        private PostProcessingVolumeData LoadVolumeData()
+        {
+            PostProcessingVolumeData loadedVolumeData = JsonUtilityExtensions.ReadJson<PostProcessingVolumeData>(PostProcessingVolumeSettingStaticData.PPS_SETTING_JSON_NAME);
+            if(loadedVolumeData != null)
+            {
+                return loadedVolumeData;
+            }
+            else
+            {
+                loadedVolumeData = new PostProcessingVolumeData();
+                loadedVolumeData.bloomIntensity = PostProcessingVolumeSettingStaticData.START_BLOOM_INTENSITY;
+                return loadedVolumeData;
+            }
+        }
+
+        void IPostProcessingVolumeSavable.SavePostProcessingVolumeData()
+        {
+            PostProcessingVolumeData volumeData = new PostProcessingVolumeData();
+            volumeData.bloomIntensity = bloomSetting.GetBloomIntensity();
+
+            JsonUtilityExtensions.CheckJsonDirectory();
+            JsonUtilityExtensions.WriteJson(volumeData, PostProcessingVolumeSettingStaticData.PPS_SETTING_JSON_NAME);
+        }
     }
 }

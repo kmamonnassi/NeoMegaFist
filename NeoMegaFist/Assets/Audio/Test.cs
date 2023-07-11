@@ -13,6 +13,9 @@ public class Test : MonoBehaviour
     [Inject]
     private PostProcessingVolume.BloomSetting bloomSetting;
 
+    [Inject]
+    private PostProcessingVolume.IPostProcessingVolumeSavable savable;
+
     void Start()
     {
     }
@@ -23,6 +26,11 @@ public class Test : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             bloomSetting.SetBloomIntensity(0f);
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            savable.SavePostProcessingVolumeData();
         }
 
     }
