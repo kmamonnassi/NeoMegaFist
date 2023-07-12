@@ -6,7 +6,7 @@ namespace InputControl
     {
         Vector2 GetPlayerMove();
         Vector2 GetMousePosition();
-        bool GetPlayerCatch();
+        bool GetPlayerGrab();
         bool GetPlayerThrowStart();
         bool GetPlayerThrow();
         bool GetPlayerThrowEnd();

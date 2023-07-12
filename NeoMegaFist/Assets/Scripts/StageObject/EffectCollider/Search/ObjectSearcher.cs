@@ -24,9 +24,10 @@ namespace StageObject
             mySearcherCollider.radius = distance;
         }
 
-        private void Update()
+        private void LateUpdate()
         {
-            foreach(StageObjectBase obj in hitObject)
+            List<StageObjectBase> copy = new List<StageObjectBase>(hitObject);
+            foreach (StageObjectBase obj in copy)
             {
                 //Ž‹ŠE‚ÌŠp“x“à‚ÉŽû‚Ü‚Á‚Ä‚¢‚é‚©
                 float myAngle = transform.eulerAngles.z - 180;

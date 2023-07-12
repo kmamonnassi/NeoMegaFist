@@ -23,5 +23,6 @@ namespace Utility.PostEffect
         Vector2 WorldToViewportPoint(Vector3 worldPoint);
 		Vector2 ScreenToWorldPoint(Vector3 worldPoint);
 		Vector2 WorldToScreenPoint(Vector3 screenPoint);
-	}
+        Ray ScreenPointToRay(Vector3 mousePosition);
+    }
 }

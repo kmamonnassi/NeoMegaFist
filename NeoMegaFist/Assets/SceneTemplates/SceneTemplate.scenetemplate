@@ -17,6 +17,8 @@ MonoBehaviour:
   description: "\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\u304C\u958B\u767A\u3059\u308B\u3068\u304D\u306E\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\u3068\u306A\u308B\u30B7\u30FC\u30F3"
   preview: {fileID: 0}
   dependencies:
+  - dependency: {fileID: 237211421360932460, guid: 9eebfc4e0db634b4382e9249a37c5285, type: 3}
+    instantiationMode: 0
   - dependency: {fileID: 4454029526994348963, guid: 72f4fe465539df84d9642d12e225c0c5, type: 3}
     instantiationMode: 1
   templatePipeline: {fileID: 0}

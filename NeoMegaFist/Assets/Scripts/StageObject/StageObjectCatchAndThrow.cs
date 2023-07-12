@@ -21,10 +21,11 @@ namespace StageObject
         public event Action OnReleased;
         public event Action OnThrown;
         public event Action OnEndThrown;
-        public event Action OnOverhandThrown;
+        public event Action<Vector2, float> OnOverhandThrown;
         public event Action OnEndOverhandThrown;
 
         private Rigidbody2D rb;
+        private float slowTime;
 
         private readonly AnimationCurve overhandThrownScale = new AnimationCurve(
             new Keyframe(0f, 0f),
@@ -58,8 +59,17 @@ namespace StageObject
             {
                 if (rb.velocity.magnitude < 30)
                 {
-                    //投げられた状態で速度が遅くなった時、投げを終了する
-                    EndThrown();
+                    slowTime += Time.deltaTime;
+                    if (slowTime > 0.1f)
+                    {
+                        //投げられた状態で速度が遅くなった時、投げを終了する
+                        EndThrown();
+                        slowTime = 0;
+                    }
+                }
+                else
+                {
+                    slowTime = 0;
                 }
             }
         }
@@ -120,7 +130,7 @@ namespace StageObject
             Released();
             State = ThrownState.OverhandThrow;
             gameObject.layer = LayerMask.NameToLayer("ThrownStageObject");
-            OnOverhandThrown?.Invoke();
+            OnOverhandThrown?.Invoke(position, duration);
 
             Vector3 beforePos = transform.position;
             Vector3 nowPosition = Vector3.zero;
@@ -141,8 +151,7 @@ namespace StageObject
                 beforeScale = additiveScale * overhandThrownScale.Evaluate(x);
                 transform.localScale += beforeScale;
             })
-            .SetEase(Ease.Linear)
-            .onComplete += () => 
+            .SetEase(Ease.Linear).onComplete += () => 
             {
                 OnEndOverhandThrown?.Invoke();
                 State = ThrownState.Freedom;

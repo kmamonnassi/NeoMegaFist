@@ -1,8 +1,12 @@
 {
     "speakerArray": [
-        "メニューを開く音"
+        "Huga",
+        "Hoge",
+        "Hoge"
     ],
     "containTextArray": [
-        "MenuUI"
+        "CCC",
+        "BBB",
+        "AAA"
     ]
 }

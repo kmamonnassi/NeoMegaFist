@@ -23,9 +23,9 @@ namespace InputControl
             return inputControl.Player.Move.ReadValue<Vector2>();
         }
 
-        public bool GetPlayerCatch()
+        public bool GetPlayerGrab()
         {
-            return inputControl.Player.Catch.triggered;
+            return inputControl.Player.Grab.triggered;
         }
 
         public bool GetPlayerThrowStart()

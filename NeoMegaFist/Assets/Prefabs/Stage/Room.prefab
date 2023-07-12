@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5250792306020531541}
   m_Layer: 2
   m_Name: CameraArea
-  m_TagString: Untagged
+  m_TagString: RoomArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 8815048195160877709}
   m_Layer: 2
   m_Name: RoomArea
-  m_TagString: Untagged
+  m_TagString: RoomArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,4 +248,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7d5011cadd90048b7713a550862fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  confiner: {fileID: 5250792306020531541}
+  playerConfiner: {fileID: 8798517588013035122}
+  cameraConfiner: {fileID: 5250792306020531541}

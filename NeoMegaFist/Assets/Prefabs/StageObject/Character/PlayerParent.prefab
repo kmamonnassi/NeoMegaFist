@@ -304,13 +304,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3213156483052453577, guid: b913683371620db41b21cc13c9e2b653, type: 3}
+      propertyPath: overhandThrowMark
+      value: 
+      objectReference: {fileID: 7975547705557009881}
+    - target: {fileID: 3213156483052453577, guid: b913683371620db41b21cc13c9e2b653, type: 3}
+      propertyPath: throwPreparationLine
+      value: 
+      objectReference: {fileID: 6555429305583385830}
     - target: {fileID: 3746904736517480673, guid: b913683371620db41b21cc13c9e2b653, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8285077083245971072, guid: b913683371620db41b21cc13c9e2b653, type: 3}
-      propertyPath: baseDodgeSpeed
-      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8285077083245971072, guid: b913683371620db41b21cc13c9e2b653, type: 3}
       propertyPath: baseDodgeDuration
@@ -319,10 +323,6 @@ PrefabInstance:
     - target: {fileID: 8285077083245971072, guid: b913683371620db41b21cc13c9e2b653, type: 3}
       propertyPath: baseDodgeInterval
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8285077083245971072, guid: b913683371620db41b21cc13c9e2b653, type: 3}
-      propertyPath: invisibleDuration
-      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8433431035312424676, guid: b913683371620db41b21cc13c9e2b653, type: 3}
       propertyPath: m_Name
