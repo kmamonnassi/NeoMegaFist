@@ -24,6 +24,11 @@ namespace Ui.Modal
 
         private List<ModalUiViewBase> modalUiList = new List<ModalUiViewBase>();
 
+        void Start()
+        {
+            ((IInputGuardable)this).InputGuardEnable(false);
+        }
+
 
         GameObject IModalHistoryControllable.Add(GameObject makeObj, Transform rootTransform, string enterStateName)
         {
