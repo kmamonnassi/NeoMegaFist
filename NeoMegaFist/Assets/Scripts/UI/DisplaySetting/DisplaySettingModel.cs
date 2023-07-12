@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 using PostProcessingVolume;
+using UniRx;
 
 namespace Ui.DisplaySetting
 {
-    public class DisplaySettingModel
+    public class DisplaySettingModel : IInitializable
     {
         [Inject]
         private BloomSetting bloomSetting;
@@ -15,16 +12,33 @@ namespace Ui.DisplaySetting
         [Inject]
         private IPostProcessingVolumeSavable ppsVolumeSave;
 
+        public Subject<BloomSettingData> bloomSetHandler = new Subject<BloomSettingData>();
+
+        public void Initialize()
+        {
+            bloomSetHandler.OnNext(GetBloomSettingData());
+        }
+
+        /// <summary>
+        /// Bloom‚Ìİ’è‚·‚é‚×‚«İ’è‚ğæ“¾‚·‚é
+        /// </summary>
         public BloomSettingData GetBloomSettingData()
         {
             return bloomSetting.GetBloomSettingData();
         }
 
-        public void SetBloomEnabe(bool enable)
+        /// <summary>
+        /// Bloom‚Ì—LŒø–³Œø‚ğİ’è‚·‚é
+        /// </summary>
+        /// <param name="enable">—LŒø–³Œø</param>
+        public void SetBloomEnable(bool enable)
         {
             bloomSetting.SetBloomEnable(enable);
         }
 
+        /// <summary>
+        /// PPS‚Ìİ’è€–Ú‚ğ‚·‚×‚Ä•Û‘¶‚·‚é
+        /// </summary>
         public void SavePpsData()
         {
             ppsVolumeSave.SavePostProcessingVolumeData();

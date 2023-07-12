@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
+using PostProcessingVolume;
 
 namespace Ui.DisplaySetting
 {
@@ -19,6 +18,16 @@ namespace Ui.DisplaySetting
             bloomToggle.OnValueChangedAsObservable()
                 .Subscribe(value => bloomEnableValue.Value = value)
                 .AddTo(gameObject);
+        }
+
+        /// <summary>
+        /// BloomŠÖŒW‚Ì€–Ú‚ğ‚·‚×‚Äİ’è‚·‚é
+        /// </summary>
+        /// <param name="data">Bloomİ’èƒf[ƒ^</param>
+        public void SetAllBloomSettingData(BloomSettingData data)
+        {
+            bloomEnableValue.Value = data.bloomEnable;
+            bloomToggle.isOn = data.bloomEnable;
         }
     }
 

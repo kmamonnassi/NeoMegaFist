@@ -3,16 +3,6 @@ using UnityEngine.Rendering.Universal;
 
 namespace PostProcessingVolume
 {
-    public struct BloomSettingData
-    {
-        public bool bloomEnable;
-
-        public BloomSettingData(bool bloomEnable)
-        {
-            this.bloomEnable = bloomEnable;
-        }
-    }
-
     public class BloomSetting
     {
         private Bloom bloom;
