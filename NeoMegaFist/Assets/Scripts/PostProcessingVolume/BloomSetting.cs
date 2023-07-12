@@ -13,20 +13,29 @@ namespace PostProcessingVolume
         }
 
         /// <summary>
-        /// ブルームの強度を設定する
+        /// Bloomの設定データを取得する
         /// </summary>
-        /// <param name="intensity">明るさ設定</param>
-        public void SetBloomIntensity(float intensity)
+        public BloomSettingData GetBloomSettingData()
         {
-            bloom.intensity.value = intensity;
+            return new BloomSettingData(
+                GetBloomEnable());
         }
 
         /// <summary>
-        /// ブルームの強度を取得する
+        /// ブルームの有効無効を切り替える
         /// </summary>
-        public float GetBloomIntensity()
+        /// <param name="enable">有効無効</param>
+        public void SetBloomEnable(bool enable)
         {
-            return bloom.intensity.value;
+            bloom.active = enable;
+        }
+
+        /// <summary>
+        /// Bloomの有効無効を取得する
+        /// </summary>
+        public bool GetBloomEnable()
+        {
+            return bloom.active;
         }
     }
 }
