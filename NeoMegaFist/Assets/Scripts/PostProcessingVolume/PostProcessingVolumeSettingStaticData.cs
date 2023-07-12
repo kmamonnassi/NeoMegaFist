@@ -3,9 +3,9 @@ namespace PostProcessingVolume
     public static class PostProcessingVolumeSettingStaticData
     {
         /// <summary>
-        /// Bloomの強さの初期値
+        /// Bloomの有効無効の初期値
         /// </summary>
-        public const float START_BLOOM_INTENSITY = 5f;
+        public const bool START_BLOOM_ENABLE = true;
 
         /// <summary>
         /// PostProcessingのJsonファイル名

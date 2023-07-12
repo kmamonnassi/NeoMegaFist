@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 using Zenject;
 
 namespace PostProcessingVolume
@@ -22,7 +21,7 @@ namespace PostProcessingVolume
             BindSettingClass();
 
             volumeData = LoadVolumeData();
-            bloomSetting.SetBloomIntensity(volumeData.bloomIntensity);
+            bloomSetting.SetBloomEnable(volumeData.bloomEnable);
         }
 
         /// <summary>
@@ -54,7 +53,7 @@ namespace PostProcessingVolume
             else
             {
                 loadedVolumeData = new PostProcessingVolumeData();
-                loadedVolumeData.bloomIntensity = PostProcessingVolumeSettingStaticData.START_BLOOM_INTENSITY;
+                loadedVolumeData.bloomEnable = PostProcessingVolumeSettingStaticData.START_BLOOM_ENABLE;
                 return loadedVolumeData;
             }
 #endif
@@ -66,7 +65,7 @@ namespace PostProcessingVolume
         private PostProcessingVolumeData GetVolumeDataFromVolumeComponent()
         {
             PostProcessingVolumeData data = new PostProcessingVolumeData();
-            data.bloomIntensity = bloomSetting.GetBloomIntensity();
+            data.bloomEnable = bloomSetting.GetBloomEnable();
 
             return data;
         }
