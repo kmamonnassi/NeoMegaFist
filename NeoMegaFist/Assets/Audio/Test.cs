@@ -10,6 +10,8 @@ using InputControl;
 
 public class Test : MonoBehaviour
 {
+    [Inject]
+    private ISePlayable sePlayer;
 
     void Start()
     {
@@ -21,13 +23,12 @@ public class Test : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            
+            sePlayer.Play("Dadabo", "Dadabo_AttackPreparation", gameObject.GetInstanceID());
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            
+            sePlayer.Play("Dadabo", "Dadabo_Chase", gameObject.GetInstanceID());
         }
-
     }
 }
