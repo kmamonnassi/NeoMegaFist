@@ -4,7 +4,7 @@ using UnityEngine;
 using Ui.Modal;
 using Zenject;
 
-namespace Ui.Option
+namespace Ui.OptionSetting
 {
     public class GameEnd : MonoBehaviour
     {

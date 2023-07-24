@@ -45,7 +45,7 @@ namespace Ui.Modal
             }
 
             // クリックを防止する板を生成したオブジェクトの背面に配置する
-            int makedObjSiblingIndex = makedObj.transform.GetSiblingIndex();
+            int makedObjSiblingIndex = Mathf.Max(0, makedObj.transform.GetSiblingIndex() - 1);
             makedBackGroundInputGuardObj.transform.SetParent(rootTransform.parent);
             makedBackGroundInputGuardObj.transform.SetSiblingIndex(makedObjSiblingIndex);
             var makedBackGroundInputGuardObjRectTrans = makedBackGroundInputGuardObj.transform as RectTransform;

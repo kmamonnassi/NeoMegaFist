@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ui.Modal;
 using Zenject;
+using InputControl;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Ui.Option
 {
@@ -12,14 +15,19 @@ namespace Ui.Option
         [Inject]
         private IModalHistoryControllable modalHistoryController;
 
+        [Inject]
+        private IInputer inputer;
+
+        [SerializeField]
+        private Button noButton;
+
         void Start()
         {
-        
-        }
-
-        void Update()
-        {
-        
+            if (inputer.GetControllerType() == ControllerType.Gamepad)
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(noButton.gameObject);
+            }
         }
 
         public void SelectYesUi()

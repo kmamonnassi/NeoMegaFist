@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 9118377559290836335}
   - component: {fileID: 377120506261871864}
   - component: {fileID: 2054252865015510506}
+  - component: {fileID: 3983929041273006180}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -256,19 +257,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 377120506261871864}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5506623205068461635}
-        m_TargetAssemblyTypeName: Ui.Option.GameEnd, Assembly-CSharp
-        m_MethodName: GameEndConfirm
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &3983929041273006180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739342472574219025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174b86525cb1c5343a6db159a10f5379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7248403856852984773
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,9 +357,10 @@ GameObject:
   - component: {fileID: 6272923024392889494}
   - component: {fileID: 3714799106791493157}
   - component: {fileID: 4157394089543342429}
+  - component: {fileID: 1600547013794443596}
   - component: {fileID: 5506623205068461635}
   m_Layer: 5
-  m_Name: Option
+  m_Name: OptionSettingCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -482,6 +484,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1600547013794443596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7842179815725580276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9876e0df0cf9f948965a2e866b62d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 2054252865015510506}
+  gameEnd: {fileID: 5506623205068461635}
 --- !u!114 &5506623205068461635
 MonoBehaviour:
   m_ObjectHideFlags: 0

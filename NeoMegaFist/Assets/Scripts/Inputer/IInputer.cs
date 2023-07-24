@@ -21,5 +21,7 @@ namespace InputControl
         bool GetPlayerDodgeEnd();
         public ControllerType GetControllerType();
         bool GetPlayerMenuStart();
+        bool GetTabChangeLeft();
+        bool GetTabChangeRight();
     }
 }

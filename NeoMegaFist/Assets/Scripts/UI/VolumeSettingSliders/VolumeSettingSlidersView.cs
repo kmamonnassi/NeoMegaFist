@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using UniRx;
 using TMPro;
 using Audio;
+using UnityEngine.EventSystems;
+using InputControl;
+using Zenject;
 
 namespace Ui.VolumeSettingSliders
 {
@@ -28,6 +31,9 @@ namespace Ui.VolumeSettingSliders
         [SerializeField]
         private TextMeshProUGUI seVolumeValueText;
 
+        [Inject]
+        private IInputer inputer;
+
         private ReactiveProperty<float> masterVolumeValue = new ReactiveProperty<float>();
         public IReadOnlyReactiveProperty<float> masterVolumeValueProp => masterVolumeValue;
 
@@ -50,6 +56,15 @@ namespace Ui.VolumeSettingSliders
             seVolumeSlider.OnValueChangedAsObservable()
                 .Subscribe(value => OnValueChanged(value, seVolumeValue, seVolumeValueText))
                 .AddTo(gameObject);
+        }
+
+        private void Start()
+        {
+            if(inputer.GetControllerType() == ControllerType.Gamepad)
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(masterVolumeSlider.gameObject);
+            }
         }
 
         public void SetAllVolumeSliderValue(VolumeData volumeData)

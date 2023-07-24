@@ -22,6 +22,9 @@ namespace Ui.Menu
             button.OnClickAsObservable()
                 .Subscribe(_ => ShowTab())
                 .AddTo(this.gameObject);
+
+            //navigation.selectOnDown = button;
+            //Navigation navigation = button.navigation;
         }
 
         private void ShowTab()

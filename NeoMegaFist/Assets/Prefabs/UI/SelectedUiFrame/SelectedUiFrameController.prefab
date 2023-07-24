@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95dfa35475e58964d8d50511475f1100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frameObjPrefab: {fileID: 1253287328260176382, guid: c7287e62e407ad444a5934185c0837d8, type: 3}
   frameObj: {fileID: 5202037131881338632}
 --- !u!114 &1038618807921150254
 MonoBehaviour:

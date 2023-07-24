@@ -89,6 +89,24 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TabChangeLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f85e3dc-440a-49cd-9465-5e087d891eb3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TabChangeRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""695cef04-dad9-45eb-bf81-3c5d11d3f499"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -234,6 +252,28 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f302894-8052-4986-ba29-e24f00a986b9"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TabChangeLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b7a91387-7e2a-43af-9140-cfc7ddcadcfd"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TabChangeRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -304,6 +344,8 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
         m_Player_OverhandThrow = m_Player.FindAction("OverhandThrow", throwIfNotFound: true);
         m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
         m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
+        m_Player_TabChangeLeft = m_Player.FindAction("TabChangeLeft", throwIfNotFound: true);
+        m_Player_TabChangeRight = m_Player.FindAction("TabChangeRight", throwIfNotFound: true);
         // Position
         m_Position = asset.FindActionMap("Position", throwIfNotFound: true);
         m_Position_Position = m_Position.FindAction("Position", throwIfNotFound: true);
@@ -375,6 +417,8 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_OverhandThrow;
     private readonly InputAction m_Player_Dodge;
     private readonly InputAction m_Player_Menu;
+    private readonly InputAction m_Player_TabChangeLeft;
+    private readonly InputAction m_Player_TabChangeRight;
     public struct PlayerActions
     {
         private @InputControls m_Wrapper;
@@ -386,6 +430,8 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
         public InputAction @OverhandThrow => m_Wrapper.m_Player_OverhandThrow;
         public InputAction @Dodge => m_Wrapper.m_Player_Dodge;
         public InputAction @Menu => m_Wrapper.m_Player_Menu;
+        public InputAction @TabChangeLeft => m_Wrapper.m_Player_TabChangeLeft;
+        public InputAction @TabChangeRight => m_Wrapper.m_Player_TabChangeRight;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -416,6 +462,12 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
             @Menu.started += instance.OnMenu;
             @Menu.performed += instance.OnMenu;
             @Menu.canceled += instance.OnMenu;
+            @TabChangeLeft.started += instance.OnTabChangeLeft;
+            @TabChangeLeft.performed += instance.OnTabChangeLeft;
+            @TabChangeLeft.canceled += instance.OnTabChangeLeft;
+            @TabChangeRight.started += instance.OnTabChangeRight;
+            @TabChangeRight.performed += instance.OnTabChangeRight;
+            @TabChangeRight.canceled += instance.OnTabChangeRight;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -441,6 +493,12 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
             @Menu.started -= instance.OnMenu;
             @Menu.performed -= instance.OnMenu;
             @Menu.canceled -= instance.OnMenu;
+            @TabChangeLeft.started -= instance.OnTabChangeLeft;
+            @TabChangeLeft.performed -= instance.OnTabChangeLeft;
+            @TabChangeLeft.canceled -= instance.OnTabChangeLeft;
+            @TabChangeRight.started -= instance.OnTabChangeRight;
+            @TabChangeRight.performed -= instance.OnTabChangeRight;
+            @TabChangeRight.canceled -= instance.OnTabChangeRight;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -522,6 +580,8 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
         void OnOverhandThrow(InputAction.CallbackContext context);
         void OnDodge(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
+        void OnTabChangeLeft(InputAction.CallbackContext context);
+        void OnTabChangeRight(InputAction.CallbackContext context);
     }
     public interface IPositionActions
     {

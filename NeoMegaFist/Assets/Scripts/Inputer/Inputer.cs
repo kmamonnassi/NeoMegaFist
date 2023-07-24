@@ -106,6 +106,16 @@ namespace InputControl
         {
             return inputControl.Player.Menu.WasPerformedThisFrame();
         }
+
+        public bool GetTabChangeLeft()
+        {
+            return inputControl.Player.TabChangeLeft.WasPerformedThisFrame();
+        }
+
+        public bool GetTabChangeRight()
+        {
+            return inputControl.Player.TabChangeRight.WasPerformedThisFrame();
+        }
     }
 }
 

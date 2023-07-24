@@ -236,6 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7083571395471703968}
   - component: {fileID: 8594237634836538879}
+  - component: {fileID: 4937858409122416586}
   m_Layer: 5
   m_Name: MasterVolumeSlider
   m_TagString: Untagged
@@ -279,10 +280,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 4348374519556197901}
+    m_SelectOnDown: {fileID: 9178598546596402984}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -317,6 +318,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4937858409122416586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230734982632843485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6b1bedfeb95504196462795a4ddf6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleObj: {fileID: 1933852024435725779}
 --- !u!1 &1780741515731313624
 GameObject:
   m_ObjectHideFlags: 0
@@ -2145,6 +2159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 272808400134282065}
   - component: {fileID: 4348374519556197901}
+  - component: {fileID: 9090787362431936833}
   m_Layer: 5
   m_Name: SeVolumeSlider
   m_TagString: Untagged
@@ -2188,10 +2203,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 9178598546596402984}
+    m_SelectOnDown: {fileID: 8594237634836538879}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -2226,6 +2241,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9090787362431936833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7794161242497893518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6b1bedfeb95504196462795a4ddf6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleObj: {fileID: 7350940760340257383}
 --- !u!1 &8308104840410261663
 GameObject:
   m_ObjectHideFlags: 0
@@ -2273,6 +2301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5929418377286187632}
   - component: {fileID: 9178598546596402984}
+  - component: {fileID: 9012191218183432526}
   m_Layer: 5
   m_Name: BgmVolumeSlider
   m_TagString: Untagged
@@ -2316,10 +2345,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 8594237634836538879}
+    m_SelectOnDown: {fileID: 4348374519556197901}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -2354,6 +2383,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9012191218183432526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8457298123020636115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6b1bedfeb95504196462795a4ddf6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleObj: {fileID: 668273540709815601}
 --- !u!1 &9192459482034319701
 GameObject:
   m_ObjectHideFlags: 0
