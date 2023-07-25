@@ -715,7 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e80dcbc04ffd34bb0f213a8def6ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modalName: 
+  modalName: GameEndConfirm
   enterStateName: Open
 --- !u!114 &4933827500089730675
 MonoBehaviour:

@@ -1,5 +1,6 @@
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using UnityEngine.UI;
 
 namespace Ui.Modal
 {
@@ -24,5 +25,11 @@ namespace Ui.Modal
         /// 履歴を全部消す
         /// </summary>
         public UniTask RemoveAll();
+
+        /// <summary>
+        /// モーダルを消したときに選択するべきUIを登録する
+        /// </summary>
+        /// <param name="selectable">モーダルを消したときに選択するべきUI</param>
+        public void RegisterSelectedUiWhenRemove(Selectable selectable);
     }
 }

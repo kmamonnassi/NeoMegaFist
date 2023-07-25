@@ -3,6 +3,10 @@ using UnityEngine;
 using Zenject;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using InputControl;
+using System;
 
 namespace Ui.Modal
 {
@@ -10,6 +14,9 @@ namespace Ui.Modal
     {
         [Inject]
         private DiContainer diContainer;
+
+        [Inject]
+        private IInputer inputer;
 
         [SerializeField]
         private GameObject inputGuardObj;
@@ -23,6 +30,8 @@ namespace Ui.Modal
         public bool isAnimationProp => isAnimation;
 
         private List<ModalUiViewBase> modalUiList = new List<ModalUiViewBase>();
+
+        private Selectable modalRemovedSelectedUi = null;
 
         void Start()
         {
@@ -78,10 +87,29 @@ namespace Ui.Modal
                 
                 Destroy(listLast.gameObject);
                 modalUiList.Remove(listLast);
+                SetSelectedUiWhenRemove();
             }
             else
             {
                 // targetまで一気に戻れる機能
+                int num = 0;
+                for (int i = 0; i < modalUiList.Count; i++)
+                {
+                    if(modalUiList[i].modalNameProp == targetModalName)
+                    {
+                        num = i;
+                        break;
+                    }
+                }
+
+                for (int i = modalUiList.Count; i > num + 1; i--)
+                {
+                    Destroy(modalUiList[i - 1]);
+                    modalUiList.Remove(modalUiList[i - 1]);
+                    SetSelectedUiWhenRemove();
+                }
+
+                // TODO:InputGuardObjが残ったらここの可能性がある
             }
         }
 
@@ -108,6 +136,29 @@ namespace Ui.Modal
         {
             inputGuardObj.SetActive(enable);
             isAnimation = enable;
+        }
+
+        void IModalHistoryControllable.RegisterSelectedUiWhenRemove(Selectable selectable)
+        {
+            modalRemovedSelectedUi = selectable;
+        }
+
+        /// <summary>
+        /// Removeされた時に選択するべきUIを選択する
+        /// </summary>
+        private void SetSelectedUiWhenRemove()
+        {
+            if(modalRemovedSelectedUi == null)
+            {
+                return;
+            }
+
+            if(inputer.GetControllerType() == ControllerType.Gamepad)
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(modalRemovedSelectedUi.gameObject);
+                modalRemovedSelectedUi = null;
+            }
         }
     }
 }

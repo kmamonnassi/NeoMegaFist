@@ -27,7 +27,7 @@ namespace Ui.SelectedUiFrame
 
         private void Start()
         {
-            frameObj.SetActive(false);
+            ((ISelectedUiFrameControllable)this).FrameEnable(false);
             frameParent = this.transform;
         }
 
@@ -55,7 +55,7 @@ namespace Ui.SelectedUiFrame
 
             ChangeAnchor(anchorMax, anchorMin);
 
-            frameObj.SetActive(true);
+            ((ISelectedUiFrameControllable)this).FrameEnable(true);
         }
 
         public void ChangeAnchor(Vector2 anchorMax, Vector2 anchorMin)
@@ -67,6 +67,11 @@ namespace Ui.SelectedUiFrame
         void ISelectedUiFrameControllable.FrameEnable(bool enable)
         {
             frameObj.SetActive(enable);
+            if(enable)
+            {
+                Image image = frameObj.GetComponent<Image>();
+                image.enabled = enable;
+            }
         }
 
         //void ISelectedUiFrameControllable.SetFirstSelectedUi(Selectable selectableUi)
@@ -80,7 +85,6 @@ namespace Ui.SelectedUiFrame
 
         void ISelectedUiFrameControllable.ResetFrameParent()
         {
-            Debug.Log("reset");
             frameObj.transform.SetParent(frameParent);
             frameRect.localScale = Vector3.one;
         }

@@ -4,6 +4,7 @@ using Zenject;
 using Utility;
 using InputControl;
 using System;
+using Ui.Modal;
 
 namespace Ui.Menu
 {
@@ -17,6 +18,9 @@ namespace Ui.Menu
         
         [Inject]
         private DiContainer container;
+
+        [Inject]
+        private IModalHistoryControllable modalHistoryController;
 
         private BeforeSelectedSettingKind beforeSelectedSettingKinds;
 
@@ -100,6 +104,7 @@ namespace Ui.Menu
         {
             SaveTabData();
 
+            modalHistoryController.Remove("", "Menu");
             Destroy(makedTabObj);
         }
 

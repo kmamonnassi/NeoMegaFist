@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ui.Modal;
 using Zenject;
+using UnityEngine.UI;
 
 namespace Ui.OptionSetting
 {
@@ -14,6 +15,9 @@ namespace Ui.OptionSetting
         [SerializeField]
         private GameObject gameEndConfirmObj;
 
+        [SerializeField]
+        private Button button;
+
         void Start()
         {
         
@@ -21,6 +25,7 @@ namespace Ui.OptionSetting
 
         public void GameEndConfirm()
         {
+            modalHistoryController.RegisterSelectedUiWhenRemove(button);
             modalHistoryController.Add(gameEndConfirmObj, transform, "Open");
         }
     }

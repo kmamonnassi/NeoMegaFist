@@ -6,6 +6,7 @@ using Zenject;
 using InputControl;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Cysharp.Threading.Tasks;
 
 namespace Ui.Option
 {
@@ -35,9 +36,9 @@ namespace Ui.Option
             Application.Quit();
         }
 
-        public void SelectNoUi()
+        public async void SelectNoUi()
         {
-            modalHistoryController.Remove("Close");
+            await modalHistoryController.Remove("Close");
         }
     }
 }

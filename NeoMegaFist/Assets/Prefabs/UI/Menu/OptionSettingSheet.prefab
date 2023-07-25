@@ -511,6 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEndConfirmObj: {fileID: 8701365268785449488, guid: 7a13732482622e844ae48b7de43686a4, type: 3}
+  button: {fileID: 2054252865015510506}
 --- !u!1 &8975058882593691331
 GameObject:
   m_ObjectHideFlags: 0
